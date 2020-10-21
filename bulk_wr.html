@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BULK_WR &#8212; LiteX Row Hammer Tester  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/default.js"></script>
+    <script src="_static/WaveDrom.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="ROWHAMMER" href="rowhammer.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="bulk-wr">
+<h1>BULK_WR<a class="headerlink" href="#bulk-wr" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="register-listing-for-bulk-wr">
+<h2>Register Listing for BULK_WR<a class="headerlink" href="#register-listing-for-bulk-wr" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 54%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Register</p></th>
+<th class="head"><p>Address</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#bulk-wr-enabled"><span class="std std-ref">BULK_WR_ENABLED</span></a></p></td>
+<td><p><a class="reference internal" href="#bulk-wr-enabled"><span class="std std-ref">0x00003000</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bulk-wr-address"><span class="std std-ref">BULK_WR_ADDRESS</span></a></p></td>
+<td><p><a class="reference internal" href="#bulk-wr-address"><span class="std std-ref">0x00003004</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bulk-wr-dataword3"><span class="std std-ref">BULK_WR_DATAWORD3</span></a></p></td>
+<td><p><a class="reference internal" href="#bulk-wr-dataword3"><span class="std std-ref">0x00003008</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bulk-wr-dataword2"><span class="std std-ref">BULK_WR_DATAWORD2</span></a></p></td>
+<td><p><a class="reference internal" href="#bulk-wr-dataword2"><span class="std std-ref">0x0000300c</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bulk-wr-dataword1"><span class="std std-ref">BULK_WR_DATAWORD1</span></a></p></td>
+<td><p><a class="reference internal" href="#bulk-wr-dataword1"><span class="std std-ref">0x00003010</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bulk-wr-dataword0"><span class="std std-ref">BULK_WR_DATAWORD0</span></a></p></td>
+<td><p><a class="reference internal" href="#bulk-wr-dataword0"><span class="std std-ref">0x00003014</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bulk-wr-count"><span class="std std-ref">BULK_WR_COUNT</span></a></p></td>
+<td><p><a class="reference internal" href="#bulk-wr-count"><span class="std std-ref">0x00003018</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bulk-wr-reset"><span class="std std-ref">BULK_WR_RESET</span></a></p></td>
+<td><p><a class="reference internal" href="#bulk-wr-reset"><span class="std std-ref">0x0000301c</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bulk-wr-done"><span class="std std-ref">BULK_WR_DONE</span></a></p></td>
+<td><p><a class="reference internal" href="#bulk-wr-done"><span class="std std-ref">0x00003020</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="bulk-wr-enabled">
+<h3>BULK_WR_ENABLED<a class="headerlink" href="#bulk-wr-enabled" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00003000 + 0x0 = 0x00003000</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "enabled", "bits": 1},
+        {"bits": 31},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="bulk-wr-address">
+<h3>BULK_WR_ADDRESS<a class="headerlink" href="#bulk-wr-address" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00003000 + 0x4 = 0x00003004</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "address[31:0]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="bulk-wr-dataword3">
+<h3>BULK_WR_DATAWORD3<a class="headerlink" href="#bulk-wr-dataword3" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00003000 + 0x8 = 0x00003008</cite></p>
+<blockquote>
+<div><p>Bits 96-127 of <cite>BULK_WR_DATAWORD</cite>.</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "dataword[127:96]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="bulk-wr-dataword2">
+<h3>BULK_WR_DATAWORD2<a class="headerlink" href="#bulk-wr-dataword2" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00003000 + 0xc = 0x0000300c</cite></p>
+<blockquote>
+<div><p>Bits 64-95 of <cite>BULK_WR_DATAWORD</cite>.</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "dataword[95:64]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="bulk-wr-dataword1">
+<h3>BULK_WR_DATAWORD1<a class="headerlink" href="#bulk-wr-dataword1" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00003000 + 0x10 = 0x00003010</cite></p>
+<blockquote>
+<div><p>Bits 32-63 of <cite>BULK_WR_DATAWORD</cite>.</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "dataword[63:32]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="bulk-wr-dataword0">
+<h3>BULK_WR_DATAWORD0<a class="headerlink" href="#bulk-wr-dataword0" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00003000 + 0x14 = 0x00003014</cite></p>
+<blockquote>
+<div><p>Bits 0-31 of <cite>BULK_WR_DATAWORD</cite>.</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "dataword[31:0]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="bulk-wr-count">
+<h3>BULK_WR_COUNT<a class="headerlink" href="#bulk-wr-count" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00003000 + 0x18 = 0x00003018</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "count[31:0]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="bulk-wr-reset">
+<h3>BULK_WR_RESET<a class="headerlink" href="#bulk-wr-reset" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00003000 + 0x1c = 0x0000301c</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "reset", "bits": 1},
+        {"bits": 31},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="bulk-wr-done">
+<h3>BULK_WR_DONE<a class="headerlink" href="#bulk-wr-done" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00003000 + 0x20 = 0x00003020</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "done", "bits": 1},
+        {"bits": 31},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+    <script type="text/javascript">
+        function init() {
+            WaveDrom.ProcessAll();
+        }
+        window.onload = init;
+    </script>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">LiteX Row Hammer Tester</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupt Controller</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="identifier_mem.html">IDENTIFIER_MEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ddrphy.html">DDRPHY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdram.html">SDRAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethphy.html">ETHPHY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leds.html">LEDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rowhammer.html">ROWHAMMER</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BULK_WR</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="rowhammer.html" title="previous chapter">ROWHAMMER</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Antmicro.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/bulk_wr.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

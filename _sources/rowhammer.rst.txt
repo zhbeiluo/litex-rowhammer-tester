@@ -1,0 +1,85 @@
+ROWHAMMER
+=========
+
+Register Listing for ROWHAMMER
+------------------------------
+
++------------------------------------------------+----------------------------------------+
+| Register                                       | Address                                |
++================================================+========================================+
+| :ref:`ROWHAMMER_ENABLED <ROWHAMMER_ENABLED>`   | :ref:`0x00002800 <ROWHAMMER_ENABLED>`  |
++------------------------------------------------+----------------------------------------+
+| :ref:`ROWHAMMER_ADDRESS0 <ROWHAMMER_ADDRESS0>` | :ref:`0x00002804 <ROWHAMMER_ADDRESS0>` |
++------------------------------------------------+----------------------------------------+
+| :ref:`ROWHAMMER_ADDRESS1 <ROWHAMMER_ADDRESS1>` | :ref:`0x00002808 <ROWHAMMER_ADDRESS1>` |
++------------------------------------------------+----------------------------------------+
+| :ref:`ROWHAMMER_COUNT <ROWHAMMER_COUNT>`       | :ref:`0x0000280c <ROWHAMMER_COUNT>`    |
++------------------------------------------------+----------------------------------------+
+
+ROWHAMMER_ENABLED
+^^^^^^^^^^^^^^^^^
+
+`Address: 0x00002800 + 0x0 = 0x00002800`
+
+
+    .. wavedrom::
+        :caption: ROWHAMMER_ENABLED
+
+        {
+            "reg": [
+                {"name": "enabled", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+ROWHAMMER_ADDRESS0
+^^^^^^^^^^^^^^^^^^
+
+`Address: 0x00002800 + 0x4 = 0x00002804`
+
+
+    .. wavedrom::
+        :caption: ROWHAMMER_ADDRESS0
+
+        {
+            "reg": [
+                {"name": "address0[23:0]", "bits": 24},
+                {"bits": 8},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+ROWHAMMER_ADDRESS1
+^^^^^^^^^^^^^^^^^^
+
+`Address: 0x00002800 + 0x8 = 0x00002808`
+
+
+    .. wavedrom::
+        :caption: ROWHAMMER_ADDRESS1
+
+        {
+            "reg": [
+                {"name": "address1[23:0]", "bits": 24},
+                {"bits": 8},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+ROWHAMMER_COUNT
+^^^^^^^^^^^^^^^
+
+`Address: 0x00002800 + 0xc = 0x0000280c`
+
+
+    .. wavedrom::
+        :caption: ROWHAMMER_COUNT
+
+        {
+            "reg": [
+                {"name": "count[31:0]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+

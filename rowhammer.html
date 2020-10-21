@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROWHAMMER &#8212; LiteX Row Hammer Tester  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/default.js"></script>
+    <script src="_static/WaveDrom.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="BULK_WR" href="bulk_wr.html" />
+    <link rel="prev" title="LEDS" href="leds.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="rowhammer">
+<h1>ROWHAMMER<a class="headerlink" href="#rowhammer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="register-listing-for-rowhammer">
+<h2>Register Listing for ROWHAMMER<a class="headerlink" href="#register-listing-for-rowhammer" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Register</p></th>
+<th class="head"><p>Address</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#rowhammer-enabled"><span class="std std-ref">ROWHAMMER_ENABLED</span></a></p></td>
+<td><p><a class="reference internal" href="#rowhammer-enabled"><span class="std std-ref">0x00002800</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rowhammer-address0"><span class="std std-ref">ROWHAMMER_ADDRESS0</span></a></p></td>
+<td><p><a class="reference internal" href="#rowhammer-address0"><span class="std std-ref">0x00002804</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#rowhammer-address1"><span class="std std-ref">ROWHAMMER_ADDRESS1</span></a></p></td>
+<td><p><a class="reference internal" href="#rowhammer-address1"><span class="std std-ref">0x00002808</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rowhammer-count"><span class="std std-ref">ROWHAMMER_COUNT</span></a></p></td>
+<td><p><a class="reference internal" href="#rowhammer-count"><span class="std std-ref">0x0000280c</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="rowhammer-enabled">
+<h3>ROWHAMMER_ENABLED<a class="headerlink" href="#rowhammer-enabled" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00002800 + 0x0 = 0x00002800</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "enabled", "bits": 1},
+        {"bits": 31},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rowhammer-address0">
+<h3>ROWHAMMER_ADDRESS0<a class="headerlink" href="#rowhammer-address0" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00002800 + 0x4 = 0x00002804</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "address0[23:0]", "bits": 24},
+        {"bits": 8},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rowhammer-address1">
+<h3>ROWHAMMER_ADDRESS1<a class="headerlink" href="#rowhammer-address1" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00002800 + 0x8 = 0x00002808</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "address1[23:0]", "bits": 24},
+        {"bits": 8},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rowhammer-count">
+<h3>ROWHAMMER_COUNT<a class="headerlink" href="#rowhammer-count" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00002800 + 0xc = 0x0000280c</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "count[31:0]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+    <script type="text/javascript">
+        function init() {
+            WaveDrom.ProcessAll();
+        }
+        window.onload = init;
+    </script>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">LiteX Row Hammer Tester</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupt Controller</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="identifier_mem.html">IDENTIFIER_MEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ddrphy.html">DDRPHY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdram.html">SDRAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethphy.html">ETHPHY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leds.html">LEDS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROWHAMMER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bulk_wr.html">BULK_WR</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="leds.html" title="previous chapter">LEDS</a></li>
+      <li>Next: <a href="bulk_wr.html" title="next chapter">BULK_WR</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Antmicro.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/rowhammer.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
