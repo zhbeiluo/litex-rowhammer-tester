@@ -7,25 +7,25 @@ Register Listing for WRITER
 +--------------------------------------------+--------------------------------------+
 | Register                                   | Address                              |
 +============================================+======================================+
-| :ref:`WRITER_RESET <WRITER_RESET>`         | :ref:`0x00005000 <WRITER_RESET>`     |
+| :ref:`WRITER_RESET <WRITER_RESET>`         | :ref:`0x00005800 <WRITER_RESET>`     |
 +--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_START <WRITER_START>`         | :ref:`0x00005004 <WRITER_START>`     |
+| :ref:`WRITER_START <WRITER_START>`         | :ref:`0x00005804 <WRITER_START>`     |
 +--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_DONE <WRITER_DONE>`           | :ref:`0x00005008 <WRITER_DONE>`      |
+| :ref:`WRITER_DONE <WRITER_DONE>`           | :ref:`0x00005808 <WRITER_DONE>`      |
 +--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_COUNT <WRITER_COUNT>`         | :ref:`0x0000500c <WRITER_COUNT>`     |
+| :ref:`WRITER_COUNT <WRITER_COUNT>`         | :ref:`0x0000580c <WRITER_COUNT>`     |
 +--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_MEM_BASE <WRITER_MEM_BASE>`   | :ref:`0x00005010 <WRITER_MEM_BASE>`  |
+| :ref:`WRITER_MEM_BASE <WRITER_MEM_BASE>`   | :ref:`0x00005810 <WRITER_MEM_BASE>`  |
 +--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_MEM_MASK <WRITER_MEM_MASK>`   | :ref:`0x00005014 <WRITER_MEM_MASK>`  |
+| :ref:`WRITER_MEM_MASK <WRITER_MEM_MASK>`   | :ref:`0x00005814 <WRITER_MEM_MASK>`  |
 +--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_DATA_MASK <WRITER_DATA_MASK>` | :ref:`0x00005018 <WRITER_DATA_MASK>` |
+| :ref:`WRITER_DATA_MASK <WRITER_DATA_MASK>` | :ref:`0x00005818 <WRITER_DATA_MASK>` |
 +--------------------------------------------+--------------------------------------+
 
 WRITER_RESET
 ^^^^^^^^^^^^
 
-`Address: 0x00005000 + 0x0 = 0x00005000`
+`Address: 0x00005800 + 0x0 = 0x00005800`
 
 
     .. wavedrom::
@@ -42,7 +42,7 @@ WRITER_RESET
 WRITER_START
 ^^^^^^^^^^^^
 
-`Address: 0x00005000 + 0x4 = 0x00005004`
+`Address: 0x00005800 + 0x4 = 0x00005804`
 
 
     .. wavedrom::
@@ -59,7 +59,7 @@ WRITER_START
 WRITER_DONE
 ^^^^^^^^^^^
 
-`Address: 0x00005000 + 0x8 = 0x00005008`
+`Address: 0x00005800 + 0x8 = 0x00005808`
 
 
     .. wavedrom::
@@ -76,7 +76,7 @@ WRITER_DONE
 WRITER_COUNT
 ^^^^^^^^^^^^
 
-`Address: 0x00005000 + 0xc = 0x0000500c`
+`Address: 0x00005800 + 0xc = 0x0000580c`
 
 
     .. wavedrom::
@@ -92,7 +92,7 @@ WRITER_COUNT
 WRITER_MEM_BASE
 ^^^^^^^^^^^^^^^
 
-`Address: 0x00005000 + 0x10 = 0x00005010`
+`Address: 0x00005800 + 0x10 = 0x00005810`
 
 
     .. wavedrom::
@@ -108,7 +108,7 @@ WRITER_MEM_BASE
 WRITER_MEM_MASK
 ^^^^^^^^^^^^^^^
 
-`Address: 0x00005000 + 0x14 = 0x00005014`
+`Address: 0x00005800 + 0x14 = 0x00005814`
 
 
     .. wavedrom::
@@ -124,7 +124,7 @@ WRITER_MEM_MASK
 WRITER_DATA_MASK
 ^^^^^^^^^^^^^^^^
 
-`Address: 0x00005000 + 0x18 = 0x00005018`
+`Address: 0x00005800 + 0x18 = 0x00005818`
 
 
     .. wavedrom::

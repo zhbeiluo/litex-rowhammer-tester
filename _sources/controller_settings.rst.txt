@@ -1,0 +1,30 @@
+CONTROLLER_SETTINGS
+===================
+
+Register Listing for CONTROLLER_SETTINGS
+----------------------------------------
+
++------------------------------------------------------------------+-------------------------------------------------+
+| Register                                                         | Address                                         |
++==================================================================+=================================================+
+| :ref:`CONTROLLER_SETTINGS_REFRESH <CONTROLLER_SETTINGS_REFRESH>` | :ref:`0x00002800 <CONTROLLER_SETTINGS_REFRESH>` |
++------------------------------------------------------------------+-------------------------------------------------+
+
+CONTROLLER_SETTINGS_REFRESH
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Address: 0x00002800 + 0x0 = 0x00002800`
+
+    Enable/disable Refresh commands sending
+
+    .. wavedrom::
+        :caption: CONTROLLER_SETTINGS_REFRESH
+
+        {
+            "reg": [
+                {"name": "refresh", "attr": 'reset: 1', "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
