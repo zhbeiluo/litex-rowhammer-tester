@@ -18,7 +18,10 @@ Register Groups
 .. toctree::
     :maxdepth: 1
 
+    ctrl
     identifier_mem
+    uart
+    timer0
     ddrphy
     sdram
     ethphy

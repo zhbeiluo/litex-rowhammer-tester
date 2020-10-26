@@ -1,0 +1,162 @@
+UART
+====
+
+Register Listing for UART
+-------------------------
+
++------------------------------------------+-------------------------------------+
+| Register                                 | Address                             |
++==========================================+=====================================+
+| :ref:`UART_RXTX <UART_RXTX>`             | :ref:`0x00001800 <UART_RXTX>`       |
++------------------------------------------+-------------------------------------+
+| :ref:`UART_TXFULL <UART_TXFULL>`         | :ref:`0x00001804 <UART_TXFULL>`     |
++------------------------------------------+-------------------------------------+
+| :ref:`UART_RXEMPTY <UART_RXEMPTY>`       | :ref:`0x00001808 <UART_RXEMPTY>`    |
++------------------------------------------+-------------------------------------+
+| :ref:`UART_EV_STATUS <UART_EV_STATUS>`   | :ref:`0x0000180c <UART_EV_STATUS>`  |
++------------------------------------------+-------------------------------------+
+| :ref:`UART_EV_PENDING <UART_EV_PENDING>` | :ref:`0x00001810 <UART_EV_PENDING>` |
++------------------------------------------+-------------------------------------+
+| :ref:`UART_EV_ENABLE <UART_EV_ENABLE>`   | :ref:`0x00001814 <UART_EV_ENABLE>`  |
++------------------------------------------+-------------------------------------+
+| :ref:`UART_TXEMPTY <UART_TXEMPTY>`       | :ref:`0x00001818 <UART_TXEMPTY>`    |
++------------------------------------------+-------------------------------------+
+| :ref:`UART_RXFULL <UART_RXFULL>`         | :ref:`0x0000181c <UART_RXFULL>`     |
++------------------------------------------+-------------------------------------+
+
+UART_RXTX
+^^^^^^^^^
+
+`Address: 0x00001800 + 0x0 = 0x00001800`
+
+
+    .. wavedrom::
+        :caption: UART_RXTX
+
+        {
+            "reg": [
+                {"name": "rxtx[7:0]", "bits": 8},
+                {"bits": 24},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+UART_TXFULL
+^^^^^^^^^^^
+
+`Address: 0x00001800 + 0x4 = 0x00001804`
+
+
+    .. wavedrom::
+        :caption: UART_TXFULL
+
+        {
+            "reg": [
+                {"name": "txfull", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+UART_RXEMPTY
+^^^^^^^^^^^^
+
+`Address: 0x00001800 + 0x8 = 0x00001808`
+
+
+    .. wavedrom::
+        :caption: UART_RXEMPTY
+
+        {
+            "reg": [
+                {"name": "rxempty", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+UART_EV_STATUS
+^^^^^^^^^^^^^^
+
+`Address: 0x00001800 + 0xc = 0x0000180c`
+
+
+    .. wavedrom::
+        :caption: UART_EV_STATUS
+
+        {
+            "reg": [
+                {"name": "ev_status[1:0]", "bits": 2},
+                {"bits": 30},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+UART_EV_PENDING
+^^^^^^^^^^^^^^^
+
+`Address: 0x00001800 + 0x10 = 0x00001810`
+
+
+    .. wavedrom::
+        :caption: UART_EV_PENDING
+
+        {
+            "reg": [
+                {"name": "ev_pending[1:0]", "bits": 2},
+                {"bits": 30},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+UART_EV_ENABLE
+^^^^^^^^^^^^^^
+
+`Address: 0x00001800 + 0x14 = 0x00001814`
+
+
+    .. wavedrom::
+        :caption: UART_EV_ENABLE
+
+        {
+            "reg": [
+                {"name": "ev_enable[1:0]", "bits": 2},
+                {"bits": 30},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+UART_TXEMPTY
+^^^^^^^^^^^^
+
+`Address: 0x00001800 + 0x18 = 0x00001818`
+
+
+    .. wavedrom::
+        :caption: UART_TXEMPTY
+
+        {
+            "reg": [
+                {"name": "txempty", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+UART_RXFULL
+^^^^^^^^^^^
+
+`Address: 0x00001800 + 0x1c = 0x0000181c`
+
+
+    .. wavedrom::
+        :caption: UART_RXFULL
+
+        {
+            "reg": [
+                {"name": "rxfull", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+

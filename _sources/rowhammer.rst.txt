@@ -1,26 +1,38 @@
 ROWHAMMER
 =========
 
+
+
+Row Hammer DMA attacker
+
+This module allows to perform a Row Hammer attack by configuring it with
+two addresses that map to different rows of a single bank. When enabled,
+it will perform alternating DMA reads from the given locations, which will
+result in the DRAM controller having to repeatedly open/close rows at each
+read access.
+
+
 Register Listing for ROWHAMMER
 ------------------------------
 
 +------------------------------------------------+----------------------------------------+
 | Register                                       | Address                                |
 +================================================+========================================+
-| :ref:`ROWHAMMER_ENABLED <ROWHAMMER_ENABLED>`   | :ref:`0x00002800 <ROWHAMMER_ENABLED>`  |
+| :ref:`ROWHAMMER_ENABLED <ROWHAMMER_ENABLED>`   | :ref:`0x00004800 <ROWHAMMER_ENABLED>`  |
 +------------------------------------------------+----------------------------------------+
-| :ref:`ROWHAMMER_ADDRESS0 <ROWHAMMER_ADDRESS0>` | :ref:`0x00002804 <ROWHAMMER_ADDRESS0>` |
+| :ref:`ROWHAMMER_ADDRESS1 <ROWHAMMER_ADDRESS1>` | :ref:`0x00004804 <ROWHAMMER_ADDRESS1>` |
 +------------------------------------------------+----------------------------------------+
-| :ref:`ROWHAMMER_ADDRESS1 <ROWHAMMER_ADDRESS1>` | :ref:`0x00002808 <ROWHAMMER_ADDRESS1>` |
+| :ref:`ROWHAMMER_ADDRESS2 <ROWHAMMER_ADDRESS2>` | :ref:`0x00004808 <ROWHAMMER_ADDRESS2>` |
 +------------------------------------------------+----------------------------------------+
-| :ref:`ROWHAMMER_COUNT <ROWHAMMER_COUNT>`       | :ref:`0x0000280c <ROWHAMMER_COUNT>`    |
+| :ref:`ROWHAMMER_COUNT <ROWHAMMER_COUNT>`       | :ref:`0x0000480c <ROWHAMMER_COUNT>`    |
 +------------------------------------------------+----------------------------------------+
 
 ROWHAMMER_ENABLED
 ^^^^^^^^^^^^^^^^^
 
-`Address: 0x00002800 + 0x0 = 0x00002800`
+`Address: 0x00004800 + 0x0 = 0x00004800`
 
+    Used to start/stop the operation of the module
 
     .. wavedrom::
         :caption: ROWHAMMER_ENABLED
@@ -33,28 +45,12 @@ ROWHAMMER_ENABLED
         }
 
 
-ROWHAMMER_ADDRESS0
-^^^^^^^^^^^^^^^^^^
-
-`Address: 0x00002800 + 0x4 = 0x00002804`
-
-
-    .. wavedrom::
-        :caption: ROWHAMMER_ADDRESS0
-
-        {
-            "reg": [
-                {"name": "address0[23:0]", "bits": 24},
-                {"bits": 8},
-            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
-        }
-
-
 ROWHAMMER_ADDRESS1
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00002800 + 0x8 = 0x00002808`
+`Address: 0x00004800 + 0x4 = 0x00004804`
 
+    First attacked address
 
     .. wavedrom::
         :caption: ROWHAMMER_ADDRESS1
@@ -67,11 +63,32 @@ ROWHAMMER_ADDRESS1
         }
 
 
+ROWHAMMER_ADDRESS2
+^^^^^^^^^^^^^^^^^^
+
+`Address: 0x00004800 + 0x8 = 0x00004808`
+
+    Second attacked address
+
+    .. wavedrom::
+        :caption: ROWHAMMER_ADDRESS2
+
+        {
+            "reg": [
+                {"name": "address2[23:0]", "bits": 24},
+                {"bits": 8},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
 ROWHAMMER_COUNT
 ^^^^^^^^^^^^^^^
 
-`Address: 0x00002800 + 0xc = 0x0000280c`
+`Address: 0x00004800 + 0xc = 0x0000480c`
 
+    This is the number of DMA accesses performed. When the module is enabled, the
+    value can be freely read. When the module is disabled, the register is clear-on-
+    write and has to be read before the next attack.
 
     .. wavedrom::
         :caption: ROWHAMMER_COUNT

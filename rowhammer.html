@@ -37,6 +37,12 @@
             
   <div class="section" id="rowhammer">
 <h1>ROWHAMMER<a class="headerlink" href="#rowhammer" title="Permalink to this headline">¶</a></h1>
+<p>Row Hammer DMA attacker</p>
+<p>This module allows to perform a Row Hammer attack by configuring it with
+two addresses that map to different rows of a single bank. When enabled,
+it will perform alternating DMA reads from the given locations, which will
+result in the DRAM controller having to repeatedly open/close rows at each
+read access.</p>
 <div class="section" id="register-listing-for-rowhammer">
 <h2>Register Listing for ROWHAMMER<a class="headerlink" href="#register-listing-for-rowhammer" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
@@ -51,24 +57,25 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="#rowhammer-enabled"><span class="std std-ref">ROWHAMMER_ENABLED</span></a></p></td>
-<td><p><a class="reference internal" href="#rowhammer-enabled"><span class="std std-ref">0x00002800</span></a></p></td>
+<td><p><a class="reference internal" href="#rowhammer-enabled"><span class="std std-ref">0x00004800</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rowhammer-address0"><span class="std std-ref">ROWHAMMER_ADDRESS0</span></a></p></td>
-<td><p><a class="reference internal" href="#rowhammer-address0"><span class="std std-ref">0x00002804</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rowhammer-address1"><span class="std std-ref">ROWHAMMER_ADDRESS1</span></a></p></td>
+<td><p><a class="reference internal" href="#rowhammer-address1"><span class="std std-ref">0x00004804</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rowhammer-address1"><span class="std std-ref">ROWHAMMER_ADDRESS1</span></a></p></td>
-<td><p><a class="reference internal" href="#rowhammer-address1"><span class="std std-ref">0x00002808</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#rowhammer-address2"><span class="std std-ref">ROWHAMMER_ADDRESS2</span></a></p></td>
+<td><p><a class="reference internal" href="#rowhammer-address2"><span class="std std-ref">0x00004808</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#rowhammer-count"><span class="std std-ref">ROWHAMMER_COUNT</span></a></p></td>
-<td><p><a class="reference internal" href="#rowhammer-count"><span class="std std-ref">0x0000280c</span></a></p></td>
+<td><p><a class="reference internal" href="#rowhammer-count"><span class="std std-ref">0x0000480c</span></a></p></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="rowhammer-enabled">
 <h3>ROWHAMMER_ENABLED<a class="headerlink" href="#rowhammer-enabled" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00002800 + 0x0 = 0x00002800</cite></p>
+<p><cite>Address: 0x00004800 + 0x0 = 0x00004800</cite></p>
 <blockquote>
-<div>
+<div><p>Used to start/stop the operation of the module</p>
+
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
@@ -81,28 +88,12 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="rowhammer-address0">
-<h3>ROWHAMMER_ADDRESS0<a class="headerlink" href="#rowhammer-address0" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00002800 + 0x4 = 0x00002804</cite></p>
-<blockquote>
-<div>
-<div style="overflow-x:auto">
-<script type="WaveDrom">
-{
-    "reg": [
-        {"name": "address0[23:0]", "bits": 24},
-        {"bits": 8},
-    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
-}
-</script>
-</div>
-</div></blockquote>
-</div>
 <div class="section" id="rowhammer-address1">
 <h3>ROWHAMMER_ADDRESS1<a class="headerlink" href="#rowhammer-address1" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00002800 + 0x8 = 0x00002808</cite></p>
+<p><cite>Address: 0x00004800 + 0x4 = 0x00004804</cite></p>
 <blockquote>
-<div>
+<div><p>First attacked address</p>
+
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
@@ -115,11 +106,32 @@
 </div>
 </div></blockquote>
 </div>
+<div class="section" id="rowhammer-address2">
+<h3>ROWHAMMER_ADDRESS2<a class="headerlink" href="#rowhammer-address2" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00004800 + 0x8 = 0x00004808</cite></p>
+<blockquote>
+<div><p>Second attacked address</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "address2[23:0]", "bits": 24},
+        {"bits": 8},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
 <div class="section" id="rowhammer-count">
 <h3>ROWHAMMER_COUNT<a class="headerlink" href="#rowhammer-count" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00002800 + 0xc = 0x0000280c</cite></p>
+<p><cite>Address: 0x00004800 + 0xc = 0x0000480c</cite></p>
 <blockquote>
-<div>
+<div><p>This is the number of DMA accesses performed. When the module is enabled, the
+value can be freely read. When the module is disabled, the register is clear-on-
+write and has to be read before the next attack.</p>
+
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
@@ -161,7 +173,10 @@
 <li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupt Controller</a></li>
 </ul>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ctrl.html">CTRL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="identifier_mem.html">IDENTIFIER_MEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uart.html">UART</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timer0.html">TIMER0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ddrphy.html">DDRPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdram.html">SDRAM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ethphy.html">ETHPHY</a></li>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ETHPHY &#8212; LiteX Row Hammer Tester  documentation</title>
+    <title>CTRL &#8212; LiteX Row Hammer Tester  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -17,8 +17,8 @@
     <script src="_static/WaveDrom.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="LEDS" href="leds.html" />
-    <link rel="prev" title="SDRAM" href="sdram.html" />
+    <link rel="next" title="IDENTIFIER_MEM" href="identifier_mem.html" />
+    <link rel="prev" title="Interrupt Controller" href="interrupts.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -35,14 +35,14 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="ethphy">
-<h1>ETHPHY<a class="headerlink" href="#ethphy" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="register-listing-for-ethphy">
-<h2>Register Listing for ETHPHY<a class="headerlink" href="#register-listing-for-ethphy" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="ctrl">
+<h1>CTRL<a class="headerlink" href="#ctrl" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="register-listing-for-ctrl">
+<h2>Register Listing for CTRL<a class="headerlink" href="#register-listing-for-ctrl" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 54%" />
-<col style="width: 46%" />
+<col style="width: 53%" />
+<col style="width: 47%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Register</p></th>
@@ -50,27 +50,28 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethphy-crg-reset"><span class="std std-ref">ETHPHY_CRG_RESET</span></a></p></td>
-<td><p><a class="reference internal" href="#ethphy-crg-reset"><span class="std std-ref">0x00003800</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ctrl-reset"><span class="std std-ref">CTRL_RESET</span></a></p></td>
+<td><p><a class="reference internal" href="#ctrl-reset"><span class="std std-ref">0x00000000</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ethphy-mdio-w"><span class="std std-ref">ETHPHY_MDIO_W</span></a></p></td>
-<td><p><a class="reference internal" href="#ethphy-mdio-w"><span class="std std-ref">0x00003804</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ctrl-scratch"><span class="std std-ref">CTRL_SCRATCH</span></a></p></td>
+<td><p><a class="reference internal" href="#ctrl-scratch"><span class="std std-ref">0x00000004</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ethphy-mdio-r"><span class="std std-ref">ETHPHY_MDIO_R</span></a></p></td>
-<td><p><a class="reference internal" href="#ethphy-mdio-r"><span class="std std-ref">0x00003808</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ctrl-bus-errors"><span class="std std-ref">CTRL_BUS_ERRORS</span></a></p></td>
+<td><p><a class="reference internal" href="#ctrl-bus-errors"><span class="std std-ref">0x00000008</span></a></p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="ethphy-crg-reset">
-<h3>ETHPHY_CRG_RESET<a class="headerlink" href="#ethphy-crg-reset" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00003800 + 0x0 = 0x00003800</cite></p>
+<div class="section" id="ctrl-reset">
+<h3>CTRL_RESET<a class="headerlink" href="#ctrl-reset" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00000000 + 0x0 = 0x00000000</cite></p>
 <blockquote>
-<div>
+<div><p>Write a <code class="docutils literal notranslate"><span class="pre">1</span></code> to this register to reset the SoC.</p>
+
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
     "reg": [
-        {"name": "crg_reset", "bits": 1},
+        {"name": "reset", "bits": 1},
         {"bits": 31},
     ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
 }
@@ -78,87 +79,41 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="ethphy-mdio-w">
-<h3>ETHPHY_MDIO_W<a class="headerlink" href="#ethphy-mdio-w" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00003800 + 0x4 = 0x00003804</cite></p>
+<div class="section" id="ctrl-scratch">
+<h3>CTRL_SCRATCH<a class="headerlink" href="#ctrl-scratch" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00000000 + 0x4 = 0x00000004</cite></p>
 <blockquote>
-<div>
+<div><p>Use this register as a scratch space to verify that software read/write accesses
+to the Wishbone/CSR bus are working correctly. The initial reset value of
+0x1234578 can be used to verify endianness.</p>
+
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
     "reg": [
-        {"name": "mdc",  "bits": 1},
-        {"name": "oe",  "bits": 1},
-        {"name": "w",  "bits": 1},
-        {"bits": 29}
-    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        {"name": "scratch[31:0]", "attr": 'reset: 305419896', "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
 }
 </script>
 </div>
 </div></blockquote>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 27%" />
-<col style="width: 23%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Field</p></th>
-<th class="head"><p>Name</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 </div>
-<div class="section" id="ethphy-mdio-r">
-<h3>ETHPHY_MDIO_R<a class="headerlink" href="#ethphy-mdio-r" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00003800 + 0x8 = 0x00003808</cite></p>
+<div class="section" id="ctrl-bus-errors">
+<h3>CTRL_BUS_ERRORS<a class="headerlink" href="#ctrl-bus-errors" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00000000 + 0x8 = 0x00000008</cite></p>
 <blockquote>
-<div>
+<div><p>Total number of Wishbone bus errors (timeouts) since start.</p>
+
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
     "reg": [
-        {"name": "r",  "bits": 1},
-        {"bits": 31}
-    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        {"name": "bus_errors[31:0]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
 }
 </script>
 </div>
 </div></blockquote>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 27%" />
-<col style="width: 23%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Field</p></th>
-<th class="head"><p>Name</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </div>
@@ -190,13 +145,13 @@
 <li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupt Controller</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="ctrl.html">CTRL</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CTRL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="identifier_mem.html">IDENTIFIER_MEM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uart.html">UART</a></li>
 <li class="toctree-l1"><a class="reference internal" href="timer0.html">TIMER0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ddrphy.html">DDRPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdram.html">SDRAM</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ETHPHY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethphy.html">ETHPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leds.html">LEDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rowhammer.html">ROWHAMMER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bulk_wr.html">BULK_WR</a></li>
@@ -206,8 +161,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="sdram.html" title="previous chapter">SDRAM</a></li>
-      <li>Next: <a href="leds.html" title="next chapter">LEDS</a></li>
+      <li>Previous: <a href="interrupts.html" title="previous chapter">Interrupt Controller</a></li>
+      <li>Next: <a href="identifier_mem.html" title="next chapter">IDENTIFIER_MEM</a></li>
   </ul></li>
 </ul>
 </div>
@@ -241,7 +196,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/ethphy.rst.txt"
+      <a href="_sources/ctrl.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
