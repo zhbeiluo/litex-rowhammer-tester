@@ -27,7 +27,6 @@ Register Groups
     ethphy
     leds
     rowhammer
-    bulk_wr
     writer
     reader
 
