@@ -1,0 +1,139 @@
+WRITER
+======
+
+Register Listing for WRITER
+---------------------------
+
++--------------------------------------------+--------------------------------------+
+| Register                                   | Address                              |
++============================================+======================================+
+| :ref:`WRITER_RESET <WRITER_RESET>`         | :ref:`0x00005800 <WRITER_RESET>`     |
++--------------------------------------------+--------------------------------------+
+| :ref:`WRITER_START <WRITER_START>`         | :ref:`0x00005804 <WRITER_START>`     |
++--------------------------------------------+--------------------------------------+
+| :ref:`WRITER_DONE <WRITER_DONE>`           | :ref:`0x00005808 <WRITER_DONE>`      |
++--------------------------------------------+--------------------------------------+
+| :ref:`WRITER_COUNT <WRITER_COUNT>`         | :ref:`0x0000580c <WRITER_COUNT>`     |
++--------------------------------------------+--------------------------------------+
+| :ref:`WRITER_MEM_BASE <WRITER_MEM_BASE>`   | :ref:`0x00005810 <WRITER_MEM_BASE>`  |
++--------------------------------------------+--------------------------------------+
+| :ref:`WRITER_MEM_MASK <WRITER_MEM_MASK>`   | :ref:`0x00005814 <WRITER_MEM_MASK>`  |
++--------------------------------------------+--------------------------------------+
+| :ref:`WRITER_DATA_MASK <WRITER_DATA_MASK>` | :ref:`0x00005818 <WRITER_DATA_MASK>` |
++--------------------------------------------+--------------------------------------+
+
+WRITER_RESET
+^^^^^^^^^^^^
+
+`Address: 0x00005800 + 0x0 = 0x00005800`
+
+
+    .. wavedrom::
+        :caption: WRITER_RESET
+
+        {
+            "reg": [
+                {"name": "reset", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+WRITER_START
+^^^^^^^^^^^^
+
+`Address: 0x00005800 + 0x4 = 0x00005804`
+
+
+    .. wavedrom::
+        :caption: WRITER_START
+
+        {
+            "reg": [
+                {"name": "start", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+WRITER_DONE
+^^^^^^^^^^^
+
+`Address: 0x00005800 + 0x8 = 0x00005808`
+
+
+    .. wavedrom::
+        :caption: WRITER_DONE
+
+        {
+            "reg": [
+                {"name": "done", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+WRITER_COUNT
+^^^^^^^^^^^^
+
+`Address: 0x00005800 + 0xc = 0x0000580c`
+
+
+    .. wavedrom::
+        :caption: WRITER_COUNT
+
+        {
+            "reg": [
+                {"name": "count[31:0]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+WRITER_MEM_BASE
+^^^^^^^^^^^^^^^
+
+`Address: 0x00005800 + 0x10 = 0x00005810`
+
+
+    .. wavedrom::
+        :caption: WRITER_MEM_BASE
+
+        {
+            "reg": [
+                {"name": "mem_base[31:0]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+WRITER_MEM_MASK
+^^^^^^^^^^^^^^^
+
+`Address: 0x00005800 + 0x14 = 0x00005814`
+
+
+    .. wavedrom::
+        :caption: WRITER_MEM_MASK
+
+        {
+            "reg": [
+                {"name": "mem_mask[31:0]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+WRITER_DATA_MASK
+^^^^^^^^^^^^^^^^
+
+`Address: 0x00005800 + 0x18 = 0x00005818`
+
+
+    .. wavedrom::
+        :caption: WRITER_DATA_MASK
+
+        {
+            "reg": [
+                {"name": "data_mask[31:0]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+

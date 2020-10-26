@@ -1,0 +1,157 @@
+READER
+======
+
+Register Listing for READER
+---------------------------
+
++--------------------------------------------+--------------------------------------+
+| Register                                   | Address                              |
++============================================+======================================+
+| :ref:`READER_RESET <READER_RESET>`         | :ref:`0x00006000 <READER_RESET>`     |
++--------------------------------------------+--------------------------------------+
+| :ref:`READER_START <READER_START>`         | :ref:`0x00006004 <READER_START>`     |
++--------------------------------------------+--------------------------------------+
+| :ref:`READER_DONE <READER_DONE>`           | :ref:`0x00006008 <READER_DONE>`      |
++--------------------------------------------+--------------------------------------+
+| :ref:`READER_COUNT <READER_COUNT>`         | :ref:`0x0000600c <READER_COUNT>`     |
++--------------------------------------------+--------------------------------------+
+| :ref:`READER_POINTER <READER_POINTER>`     | :ref:`0x00006010 <READER_POINTER>`   |
++--------------------------------------------+--------------------------------------+
+| :ref:`READER_MEM_BASE <READER_MEM_BASE>`   | :ref:`0x00006014 <READER_MEM_BASE>`  |
++--------------------------------------------+--------------------------------------+
+| :ref:`READER_MEM_MASK <READER_MEM_MASK>`   | :ref:`0x00006018 <READER_MEM_MASK>`  |
++--------------------------------------------+--------------------------------------+
+| :ref:`READER_DATA_MASK <READER_DATA_MASK>` | :ref:`0x0000601c <READER_DATA_MASK>` |
++--------------------------------------------+--------------------------------------+
+
+READER_RESET
+^^^^^^^^^^^^
+
+`Address: 0x00006000 + 0x0 = 0x00006000`
+
+
+    .. wavedrom::
+        :caption: READER_RESET
+
+        {
+            "reg": [
+                {"name": "reset", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+READER_START
+^^^^^^^^^^^^
+
+`Address: 0x00006000 + 0x4 = 0x00006004`
+
+
+    .. wavedrom::
+        :caption: READER_START
+
+        {
+            "reg": [
+                {"name": "start", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+READER_DONE
+^^^^^^^^^^^
+
+`Address: 0x00006000 + 0x8 = 0x00006008`
+
+
+    .. wavedrom::
+        :caption: READER_DONE
+
+        {
+            "reg": [
+                {"name": "done", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+READER_COUNT
+^^^^^^^^^^^^
+
+`Address: 0x00006000 + 0xc = 0x0000600c`
+
+
+    .. wavedrom::
+        :caption: READER_COUNT
+
+        {
+            "reg": [
+                {"name": "count[31:0]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+READER_POINTER
+^^^^^^^^^^^^^^
+
+`Address: 0x00006000 + 0x10 = 0x00006010`
+
+
+    .. wavedrom::
+        :caption: READER_POINTER
+
+        {
+            "reg": [
+                {"name": "pointer[31:0]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+READER_MEM_BASE
+^^^^^^^^^^^^^^^
+
+`Address: 0x00006000 + 0x14 = 0x00006014`
+
+
+    .. wavedrom::
+        :caption: READER_MEM_BASE
+
+        {
+            "reg": [
+                {"name": "mem_base[31:0]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+READER_MEM_MASK
+^^^^^^^^^^^^^^^
+
+`Address: 0x00006000 + 0x18 = 0x00006018`
+
+
+    .. wavedrom::
+        :caption: READER_MEM_MASK
+
+        {
+            "reg": [
+                {"name": "mem_mask[31:0]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+READER_DATA_MASK
+^^^^^^^^^^^^^^^^
+
+`Address: 0x00006000 + 0x1c = 0x0000601c`
+
+
+    .. wavedrom::
+        :caption: READER_DATA_MASK
+
+        {
+            "reg": [
+                {"name": "data_mask[31:0]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+

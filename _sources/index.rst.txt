@@ -28,6 +28,8 @@ Register Groups
     leds
     rowhammer
     bulk_wr
+    writer
+    reader
 
 Indices and tables
 ==================
