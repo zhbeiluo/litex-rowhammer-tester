@@ -30,6 +30,7 @@ Register Groups
     rowhammer
     writer
     reader
+    payload_executor
 
 Indices and tables
 ==================

@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PAYLOAD_EXECUTOR &#8212; LiteX Row Hammer Tester  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/default.js"></script>
+    <script src="_static/WaveDrom.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="READER" href="reader.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="payload-executor">
+<h1>PAYLOAD_EXECUTOR<a class="headerlink" href="#payload-executor" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><blockquote>
+<div><p>Executes the DRAM payload from memory</p>
+</div></blockquote>
+<p><strong>Instruction decoder</strong></p>
+<p>All instructions are 32-bit. The format of most instructions is the same,
+except for the LOOP instruction, which has a constant TIMESLICE of 0.</p>
+<p><strong>NOTE:</strong> LOOP instruction will <em>jump</em> COUNT times, meaning that the “code”
+inside the loop will effectively be executed COUNT+1 times.</p>
+<p>Op codes:</p>
+</div></blockquote>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" rowspan="2"><p>Op</p></th>
+<th class="head" rowspan="2"><p>Value</p></th>
+</tr>
+<tr class="row-even"></tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td rowspan="2"><p>NOOP</p></td>
+<td rowspan="2"><p>0b000</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>LOOP</p></td>
+<td rowspan="2"><p>0b111</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>ACT</p></td>
+<td rowspan="2"><p>0b100</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>PRE</p></td>
+<td rowspan="2"><p>0b101</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>REF</p></td>
+<td rowspan="2"><p>0b110</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>ZQC</p></td>
+<td rowspan="2"><p>0b001</p></td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>READ</p></td>
+<td rowspan="2"><p>0b010</p></td>
+</tr>
+<tr class="row-even"></tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Instruction format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>      <span class="n">LSB</span>                       <span class="n">MSB</span>
+<span class="n">dfi</span><span class="p">:</span>  <span class="n">OP_CODE</span> <span class="o">|</span> <span class="n">TIMESLICE</span> <span class="o">|</span> <span class="n">ADDRESS</span>
+<span class="n">noop</span><span class="p">:</span> <span class="n">OP_CODE</span> <span class="o">|</span> <span class="n">TIMESLICE_NOOP</span>
+<span class="n">loop</span><span class="p">:</span> <span class="n">OP_CODE</span> <span class="o">|</span> <span class="n">COUNT</span>     <span class="o">|</span> <span class="n">JUMP</span>
+</pre></div>
+</div>
+<p>Where ADDRESS depends on the DFI command and is one of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LSB</span>              <span class="n">MSB</span>
+<span class="n">RANK</span> <span class="o">|</span> <span class="n">BANK</span> <span class="o">|</span> <span class="n">COLUMN</span>
+<span class="n">RANK</span> <span class="o">|</span> <span class="n">BANK</span> <span class="o">|</span> <span class="n">ROW</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="section" id="register-listing-for-payload-executor">
+<h2>Register Listing for PAYLOAD_EXECUTOR<a class="headerlink" href="#register-listing-for-payload-executor" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Register</p></th>
+<th class="head"><p>Address</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#payload-executor-start"><span class="std std-ref">PAYLOAD_EXECUTOR_START</span></a></p></td>
+<td><p><a class="reference internal" href="#payload-executor-start"><span class="std std-ref">0x00006800</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#payload-executor-status"><span class="std std-ref">PAYLOAD_EXECUTOR_STATUS</span></a></p></td>
+<td><p><a class="reference internal" href="#payload-executor-status"><span class="std std-ref">0x00006804</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#payload-executor-read-count"><span class="std std-ref">PAYLOAD_EXECUTOR_READ_COUNT</span></a></p></td>
+<td><p><a class="reference internal" href="#payload-executor-read-count"><span class="std std-ref">0x00006808</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="payload-executor-start">
+<h3>PAYLOAD_EXECUTOR_START<a class="headerlink" href="#payload-executor-start" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00006800 + 0x0 = 0x00006800</cite></p>
+<blockquote>
+<div><p>Writing to this register initializes payload execution</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "start", "bits": 1},
+        {"bits": 31},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="payload-executor-status">
+<h3>PAYLOAD_EXECUTOR_STATUS<a class="headerlink" href="#payload-executor-status" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00006800 + 0x4 = 0x00006804</cite></p>
+<blockquote>
+<div><p>Payload executor status register</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "ready",  "bits": 1},
+        {"name": "overflow",  "bits": 1},
+        {"bits": 30}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+}
+</script>
+</div>
+</div></blockquote>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 10%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>[0]</p></td>
+<td><p>READY</p></td>
+<td><p>Indicates that the executor is not running</p></td>
+</tr>
+<tr class="row-odd"><td><p>[1]</p></td>
+<td><p>OVERFLOW</p></td>
+<td><p>Indicates the scratchpad memory address counter has overflown due to the number
+of READ commands sent during execution</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="payload-executor-read-count">
+<h3>PAYLOAD_EXECUTOR_READ_COUNT<a class="headerlink" href="#payload-executor-read-count" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00006800 + 0x8 = 0x00006808</cite></p>
+<blockquote>
+<div><p>Number of data from READ commands that is stored in the scratchpad memory</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "read_count[5:0]", "bits": 6},
+        {"bits": 26},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+    <script type="text/javascript">
+        function init() {
+            WaveDrom.ProcessAll();
+        }
+        window.onload = init;
+    </script>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">LiteX Row Hammer Tester</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="interrupts.html">Interrupt Controller</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ctrl.html">CTRL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="identifier_mem.html">IDENTIFIER_MEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uart.html">UART</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timer0.html">TIMER0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controller_settings.html">CONTROLLER_SETTINGS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ddrphy.html">DDRPHY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sdram.html">SDRAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ethphy.html">ETHPHY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leds.html">LEDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rowhammer.html">ROWHAMMER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writer.html">WRITER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reader.html">READER</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PAYLOAD_EXECUTOR</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="reader.html" title="previous chapter">READER</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Antmicro.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/payload_executor.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
