@@ -62,17 +62,20 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-count"><span class="std std-ref">READER_COUNT</span></a></p></td>
 <td><p><a class="reference internal" href="#reader-count"><span class="std std-ref">0x0000600c</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#reader-pointer"><span class="std std-ref">READER_POINTER</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-pointer"><span class="std std-ref">0x00006010</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-r-count"><span class="std std-ref">READER_R_COUNT</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-r-count"><span class="std std-ref">0x00006010</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#reader-mem-base"><span class="std std-ref">READER_MEM_BASE</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-mem-base"><span class="std std-ref">0x00006014</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reader-pointer"><span class="std std-ref">READER_POINTER</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-pointer"><span class="std std-ref">0x00006014</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#reader-mem-mask"><span class="std std-ref">READER_MEM_MASK</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-mem-mask"><span class="std std-ref">0x00006018</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-mem-base"><span class="std std-ref">READER_MEM_BASE</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-mem-base"><span class="std std-ref">0x00006018</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#reader-data-mask"><span class="std std-ref">READER_DATA_MASK</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-data-mask"><span class="std std-ref">0x0000601c</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reader-mem-mask"><span class="std std-ref">READER_MEM_MASK</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-mem-mask"><span class="std std-ref">0x0000601c</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-data-mask"><span class="std std-ref">READER_DATA_MASK</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-data-mask"><span class="std std-ref">0x00006020</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -143,9 +146,25 @@
 </div>
 </div></blockquote>
 </div>
+<div class="section" id="reader-r-count">
+<h3>READER_R_COUNT<a class="headerlink" href="#reader-r-count" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00006000 + 0x10 = 0x00006010</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "r_count[31:0]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
 <div class="section" id="reader-pointer">
 <h3>READER_POINTER<a class="headerlink" href="#reader-pointer" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x10 = 0x00006010</cite></p>
+<p><cite>Address: 0x00006000 + 0x14 = 0x00006014</cite></p>
 <blockquote>
 <div>
 <div style="overflow-x:auto">
@@ -161,7 +180,7 @@
 </div>
 <div class="section" id="reader-mem-base">
 <h3>READER_MEM_BASE<a class="headerlink" href="#reader-mem-base" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x14 = 0x00006014</cite></p>
+<p><cite>Address: 0x00006000 + 0x18 = 0x00006018</cite></p>
 <blockquote>
 <div>
 <div style="overflow-x:auto">
@@ -177,7 +196,7 @@
 </div>
 <div class="section" id="reader-mem-mask">
 <h3>READER_MEM_MASK<a class="headerlink" href="#reader-mem-mask" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x18 = 0x00006018</cite></p>
+<p><cite>Address: 0x00006000 + 0x1c = 0x0000601c</cite></p>
 <blockquote>
 <div>
 <div style="overflow-x:auto">
@@ -193,7 +212,7 @@
 </div>
 <div class="section" id="reader-data-mask">
 <h3>READER_DATA_MASK<a class="headerlink" href="#reader-data-mask" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x1c = 0x0000601c</cite></p>
+<p><cite>Address: 0x00006000 + 0x20 = 0x00006020</cite></p>
 <blockquote>
 <div>
 <div style="overflow-x:auto">
