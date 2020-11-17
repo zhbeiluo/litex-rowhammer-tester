@@ -41,8 +41,8 @@
 <h2>Register Listing for READER<a class="headerlink" href="#register-listing-for-reader" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 54%" />
-<col style="width: 46%" />
+<col style="width: 53%" />
+<col style="width: 47%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Register</p></th>
@@ -56,26 +56,29 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-start"><span class="std std-ref">READER_START</span></a></p></td>
 <td><p><a class="reference internal" href="#reader-start"><span class="std std-ref">0x00006004</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#reader-done"><span class="std std-ref">READER_DONE</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-done"><span class="std std-ref">0x00006008</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-count"><span class="std std-ref">READER_COUNT</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-count"><span class="std std-ref">0x00006008</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#reader-count"><span class="std std-ref">READER_COUNT</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-count"><span class="std std-ref">0x0000600c</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reader-gen-mask"><span class="std std-ref">READER_GEN_MASK</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-gen-mask"><span class="std std-ref">0x0000600c</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#reader-r-count"><span class="std std-ref">READER_R_COUNT</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-r-count"><span class="std std-ref">0x00006010</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-mem-mask"><span class="std std-ref">READER_MEM_MASK</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-mem-mask"><span class="std std-ref">0x00006010</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#reader-pointer"><span class="std std-ref">READER_POINTER</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-pointer"><span class="std std-ref">0x00006014</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reader-done"><span class="std std-ref">READER_DONE</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-done"><span class="std std-ref">0x00006014</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#reader-mem-base"><span class="std std-ref">READER_MEM_BASE</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-mem-base"><span class="std std-ref">0x00006018</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-ready"><span class="std std-ref">READER_READY</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-ready"><span class="std std-ref">0x00006018</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#reader-mem-mask"><span class="std std-ref">READER_MEM_MASK</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-mem-mask"><span class="std std-ref">0x0000601c</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reader-err-rd"><span class="std std-ref">READER_ERR_RD</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-err-rd"><span class="std std-ref">0x0000601c</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#reader-data-mask"><span class="std std-ref">READER_DATA_MASK</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-data-mask"><span class="std std-ref">0x00006020</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-err-rdy"><span class="std std-ref">READER_ERR_RDY</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-err-rdy"><span class="std std-ref">0x00006020</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reader-skipfifo"><span class="std std-ref">READER_SKIPFIFO</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-skipfifo"><span class="std std-ref">0x00006024</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -113,26 +116,9 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="reader-done">
-<h3>READER_DONE<a class="headerlink" href="#reader-done" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x8 = 0x00006008</cite></p>
-<blockquote>
-<div>
-<div style="overflow-x:auto">
-<script type="WaveDrom">
-{
-    "reg": [
-        {"name": "done", "bits": 1},
-        {"bits": 31},
-    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
-}
-</script>
-</div>
-</div></blockquote>
-</div>
 <div class="section" id="reader-count">
 <h3>READER_COUNT<a class="headerlink" href="#reader-count" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0xc = 0x0000600c</cite></p>
+<p><cite>Address: 0x00006000 + 0x8 = 0x00006008</cite></p>
 <blockquote>
 <div>
 <div style="overflow-x:auto">
@@ -146,48 +132,16 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="reader-r-count">
-<h3>READER_R_COUNT<a class="headerlink" href="#reader-r-count" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x10 = 0x00006010</cite></p>
+<div class="section" id="reader-gen-mask">
+<h3>READER_GEN_MASK<a class="headerlink" href="#reader-gen-mask" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00006000 + 0xc = 0x0000600c</cite></p>
 <blockquote>
 <div>
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
     "reg": [
-        {"name": "r_count[31:0]", "bits": 32}
-    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
-}
-</script>
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="reader-pointer">
-<h3>READER_POINTER<a class="headerlink" href="#reader-pointer" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x14 = 0x00006014</cite></p>
-<blockquote>
-<div>
-<div style="overflow-x:auto">
-<script type="WaveDrom">
-{
-    "reg": [
-        {"name": "pointer[31:0]", "bits": 32}
-    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
-}
-</script>
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="reader-mem-base">
-<h3>READER_MEM_BASE<a class="headerlink" href="#reader-mem-base" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x18 = 0x00006018</cite></p>
-<blockquote>
-<div>
-<div style="overflow-x:auto">
-<script type="WaveDrom">
-{
-    "reg": [
-        {"name": "mem_base[31:0]", "bits": 32}
+        {"name": "gen_mask[31:0]", "bits": 32}
     ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
 }
 </script>
@@ -196,7 +150,7 @@
 </div>
 <div class="section" id="reader-mem-mask">
 <h3>READER_MEM_MASK<a class="headerlink" href="#reader-mem-mask" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x1c = 0x0000601c</cite></p>
+<p><cite>Address: 0x00006000 + 0x10 = 0x00006010</cite></p>
 <blockquote>
 <div>
 <div style="overflow-x:auto">
@@ -210,8 +164,57 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="reader-data-mask">
-<h3>READER_DATA_MASK<a class="headerlink" href="#reader-data-mask" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="reader-done">
+<h3>READER_DONE<a class="headerlink" href="#reader-done" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00006000 + 0x14 = 0x00006014</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "done[31:0]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-ready">
+<h3>READER_READY<a class="headerlink" href="#reader-ready" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00006000 + 0x18 = 0x00006018</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "ready", "bits": 1},
+        {"bits": 31},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-err-rd">
+<h3>READER_ERR_RD<a class="headerlink" href="#reader-err-rd" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00006000 + 0x1c = 0x0000601c</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "err_rd[31:0]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-err-rdy">
+<h3>READER_ERR_RDY<a class="headerlink" href="#reader-err-rdy" title="Permalink to this headline">¶</a></h3>
 <p><cite>Address: 0x00006000 + 0x20 = 0x00006020</cite></p>
 <blockquote>
 <div>
@@ -219,8 +222,26 @@
 <script type="WaveDrom">
 {
     "reg": [
-        {"name": "data_mask[31:0]", "bits": 32}
-    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        {"name": "err_rdy", "bits": 1},
+        {"bits": 31},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-skipfifo">
+<h3>READER_SKIPFIFO<a class="headerlink" href="#reader-skipfifo" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00006000 + 0x24 = 0x00006024</cite></p>
+<blockquote>
+<div>
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "skipfifo", "bits": 1},
+        {"bits": 31},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
 }
 </script>
 </div>
