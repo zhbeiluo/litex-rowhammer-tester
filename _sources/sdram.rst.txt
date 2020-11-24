@@ -7,61 +7,61 @@ Register Listing for SDRAM
 +--------------------------------------------------------------------+--------------------------------------------------+
 | Register                                                           | Address                                          |
 +====================================================================+==================================================+
-| :ref:`SDRAM_DFII_CONTROL <SDRAM_DFII_CONTROL>`                     | :ref:`0x00003800 <SDRAM_DFII_CONTROL>`           |
+| :ref:`SDRAM_DFII_CONTROL <SDRAM_DFII_CONTROL>`                     | :ref:`0x00004000 <SDRAM_DFII_CONTROL>`           |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI0_COMMAND <SDRAM_DFII_PI0_COMMAND>`             | :ref:`0x00003804 <SDRAM_DFII_PI0_COMMAND>`       |
+| :ref:`SDRAM_DFII_PI0_COMMAND <SDRAM_DFII_PI0_COMMAND>`             | :ref:`0x00004004 <SDRAM_DFII_PI0_COMMAND>`       |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI0_COMMAND_ISSUE <SDRAM_DFII_PI0_COMMAND_ISSUE>` | :ref:`0x00003808 <SDRAM_DFII_PI0_COMMAND_ISSUE>` |
+| :ref:`SDRAM_DFII_PI0_COMMAND_ISSUE <SDRAM_DFII_PI0_COMMAND_ISSUE>` | :ref:`0x00004008 <SDRAM_DFII_PI0_COMMAND_ISSUE>` |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI0_ADDRESS <SDRAM_DFII_PI0_ADDRESS>`             | :ref:`0x0000380c <SDRAM_DFII_PI0_ADDRESS>`       |
+| :ref:`SDRAM_DFII_PI0_ADDRESS <SDRAM_DFII_PI0_ADDRESS>`             | :ref:`0x0000400c <SDRAM_DFII_PI0_ADDRESS>`       |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI0_BADDRESS <SDRAM_DFII_PI0_BADDRESS>`           | :ref:`0x00003810 <SDRAM_DFII_PI0_BADDRESS>`      |
+| :ref:`SDRAM_DFII_PI0_BADDRESS <SDRAM_DFII_PI0_BADDRESS>`           | :ref:`0x00004010 <SDRAM_DFII_PI0_BADDRESS>`      |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI0_WRDATA <SDRAM_DFII_PI0_WRDATA>`               | :ref:`0x00003814 <SDRAM_DFII_PI0_WRDATA>`        |
+| :ref:`SDRAM_DFII_PI0_WRDATA <SDRAM_DFII_PI0_WRDATA>`               | :ref:`0x00004014 <SDRAM_DFII_PI0_WRDATA>`        |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI0_RDDATA <SDRAM_DFII_PI0_RDDATA>`               | :ref:`0x00003818 <SDRAM_DFII_PI0_RDDATA>`        |
+| :ref:`SDRAM_DFII_PI0_RDDATA <SDRAM_DFII_PI0_RDDATA>`               | :ref:`0x00004018 <SDRAM_DFII_PI0_RDDATA>`        |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI1_COMMAND <SDRAM_DFII_PI1_COMMAND>`             | :ref:`0x0000381c <SDRAM_DFII_PI1_COMMAND>`       |
+| :ref:`SDRAM_DFII_PI1_COMMAND <SDRAM_DFII_PI1_COMMAND>`             | :ref:`0x0000401c <SDRAM_DFII_PI1_COMMAND>`       |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI1_COMMAND_ISSUE <SDRAM_DFII_PI1_COMMAND_ISSUE>` | :ref:`0x00003820 <SDRAM_DFII_PI1_COMMAND_ISSUE>` |
+| :ref:`SDRAM_DFII_PI1_COMMAND_ISSUE <SDRAM_DFII_PI1_COMMAND_ISSUE>` | :ref:`0x00004020 <SDRAM_DFII_PI1_COMMAND_ISSUE>` |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI1_ADDRESS <SDRAM_DFII_PI1_ADDRESS>`             | :ref:`0x00003824 <SDRAM_DFII_PI1_ADDRESS>`       |
+| :ref:`SDRAM_DFII_PI1_ADDRESS <SDRAM_DFII_PI1_ADDRESS>`             | :ref:`0x00004024 <SDRAM_DFII_PI1_ADDRESS>`       |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI1_BADDRESS <SDRAM_DFII_PI1_BADDRESS>`           | :ref:`0x00003828 <SDRAM_DFII_PI1_BADDRESS>`      |
+| :ref:`SDRAM_DFII_PI1_BADDRESS <SDRAM_DFII_PI1_BADDRESS>`           | :ref:`0x00004028 <SDRAM_DFII_PI1_BADDRESS>`      |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI1_WRDATA <SDRAM_DFII_PI1_WRDATA>`               | :ref:`0x0000382c <SDRAM_DFII_PI1_WRDATA>`        |
+| :ref:`SDRAM_DFII_PI1_WRDATA <SDRAM_DFII_PI1_WRDATA>`               | :ref:`0x0000402c <SDRAM_DFII_PI1_WRDATA>`        |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI1_RDDATA <SDRAM_DFII_PI1_RDDATA>`               | :ref:`0x00003830 <SDRAM_DFII_PI1_RDDATA>`        |
+| :ref:`SDRAM_DFII_PI1_RDDATA <SDRAM_DFII_PI1_RDDATA>`               | :ref:`0x00004030 <SDRAM_DFII_PI1_RDDATA>`        |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI2_COMMAND <SDRAM_DFII_PI2_COMMAND>`             | :ref:`0x00003834 <SDRAM_DFII_PI2_COMMAND>`       |
+| :ref:`SDRAM_DFII_PI2_COMMAND <SDRAM_DFII_PI2_COMMAND>`             | :ref:`0x00004034 <SDRAM_DFII_PI2_COMMAND>`       |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI2_COMMAND_ISSUE <SDRAM_DFII_PI2_COMMAND_ISSUE>` | :ref:`0x00003838 <SDRAM_DFII_PI2_COMMAND_ISSUE>` |
+| :ref:`SDRAM_DFII_PI2_COMMAND_ISSUE <SDRAM_DFII_PI2_COMMAND_ISSUE>` | :ref:`0x00004038 <SDRAM_DFII_PI2_COMMAND_ISSUE>` |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI2_ADDRESS <SDRAM_DFII_PI2_ADDRESS>`             | :ref:`0x0000383c <SDRAM_DFII_PI2_ADDRESS>`       |
+| :ref:`SDRAM_DFII_PI2_ADDRESS <SDRAM_DFII_PI2_ADDRESS>`             | :ref:`0x0000403c <SDRAM_DFII_PI2_ADDRESS>`       |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI2_BADDRESS <SDRAM_DFII_PI2_BADDRESS>`           | :ref:`0x00003840 <SDRAM_DFII_PI2_BADDRESS>`      |
+| :ref:`SDRAM_DFII_PI2_BADDRESS <SDRAM_DFII_PI2_BADDRESS>`           | :ref:`0x00004040 <SDRAM_DFII_PI2_BADDRESS>`      |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI2_WRDATA <SDRAM_DFII_PI2_WRDATA>`               | :ref:`0x00003844 <SDRAM_DFII_PI2_WRDATA>`        |
+| :ref:`SDRAM_DFII_PI2_WRDATA <SDRAM_DFII_PI2_WRDATA>`               | :ref:`0x00004044 <SDRAM_DFII_PI2_WRDATA>`        |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI2_RDDATA <SDRAM_DFII_PI2_RDDATA>`               | :ref:`0x00003848 <SDRAM_DFII_PI2_RDDATA>`        |
+| :ref:`SDRAM_DFII_PI2_RDDATA <SDRAM_DFII_PI2_RDDATA>`               | :ref:`0x00004048 <SDRAM_DFII_PI2_RDDATA>`        |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI3_COMMAND <SDRAM_DFII_PI3_COMMAND>`             | :ref:`0x0000384c <SDRAM_DFII_PI3_COMMAND>`       |
+| :ref:`SDRAM_DFII_PI3_COMMAND <SDRAM_DFII_PI3_COMMAND>`             | :ref:`0x0000404c <SDRAM_DFII_PI3_COMMAND>`       |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI3_COMMAND_ISSUE <SDRAM_DFII_PI3_COMMAND_ISSUE>` | :ref:`0x00003850 <SDRAM_DFII_PI3_COMMAND_ISSUE>` |
+| :ref:`SDRAM_DFII_PI3_COMMAND_ISSUE <SDRAM_DFII_PI3_COMMAND_ISSUE>` | :ref:`0x00004050 <SDRAM_DFII_PI3_COMMAND_ISSUE>` |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI3_ADDRESS <SDRAM_DFII_PI3_ADDRESS>`             | :ref:`0x00003854 <SDRAM_DFII_PI3_ADDRESS>`       |
+| :ref:`SDRAM_DFII_PI3_ADDRESS <SDRAM_DFII_PI3_ADDRESS>`             | :ref:`0x00004054 <SDRAM_DFII_PI3_ADDRESS>`       |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI3_BADDRESS <SDRAM_DFII_PI3_BADDRESS>`           | :ref:`0x00003858 <SDRAM_DFII_PI3_BADDRESS>`      |
+| :ref:`SDRAM_DFII_PI3_BADDRESS <SDRAM_DFII_PI3_BADDRESS>`           | :ref:`0x00004058 <SDRAM_DFII_PI3_BADDRESS>`      |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI3_WRDATA <SDRAM_DFII_PI3_WRDATA>`               | :ref:`0x0000385c <SDRAM_DFII_PI3_WRDATA>`        |
+| :ref:`SDRAM_DFII_PI3_WRDATA <SDRAM_DFII_PI3_WRDATA>`               | :ref:`0x0000405c <SDRAM_DFII_PI3_WRDATA>`        |
 +--------------------------------------------------------------------+--------------------------------------------------+
-| :ref:`SDRAM_DFII_PI3_RDDATA <SDRAM_DFII_PI3_RDDATA>`               | :ref:`0x00003860 <SDRAM_DFII_PI3_RDDATA>`        |
+| :ref:`SDRAM_DFII_PI3_RDDATA <SDRAM_DFII_PI3_RDDATA>`               | :ref:`0x00004060 <SDRAM_DFII_PI3_RDDATA>`        |
 +--------------------------------------------------------------------+--------------------------------------------------+
 
 SDRAM_DFII_CONTROL
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x0 = 0x00003800`
+`Address: 0x00004000 + 0x0 = 0x00004000`
 
     Control DFI signals common to all phases
 
@@ -102,7 +102,7 @@ SDRAM_DFII_CONTROL
 SDRAM_DFII_PI0_COMMAND
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x4 = 0x00003804`
+`Address: 0x00004000 + 0x4 = 0x00004004`
 
     Control DFI signals on a single phase
 
@@ -141,7 +141,7 @@ SDRAM_DFII_PI0_COMMAND
 SDRAM_DFII_PI0_COMMAND_ISSUE
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x8 = 0x00003808`
+`Address: 0x00004000 + 0x8 = 0x00004008`
 
 
     .. wavedrom::
@@ -158,7 +158,7 @@ SDRAM_DFII_PI0_COMMAND_ISSUE
 SDRAM_DFII_PI0_ADDRESS
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0xc = 0x0000380c`
+`Address: 0x00004000 + 0xc = 0x0000400c`
 
     DFI address bus
 
@@ -176,7 +176,7 @@ SDRAM_DFII_PI0_ADDRESS
 SDRAM_DFII_PI0_BADDRESS
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x10 = 0x00003810`
+`Address: 0x00004000 + 0x10 = 0x00004010`
 
     DFI bank address bus
 
@@ -194,7 +194,7 @@ SDRAM_DFII_PI0_BADDRESS
 SDRAM_DFII_PI0_WRDATA
 ^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x14 = 0x00003814`
+`Address: 0x00004000 + 0x14 = 0x00004014`
 
     DFI write data bus
 
@@ -211,7 +211,7 @@ SDRAM_DFII_PI0_WRDATA
 SDRAM_DFII_PI0_RDDATA
 ^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x18 = 0x00003818`
+`Address: 0x00004000 + 0x18 = 0x00004018`
 
     DFI read data bus
 
@@ -228,7 +228,7 @@ SDRAM_DFII_PI0_RDDATA
 SDRAM_DFII_PI1_COMMAND
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x1c = 0x0000381c`
+`Address: 0x00004000 + 0x1c = 0x0000401c`
 
     Control DFI signals on a single phase
 
@@ -267,7 +267,7 @@ SDRAM_DFII_PI1_COMMAND
 SDRAM_DFII_PI1_COMMAND_ISSUE
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x20 = 0x00003820`
+`Address: 0x00004000 + 0x20 = 0x00004020`
 
 
     .. wavedrom::
@@ -284,7 +284,7 @@ SDRAM_DFII_PI1_COMMAND_ISSUE
 SDRAM_DFII_PI1_ADDRESS
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x24 = 0x00003824`
+`Address: 0x00004000 + 0x24 = 0x00004024`
 
     DFI address bus
 
@@ -302,7 +302,7 @@ SDRAM_DFII_PI1_ADDRESS
 SDRAM_DFII_PI1_BADDRESS
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x28 = 0x00003828`
+`Address: 0x00004000 + 0x28 = 0x00004028`
 
     DFI bank address bus
 
@@ -320,7 +320,7 @@ SDRAM_DFII_PI1_BADDRESS
 SDRAM_DFII_PI1_WRDATA
 ^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x2c = 0x0000382c`
+`Address: 0x00004000 + 0x2c = 0x0000402c`
 
     DFI write data bus
 
@@ -337,7 +337,7 @@ SDRAM_DFII_PI1_WRDATA
 SDRAM_DFII_PI1_RDDATA
 ^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x30 = 0x00003830`
+`Address: 0x00004000 + 0x30 = 0x00004030`
 
     DFI read data bus
 
@@ -354,7 +354,7 @@ SDRAM_DFII_PI1_RDDATA
 SDRAM_DFII_PI2_COMMAND
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x34 = 0x00003834`
+`Address: 0x00004000 + 0x34 = 0x00004034`
 
     Control DFI signals on a single phase
 
@@ -393,7 +393,7 @@ SDRAM_DFII_PI2_COMMAND
 SDRAM_DFII_PI2_COMMAND_ISSUE
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x38 = 0x00003838`
+`Address: 0x00004000 + 0x38 = 0x00004038`
 
 
     .. wavedrom::
@@ -410,7 +410,7 @@ SDRAM_DFII_PI2_COMMAND_ISSUE
 SDRAM_DFII_PI2_ADDRESS
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x3c = 0x0000383c`
+`Address: 0x00004000 + 0x3c = 0x0000403c`
 
     DFI address bus
 
@@ -428,7 +428,7 @@ SDRAM_DFII_PI2_ADDRESS
 SDRAM_DFII_PI2_BADDRESS
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x40 = 0x00003840`
+`Address: 0x00004000 + 0x40 = 0x00004040`
 
     DFI bank address bus
 
@@ -446,7 +446,7 @@ SDRAM_DFII_PI2_BADDRESS
 SDRAM_DFII_PI2_WRDATA
 ^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x44 = 0x00003844`
+`Address: 0x00004000 + 0x44 = 0x00004044`
 
     DFI write data bus
 
@@ -463,7 +463,7 @@ SDRAM_DFII_PI2_WRDATA
 SDRAM_DFII_PI2_RDDATA
 ^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x48 = 0x00003848`
+`Address: 0x00004000 + 0x48 = 0x00004048`
 
     DFI read data bus
 
@@ -480,7 +480,7 @@ SDRAM_DFII_PI2_RDDATA
 SDRAM_DFII_PI3_COMMAND
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x4c = 0x0000384c`
+`Address: 0x00004000 + 0x4c = 0x0000404c`
 
     Control DFI signals on a single phase
 
@@ -519,7 +519,7 @@ SDRAM_DFII_PI3_COMMAND
 SDRAM_DFII_PI3_COMMAND_ISSUE
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x50 = 0x00003850`
+`Address: 0x00004000 + 0x50 = 0x00004050`
 
 
     .. wavedrom::
@@ -536,7 +536,7 @@ SDRAM_DFII_PI3_COMMAND_ISSUE
 SDRAM_DFII_PI3_ADDRESS
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x54 = 0x00003854`
+`Address: 0x00004000 + 0x54 = 0x00004054`
 
     DFI address bus
 
@@ -554,7 +554,7 @@ SDRAM_DFII_PI3_ADDRESS
 SDRAM_DFII_PI3_BADDRESS
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x58 = 0x00003858`
+`Address: 0x00004000 + 0x58 = 0x00004058`
 
     DFI bank address bus
 
@@ -572,7 +572,7 @@ SDRAM_DFII_PI3_BADDRESS
 SDRAM_DFII_PI3_WRDATA
 ^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x5c = 0x0000385c`
+`Address: 0x00004000 + 0x5c = 0x0000405c`
 
     DFI write data bus
 
@@ -589,7 +589,7 @@ SDRAM_DFII_PI3_WRDATA
 SDRAM_DFII_PI3_RDDATA
 ^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x60 = 0x00003860`
+`Address: 0x00004000 + 0x60 = 0x00004060`
 
     DFI read data bus
 

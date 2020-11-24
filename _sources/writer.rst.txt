@@ -1,49 +1,57 @@
 WRITER
 ======
 
+
+
+DMA DRAM writer.
+
+Allows to fill DRAM with a predefined pattern using DMA.
+
+Pattern
+-------
+
+
+Provides RAM to store access pattern: `mem_addr` and `mem_data`.
+The pattern address space can be limited using the `data_mask`.
+
+For example, having `mem_adr` filled with `[ 0x04, 0x02, 0x03, ... ]`
+and `mem_data` filled with `[ 0xff, 0xaa, 0x55, ... ]` and setting
+`data_mask = 0b01`, the pattern [(address, data), ...] written will be:
+`[(0x04, 0xff), (0x02, 0xaa), (0x04, 0xff), ...]` (wraps due to masking).
+
+DRAM memory range that is being accessed can be configured using `mem_mask`.
+
+To use this module, make sure that `ready` is 1, then write the desired
+number of transfers to `count`. Writing to the `start` CSR will initialize
+the operation. When the operation is ongoing `ready` will be 0.
+
+
+
 Register Listing for WRITER
 ---------------------------
 
 +--------------------------------------------+--------------------------------------+
 | Register                                   | Address                              |
 +============================================+======================================+
-| :ref:`WRITER_RESET <WRITER_RESET>`         | :ref:`0x00005800 <WRITER_RESET>`     |
+| :ref:`WRITER_START <WRITER_START>`         | :ref:`0x00005800 <WRITER_START>`     |
 +--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_START <WRITER_START>`         | :ref:`0x00005804 <WRITER_START>`     |
+| :ref:`WRITER_READY <WRITER_READY>`         | :ref:`0x00005804 <WRITER_READY>`     |
 +--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_DONE <WRITER_DONE>`           | :ref:`0x00005808 <WRITER_DONE>`      |
+| :ref:`WRITER_COUNT <WRITER_COUNT>`         | :ref:`0x00005808 <WRITER_COUNT>`     |
 +--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_COUNT <WRITER_COUNT>`         | :ref:`0x0000580c <WRITER_COUNT>`     |
+| :ref:`WRITER_DONE <WRITER_DONE>`           | :ref:`0x0000580c <WRITER_DONE>`      |
 +--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_MEM_BASE <WRITER_MEM_BASE>`   | :ref:`0x00005810 <WRITER_MEM_BASE>`  |
+| :ref:`WRITER_MEM_MASK <WRITER_MEM_MASK>`   | :ref:`0x00005810 <WRITER_MEM_MASK>`  |
 +--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_MEM_MASK <WRITER_MEM_MASK>`   | :ref:`0x00005814 <WRITER_MEM_MASK>`  |
+| :ref:`WRITER_DATA_MASK <WRITER_DATA_MASK>` | :ref:`0x00005814 <WRITER_DATA_MASK>` |
 +--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_DATA_MASK <WRITER_DATA_MASK>` | :ref:`0x00005818 <WRITER_DATA_MASK>` |
-+--------------------------------------------+--------------------------------------+
-
-WRITER_RESET
-^^^^^^^^^^^^
-
-`Address: 0x00005800 + 0x0 = 0x00005800`
-
-
-    .. wavedrom::
-        :caption: WRITER_RESET
-
-        {
-            "reg": [
-                {"name": "reset", "bits": 1},
-                {"bits": 31},
-            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
-        }
-
 
 WRITER_START
 ^^^^^^^^^^^^
 
-`Address: 0x00005800 + 0x4 = 0x00005804`
+`Address: 0x00005800 + 0x0 = 0x00005800`
 
+    Write to the register starts the transfer (if ready=1)
 
     .. wavedrom::
         :caption: WRITER_START
@@ -56,18 +64,19 @@ WRITER_START
         }
 
 
-WRITER_DONE
-^^^^^^^^^^^
+WRITER_READY
+^^^^^^^^^^^^
 
-`Address: 0x00005800 + 0x8 = 0x00005808`
+`Address: 0x00005800 + 0x4 = 0x00005804`
 
+    Indicates that the transfer is not ongoing
 
     .. wavedrom::
-        :caption: WRITER_DONE
+        :caption: WRITER_READY
 
         {
             "reg": [
-                {"name": "done", "bits": 1},
+                {"name": "ready", "bits": 1},
                 {"bits": 31},
             ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
         }
@@ -76,8 +85,9 @@ WRITER_DONE
 WRITER_COUNT
 ^^^^^^^^^^^^
 
-`Address: 0x00005800 + 0xc = 0x0000580c`
+`Address: 0x00005800 + 0x8 = 0x00005808`
 
+    Desired number of DMA transfers
 
     .. wavedrom::
         :caption: WRITER_COUNT
@@ -89,18 +99,19 @@ WRITER_COUNT
         }
 
 
-WRITER_MEM_BASE
-^^^^^^^^^^^^^^^
+WRITER_DONE
+^^^^^^^^^^^
 
-`Address: 0x00005800 + 0x10 = 0x00005810`
+`Address: 0x00005800 + 0xc = 0x0000580c`
 
+    Number of completed DMA transfers
 
     .. wavedrom::
-        :caption: WRITER_MEM_BASE
+        :caption: WRITER_DONE
 
         {
             "reg": [
-                {"name": "mem_base[31:0]", "bits": 32}
+                {"name": "done[31:0]", "bits": 32}
             ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
         }
 
@@ -108,8 +119,9 @@ WRITER_MEM_BASE
 WRITER_MEM_MASK
 ^^^^^^^^^^^^^^^
 
-`Address: 0x00005800 + 0x14 = 0x00005814`
+`Address: 0x00005800 + 0x10 = 0x00005810`
 
+    DRAM address mask for DMA transfers
 
     .. wavedrom::
         :caption: WRITER_MEM_MASK
@@ -124,8 +136,9 @@ WRITER_MEM_MASK
 WRITER_DATA_MASK
 ^^^^^^^^^^^^^^^^
 
-`Address: 0x00005800 + 0x18 = 0x00005818`
+`Address: 0x00005800 + 0x14 = 0x00005814`
 
+    Pattern memory address mask
 
     .. wavedrom::
         :caption: WRITER_DATA_MASK

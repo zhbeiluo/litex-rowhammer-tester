@@ -37,6 +37,21 @@
             
   <div class="section" id="writer">
 <h1>WRITER<a class="headerlink" href="#writer" title="Permalink to this headline">¶</a></h1>
+<p>DMA DRAM writer.</p>
+<p>Allows to fill DRAM with a predefined pattern using DMA.</p>
+<div class="section" id="pattern">
+<h2>Pattern<a class="headerlink" href="#pattern" title="Permalink to this headline">¶</a></h2>
+<p>Provides RAM to store access pattern: <cite>mem_addr</cite> and <cite>mem_data</cite>.
+The pattern address space can be limited using the <cite>data_mask</cite>.</p>
+<p>For example, having <cite>mem_adr</cite> filled with <cite>[ 0x04, 0x02, 0x03, … ]</cite>
+and <cite>mem_data</cite> filled with <cite>[ 0xff, 0xaa, 0x55, … ]</cite> and setting
+<cite>data_mask = 0b01</cite>, the pattern [(address, data), …] written will be:
+<cite>[(0x04, 0xff), (0x02, 0xaa), (0x04, 0xff), …]</cite> (wraps due to masking).</p>
+<p>DRAM memory range that is being accessed can be configured using <cite>mem_mask</cite>.</p>
+<p>To use this module, make sure that <cite>ready</cite> is 1, then write the desired
+number of transfers to <cite>count</cite>. Writing to the <cite>start</cite> CSR will initialize
+the operation. When the operation is ongoing <cite>ready</cite> will be 0.</p>
+</div>
 <div class="section" id="register-listing-for-writer">
 <h2>Register Listing for WRITER<a class="headerlink" href="#register-listing-for-writer" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
@@ -50,51 +65,32 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="#writer-reset"><span class="std std-ref">WRITER_RESET</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-reset"><span class="std std-ref">0x00005800</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#writer-start"><span class="std std-ref">WRITER_START</span></a></p></td>
+<td><p><a class="reference internal" href="#writer-start"><span class="std std-ref">0x00005800</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#writer-start"><span class="std std-ref">WRITER_START</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-start"><span class="std std-ref">0x00005804</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#writer-ready"><span class="std std-ref">WRITER_READY</span></a></p></td>
+<td><p><a class="reference internal" href="#writer-ready"><span class="std std-ref">0x00005804</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#writer-done"><span class="std std-ref">WRITER_DONE</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-done"><span class="std std-ref">0x00005808</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#writer-count"><span class="std std-ref">WRITER_COUNT</span></a></p></td>
+<td><p><a class="reference internal" href="#writer-count"><span class="std std-ref">0x00005808</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#writer-count"><span class="std std-ref">WRITER_COUNT</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-count"><span class="std std-ref">0x0000580c</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#writer-done"><span class="std std-ref">WRITER_DONE</span></a></p></td>
+<td><p><a class="reference internal" href="#writer-done"><span class="std std-ref">0x0000580c</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#writer-mem-base"><span class="std std-ref">WRITER_MEM_BASE</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-mem-base"><span class="std std-ref">0x00005810</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#writer-mem-mask"><span class="std std-ref">WRITER_MEM_MASK</span></a></p></td>
+<td><p><a class="reference internal" href="#writer-mem-mask"><span class="std std-ref">0x00005810</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#writer-mem-mask"><span class="std std-ref">WRITER_MEM_MASK</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-mem-mask"><span class="std std-ref">0x00005814</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#writer-data-mask"><span class="std std-ref">WRITER_DATA_MASK</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-data-mask"><span class="std std-ref">0x00005818</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#writer-data-mask"><span class="std std-ref">WRITER_DATA_MASK</span></a></p></td>
+<td><p><a class="reference internal" href="#writer-data-mask"><span class="std std-ref">0x00005814</span></a></p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="writer-reset">
-<h3>WRITER_RESET<a class="headerlink" href="#writer-reset" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0x0 = 0x00005800</cite></p>
-<blockquote>
-<div>
-<div style="overflow-x:auto">
-<script type="WaveDrom">
-{
-    "reg": [
-        {"name": "reset", "bits": 1},
-        {"bits": 31},
-    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
-}
-</script>
-</div>
-</div></blockquote>
-</div>
 <div class="section" id="writer-start">
 <h3>WRITER_START<a class="headerlink" href="#writer-start" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0x4 = 0x00005804</cite></p>
+<p><cite>Address: 0x00005800 + 0x0 = 0x00005800</cite></p>
 <blockquote>
-<div>
+<div><p>Write to the register starts the transfer (if ready=1)</p>
+
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
@@ -107,16 +103,17 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="writer-done">
-<h3>WRITER_DONE<a class="headerlink" href="#writer-done" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0x8 = 0x00005808</cite></p>
+<div class="section" id="writer-ready">
+<h3>WRITER_READY<a class="headerlink" href="#writer-ready" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00005800 + 0x4 = 0x00005804</cite></p>
 <blockquote>
-<div>
+<div><p>Indicates that the transfer is not ongoing</p>
+
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
     "reg": [
-        {"name": "done", "bits": 1},
+        {"name": "ready", "bits": 1},
         {"bits": 31},
     ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
 }
@@ -126,9 +123,10 @@
 </div>
 <div class="section" id="writer-count">
 <h3>WRITER_COUNT<a class="headerlink" href="#writer-count" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0xc = 0x0000580c</cite></p>
+<p><cite>Address: 0x00005800 + 0x8 = 0x00005808</cite></p>
 <blockquote>
-<div>
+<div><p>Desired number of DMA transfers</p>
+
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
@@ -140,16 +138,17 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="writer-mem-base">
-<h3>WRITER_MEM_BASE<a class="headerlink" href="#writer-mem-base" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0x10 = 0x00005810</cite></p>
+<div class="section" id="writer-done">
+<h3>WRITER_DONE<a class="headerlink" href="#writer-done" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x00005800 + 0xc = 0x0000580c</cite></p>
 <blockquote>
-<div>
+<div><p>Number of completed DMA transfers</p>
+
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
     "reg": [
-        {"name": "mem_base[31:0]", "bits": 32}
+        {"name": "done[31:0]", "bits": 32}
     ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
 }
 </script>
@@ -158,9 +157,10 @@
 </div>
 <div class="section" id="writer-mem-mask">
 <h3>WRITER_MEM_MASK<a class="headerlink" href="#writer-mem-mask" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0x14 = 0x00005814</cite></p>
+<p><cite>Address: 0x00005800 + 0x10 = 0x00005810</cite></p>
 <blockquote>
-<div>
+<div><p>DRAM address mask for DMA transfers</p>
+
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
@@ -174,9 +174,10 @@
 </div>
 <div class="section" id="writer-data-mask">
 <h3>WRITER_DATA_MASK<a class="headerlink" href="#writer-data-mask" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0x18 = 0x00005818</cite></p>
+<p><cite>Address: 0x00005800 + 0x14 = 0x00005814</cite></p>
 <blockquote>
-<div>
+<div><p>Pattern memory address mask</p>
+
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
@@ -222,11 +223,11 @@
 <li class="toctree-l1"><a class="reference internal" href="identifier_mem.html">IDENTIFIER_MEM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="uart.html">UART</a></li>
 <li class="toctree-l1"><a class="reference internal" href="timer0.html">TIMER0</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controller_settings.html">CONTROLLER_SETTINGS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="leds.html">LEDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ddrphy.html">DDRPHY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controller_settings.html">CONTROLLER_SETTINGS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdram.html">SDRAM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ethphy.html">ETHPHY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="leds.html">LEDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rowhammer.html">ROWHAMMER</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">WRITER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reader.html">READER</a></li>

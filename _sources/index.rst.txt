@@ -22,11 +22,11 @@ Register Groups
     identifier_mem
     uart
     timer0
-    controller_settings
+    leds
     ddrphy
+    controller_settings
     sdram
     ethphy
-    leds
     rowhammer
     writer
     reader

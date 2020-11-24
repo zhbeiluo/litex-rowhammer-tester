@@ -1,19 +1,23 @@
 CONTROLLER_SETTINGS
 ===================
 
+Allows to change LiteDRAMController behaviour at runtime
+--------------------------------------------------------
+
+
 Register Listing for CONTROLLER_SETTINGS
 ----------------------------------------
 
 +------------------------------------------------------------------+-------------------------------------------------+
 | Register                                                         | Address                                         |
 +==================================================================+=================================================+
-| :ref:`CONTROLLER_SETTINGS_REFRESH <CONTROLLER_SETTINGS_REFRESH>` | :ref:`0x00002800 <CONTROLLER_SETTINGS_REFRESH>` |
+| :ref:`CONTROLLER_SETTINGS_REFRESH <CONTROLLER_SETTINGS_REFRESH>` | :ref:`0x00003800 <CONTROLLER_SETTINGS_REFRESH>` |
 +------------------------------------------------------------------+-------------------------------------------------+
 
 CONTROLLER_SETTINGS_REFRESH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00002800 + 0x0 = 0x00002800`
+`Address: 0x00003800 + 0x0 = 0x00003800`
 
     Enable/disable Refresh commands sending
 
