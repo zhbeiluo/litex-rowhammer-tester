@@ -51,19 +51,19 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="#ctrl-reset"><span class="std std-ref">CTRL_RESET</span></a></p></td>
-<td><p><a class="reference internal" href="#ctrl-reset"><span class="std std-ref">0x00000000</span></a></p></td>
+<td><p><a class="reference internal" href="#ctrl-reset"><span class="std std-ref">0x82000000</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ctrl-scratch"><span class="std std-ref">CTRL_SCRATCH</span></a></p></td>
-<td><p><a class="reference internal" href="#ctrl-scratch"><span class="std std-ref">0x00000004</span></a></p></td>
+<td><p><a class="reference internal" href="#ctrl-scratch"><span class="std std-ref">0x82000004</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#ctrl-bus-errors"><span class="std std-ref">CTRL_BUS_ERRORS</span></a></p></td>
-<td><p><a class="reference internal" href="#ctrl-bus-errors"><span class="std std-ref">0x00000008</span></a></p></td>
+<td><p><a class="reference internal" href="#ctrl-bus-errors"><span class="std std-ref">0x82000008</span></a></p></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="ctrl-reset">
 <h3>CTRL_RESET<a class="headerlink" href="#ctrl-reset" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00000000 + 0x0 = 0x00000000</cite></p>
+<p><cite>Address: 0x82000000 + 0x0 = 0x82000000</cite></p>
 <blockquote>
 <div><p>Write a <code class="docutils literal notranslate"><span class="pre">1</span></code> to this register to reset the SoC.</p>
 
@@ -81,7 +81,7 @@
 </div>
 <div class="section" id="ctrl-scratch">
 <h3>CTRL_SCRATCH<a class="headerlink" href="#ctrl-scratch" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00000000 + 0x4 = 0x00000004</cite></p>
+<p><cite>Address: 0x82000000 + 0x4 = 0x82000004</cite></p>
 <blockquote>
 <div><p>Use this register as a scratch space to verify that software read/write accesses
 to the Wishbone/CSR bus are working correctly. The initial reset value of
@@ -100,7 +100,7 @@ to the Wishbone/CSR bus are working correctly. The initial reset value of
 </div>
 <div class="section" id="ctrl-bus-errors">
 <h3>CTRL_BUS_ERRORS<a class="headerlink" href="#ctrl-bus-errors" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00000000 + 0x8 = 0x00000008</cite></p>
+<p><cite>Address: 0x82000000 + 0x8 = 0x82000008</cite></p>
 <blockquote>
 <div><p>Total number of Wishbone bus errors (timeouts) since start.</p>
 
@@ -153,6 +153,7 @@ to the Wishbone/CSR bus are working correctly. The initial reset value of
 <li class="toctree-l1"><a class="reference internal" href="ddrphy.html">DDRPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller_settings.html">CONTROLLER_SETTINGS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdram.html">SDRAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ddrctrl.html">DDRCTRL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ethphy.html">ETHPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rowhammer.html">ROWHAMMER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="writer.html">WRITER</a></li>

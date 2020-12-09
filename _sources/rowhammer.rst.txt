@@ -18,19 +18,19 @@ Register Listing for ROWHAMMER
 +------------------------------------------------+----------------------------------------+
 | Register                                       | Address                                |
 +================================================+========================================+
-| :ref:`ROWHAMMER_ENABLED <ROWHAMMER_ENABLED>`   | :ref:`0x00005000 <ROWHAMMER_ENABLED>`  |
+| :ref:`ROWHAMMER_ENABLED <ROWHAMMER_ENABLED>`   | :ref:`0x82006000 <ROWHAMMER_ENABLED>`  |
 +------------------------------------------------+----------------------------------------+
-| :ref:`ROWHAMMER_ADDRESS1 <ROWHAMMER_ADDRESS1>` | :ref:`0x00005004 <ROWHAMMER_ADDRESS1>` |
+| :ref:`ROWHAMMER_ADDRESS1 <ROWHAMMER_ADDRESS1>` | :ref:`0x82006004 <ROWHAMMER_ADDRESS1>` |
 +------------------------------------------------+----------------------------------------+
-| :ref:`ROWHAMMER_ADDRESS2 <ROWHAMMER_ADDRESS2>` | :ref:`0x00005008 <ROWHAMMER_ADDRESS2>` |
+| :ref:`ROWHAMMER_ADDRESS2 <ROWHAMMER_ADDRESS2>` | :ref:`0x82006008 <ROWHAMMER_ADDRESS2>` |
 +------------------------------------------------+----------------------------------------+
-| :ref:`ROWHAMMER_COUNT <ROWHAMMER_COUNT>`       | :ref:`0x0000500c <ROWHAMMER_COUNT>`    |
+| :ref:`ROWHAMMER_COUNT <ROWHAMMER_COUNT>`       | :ref:`0x8200600c <ROWHAMMER_COUNT>`    |
 +------------------------------------------------+----------------------------------------+
 
 ROWHAMMER_ENABLED
 ^^^^^^^^^^^^^^^^^
 
-`Address: 0x00005000 + 0x0 = 0x00005000`
+`Address: 0x82006000 + 0x0 = 0x82006000`
 
     Used to start/stop the operation of the module
 
@@ -48,7 +48,7 @@ ROWHAMMER_ENABLED
 ROWHAMMER_ADDRESS1
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00005000 + 0x4 = 0x00005004`
+`Address: 0x82006000 + 0x4 = 0x82006004`
 
     First attacked address
 
@@ -66,7 +66,7 @@ ROWHAMMER_ADDRESS1
 ROWHAMMER_ADDRESS2
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00005000 + 0x8 = 0x00005008`
+`Address: 0x82006000 + 0x8 = 0x82006008`
 
     Second attacked address
 
@@ -84,7 +84,7 @@ ROWHAMMER_ADDRESS2
 ROWHAMMER_COUNT
 ^^^^^^^^^^^^^^^
 
-`Address: 0x00005000 + 0xc = 0x0000500c`
+`Address: 0x82006000 + 0xc = 0x8200600c`
 
     This is the number of DMA accesses performed. When the module is enabled, the
     value can be freely read. When the module is disabled, the register is clear-on-

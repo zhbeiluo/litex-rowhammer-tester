@@ -1,0 +1,48 @@
+DDRCTRL
+=======
+
+Register Listing for DDRCTRL
+----------------------------
+
++------------------------------------------------+----------------------------------------+
+| Register                                       | Address                                |
++================================================+========================================+
+| :ref:`DDRCTRL_INIT_DONE <DDRCTRL_INIT_DONE>`   | :ref:`0x82005000 <DDRCTRL_INIT_DONE>`  |
++------------------------------------------------+----------------------------------------+
+| :ref:`DDRCTRL_INIT_ERROR <DDRCTRL_INIT_ERROR>` | :ref:`0x82005004 <DDRCTRL_INIT_ERROR>` |
++------------------------------------------------+----------------------------------------+
+
+DDRCTRL_INIT_DONE
+^^^^^^^^^^^^^^^^^
+
+`Address: 0x82005000 + 0x0 = 0x82005000`
+
+
+    .. wavedrom::
+        :caption: DDRCTRL_INIT_DONE
+
+        {
+            "reg": [
+                {"name": "init_done", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+DDRCTRL_INIT_ERROR
+^^^^^^^^^^^^^^^^^^
+
+`Address: 0x82005000 + 0x4 = 0x82005004`
+
+
+    .. wavedrom::
+        :caption: DDRCTRL_INIT_ERROR
+
+        {
+            "reg": [
+                {"name": "init_error", "bits": 1},
+                {"bits": 31},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+

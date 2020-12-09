@@ -7,17 +7,17 @@ Register Listing for ETHPHY
 +--------------------------------------------+--------------------------------------+
 | Register                                   | Address                              |
 +============================================+======================================+
-| :ref:`ETHPHY_CRG_RESET <ETHPHY_CRG_RESET>` | :ref:`0x00004800 <ETHPHY_CRG_RESET>` |
+| :ref:`ETHPHY_CRG_RESET <ETHPHY_CRG_RESET>` | :ref:`0x82005800 <ETHPHY_CRG_RESET>` |
 +--------------------------------------------+--------------------------------------+
-| :ref:`ETHPHY_MDIO_W <ETHPHY_MDIO_W>`       | :ref:`0x00004804 <ETHPHY_MDIO_W>`    |
+| :ref:`ETHPHY_MDIO_W <ETHPHY_MDIO_W>`       | :ref:`0x82005804 <ETHPHY_MDIO_W>`    |
 +--------------------------------------------+--------------------------------------+
-| :ref:`ETHPHY_MDIO_R <ETHPHY_MDIO_R>`       | :ref:`0x00004808 <ETHPHY_MDIO_R>`    |
+| :ref:`ETHPHY_MDIO_R <ETHPHY_MDIO_R>`       | :ref:`0x82005808 <ETHPHY_MDIO_R>`    |
 +--------------------------------------------+--------------------------------------+
 
 ETHPHY_CRG_RESET
 ^^^^^^^^^^^^^^^^
 
-`Address: 0x00004800 + 0x0 = 0x00004800`
+`Address: 0x82005800 + 0x0 = 0x82005800`
 
 
     .. wavedrom::
@@ -34,7 +34,7 @@ ETHPHY_CRG_RESET
 ETHPHY_MDIO_W
 ^^^^^^^^^^^^^
 
-`Address: 0x00004800 + 0x4 = 0x00004804`
+`Address: 0x82005800 + 0x4 = 0x82005804`
 
 
     .. wavedrom::
@@ -60,7 +60,7 @@ ETHPHY_MDIO_W
 ETHPHY_MDIO_R
 ^^^^^^^^^^^^^
 
-`Address: 0x00004800 + 0x8 = 0x00004808`
+`Address: 0x82005800 + 0x8 = 0x82005808`
 
 
     .. wavedrom::

@@ -11,13 +11,13 @@ Register Listing for CONTROLLER_SETTINGS
 +------------------------------------------------------------------+-------------------------------------------------+
 | Register                                                         | Address                                         |
 +==================================================================+=================================================+
-| :ref:`CONTROLLER_SETTINGS_REFRESH <CONTROLLER_SETTINGS_REFRESH>` | :ref:`0x00003800 <CONTROLLER_SETTINGS_REFRESH>` |
+| :ref:`CONTROLLER_SETTINGS_REFRESH <CONTROLLER_SETTINGS_REFRESH>` | :ref:`0x82004000 <CONTROLLER_SETTINGS_REFRESH>` |
 +------------------------------------------------------------------+-------------------------------------------------+
 
 CONTROLLER_SETTINGS_REFRESH
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003800 + 0x0 = 0x00003800`
+`Address: 0x82004000 + 0x0 = 0x82004000`
 
     Enable/disable Refresh commands sending
 

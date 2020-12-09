@@ -12,7 +12,11 @@ Assigned Interrupts
 
 The following interrupts are assigned on this system:
 
-+-----------+--------+
-| Interrupt | Module |
-+===========+========+
++-----------+------------------------+
+| Interrupt | Module                 |
++===========+========================+
+| 1         | :doc:`TIMER0 <timer0>` |
++-----------+------------------------+
+| 0         | :doc:`UART <uart>`     |
++-----------+------------------------+
 

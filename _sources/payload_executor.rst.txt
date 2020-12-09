@@ -55,17 +55,17 @@ Register Listing for PAYLOAD_EXECUTOR
 +------------------------------------------------------------------+-------------------------------------------------+
 | Register                                                         | Address                                         |
 +==================================================================+=================================================+
-| :ref:`PAYLOAD_EXECUTOR_START <PAYLOAD_EXECUTOR_START>`           | :ref:`0x00006800 <PAYLOAD_EXECUTOR_START>`      |
+| :ref:`PAYLOAD_EXECUTOR_START <PAYLOAD_EXECUTOR_START>`           | :ref:`0x82007800 <PAYLOAD_EXECUTOR_START>`      |
 +------------------------------------------------------------------+-------------------------------------------------+
-| :ref:`PAYLOAD_EXECUTOR_STATUS <PAYLOAD_EXECUTOR_STATUS>`         | :ref:`0x00006804 <PAYLOAD_EXECUTOR_STATUS>`     |
+| :ref:`PAYLOAD_EXECUTOR_STATUS <PAYLOAD_EXECUTOR_STATUS>`         | :ref:`0x82007804 <PAYLOAD_EXECUTOR_STATUS>`     |
 +------------------------------------------------------------------+-------------------------------------------------+
-| :ref:`PAYLOAD_EXECUTOR_READ_COUNT <PAYLOAD_EXECUTOR_READ_COUNT>` | :ref:`0x00006808 <PAYLOAD_EXECUTOR_READ_COUNT>` |
+| :ref:`PAYLOAD_EXECUTOR_READ_COUNT <PAYLOAD_EXECUTOR_READ_COUNT>` | :ref:`0x82007808 <PAYLOAD_EXECUTOR_READ_COUNT>` |
 +------------------------------------------------------------------+-------------------------------------------------+
 
 PAYLOAD_EXECUTOR_START
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00006800 + 0x0 = 0x00006800`
+`Address: 0x82007800 + 0x0 = 0x82007800`
 
     Writing to this register initializes payload execution
 
@@ -83,7 +83,7 @@ PAYLOAD_EXECUTOR_START
 PAYLOAD_EXECUTOR_STATUS
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00006800 + 0x4 = 0x00006804`
+`Address: 0x82007800 + 0x4 = 0x82007804`
 
     Payload executor status register
 
@@ -111,7 +111,7 @@ PAYLOAD_EXECUTOR_STATUS
 PAYLOAD_EXECUTOR_READ_COUNT
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00006800 + 0x8 = 0x00006808`
+`Address: 0x82007800 + 0x8 = 0x82007808`
 
     Number of data from READ commands that is stored in the scratchpad memory
 

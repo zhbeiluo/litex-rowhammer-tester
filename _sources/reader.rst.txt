@@ -48,31 +48,31 @@ Register Listing for READER
 +--------------------------------------------------+-----------------------------------------+
 | Register                                         | Address                                 |
 +==================================================+=========================================+
-| :ref:`READER_START <READER_START>`               | :ref:`0x00006000 <READER_START>`        |
+| :ref:`READER_START <READER_START>`               | :ref:`0x82007000 <READER_START>`        |
 +--------------------------------------------------+-----------------------------------------+
-| :ref:`READER_READY <READER_READY>`               | :ref:`0x00006004 <READER_READY>`        |
+| :ref:`READER_READY <READER_READY>`               | :ref:`0x82007004 <READER_READY>`        |
 +--------------------------------------------------+-----------------------------------------+
-| :ref:`READER_COUNT <READER_COUNT>`               | :ref:`0x00006008 <READER_COUNT>`        |
+| :ref:`READER_COUNT <READER_COUNT>`               | :ref:`0x82007008 <READER_COUNT>`        |
 +--------------------------------------------------+-----------------------------------------+
-| :ref:`READER_DONE <READER_DONE>`                 | :ref:`0x0000600c <READER_DONE>`         |
+| :ref:`READER_DONE <READER_DONE>`                 | :ref:`0x8200700c <READER_DONE>`         |
 +--------------------------------------------------+-----------------------------------------+
-| :ref:`READER_MEM_MASK <READER_MEM_MASK>`         | :ref:`0x00006010 <READER_MEM_MASK>`     |
+| :ref:`READER_MEM_MASK <READER_MEM_MASK>`         | :ref:`0x82007010 <READER_MEM_MASK>`     |
 +--------------------------------------------------+-----------------------------------------+
-| :ref:`READER_DATA_MASK <READER_DATA_MASK>`       | :ref:`0x00006014 <READER_DATA_MASK>`    |
+| :ref:`READER_DATA_MASK <READER_DATA_MASK>`       | :ref:`0x82007014 <READER_DATA_MASK>`    |
 +--------------------------------------------------+-----------------------------------------+
-| :ref:`READER_ERROR_COUNT <READER_ERROR_COUNT>`   | :ref:`0x00006018 <READER_ERROR_COUNT>`  |
+| :ref:`READER_ERROR_COUNT <READER_ERROR_COUNT>`   | :ref:`0x82007018 <READER_ERROR_COUNT>`  |
 +--------------------------------------------------+-----------------------------------------+
-| :ref:`READER_SKIP_FIFO <READER_SKIP_FIFO>`       | :ref:`0x0000601c <READER_SKIP_FIFO>`    |
+| :ref:`READER_SKIP_FIFO <READER_SKIP_FIFO>`       | :ref:`0x8200701c <READER_SKIP_FIFO>`    |
 +--------------------------------------------------+-----------------------------------------+
-| :ref:`READER_ERROR_OFFSET <READER_ERROR_OFFSET>` | :ref:`0x00006020 <READER_ERROR_OFFSET>` |
+| :ref:`READER_ERROR_OFFSET <READER_ERROR_OFFSET>` | :ref:`0x82007020 <READER_ERROR_OFFSET>` |
 +--------------------------------------------------+-----------------------------------------+
-| :ref:`READER_ERROR_READY <READER_ERROR_READY>`   | :ref:`0x00006024 <READER_ERROR_READY>`  |
+| :ref:`READER_ERROR_READY <READER_ERROR_READY>`   | :ref:`0x82007024 <READER_ERROR_READY>`  |
 +--------------------------------------------------+-----------------------------------------+
 
 READER_START
 ^^^^^^^^^^^^
 
-`Address: 0x00006000 + 0x0 = 0x00006000`
+`Address: 0x82007000 + 0x0 = 0x82007000`
 
     Write to the register starts the transfer (if ready=1)
 
@@ -90,7 +90,7 @@ READER_START
 READER_READY
 ^^^^^^^^^^^^
 
-`Address: 0x00006000 + 0x4 = 0x00006004`
+`Address: 0x82007000 + 0x4 = 0x82007004`
 
     Indicates that the transfer is not ongoing
 
@@ -108,7 +108,7 @@ READER_READY
 READER_COUNT
 ^^^^^^^^^^^^
 
-`Address: 0x00006000 + 0x8 = 0x00006008`
+`Address: 0x82007000 + 0x8 = 0x82007008`
 
     Desired number of DMA transfers
 
@@ -125,7 +125,7 @@ READER_COUNT
 READER_DONE
 ^^^^^^^^^^^
 
-`Address: 0x00006000 + 0xc = 0x0000600c`
+`Address: 0x82007000 + 0xc = 0x8200700c`
 
     Number of completed DMA transfers
 
@@ -142,7 +142,7 @@ READER_DONE
 READER_MEM_MASK
 ^^^^^^^^^^^^^^^
 
-`Address: 0x00006000 + 0x10 = 0x00006010`
+`Address: 0x82007000 + 0x10 = 0x82007010`
 
     DRAM address mask for DMA transfers
 
@@ -159,7 +159,7 @@ READER_MEM_MASK
 READER_DATA_MASK
 ^^^^^^^^^^^^^^^^
 
-`Address: 0x00006000 + 0x14 = 0x00006014`
+`Address: 0x82007000 + 0x14 = 0x82007014`
 
     Pattern memory address mask
 
@@ -176,7 +176,7 @@ READER_DATA_MASK
 READER_ERROR_COUNT
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00006000 + 0x18 = 0x00006018`
+`Address: 0x82007000 + 0x18 = 0x82007018`
 
     Number of errors detected
 
@@ -193,7 +193,7 @@ READER_ERROR_COUNT
 READER_SKIP_FIFO
 ^^^^^^^^^^^^^^^^
 
-`Address: 0x00006000 + 0x1c = 0x0000601c`
+`Address: 0x82007000 + 0x1c = 0x8200701c`
 
     Skip waiting for user to read the errors FIFO
 
@@ -211,7 +211,7 @@ READER_SKIP_FIFO
 READER_ERROR_OFFSET
 ^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00006000 + 0x20 = 0x00006020`
+`Address: 0x82007000 + 0x20 = 0x82007020`
 
     Current offset of the error
 
@@ -228,7 +228,7 @@ READER_ERROR_OFFSET
 READER_ERROR_READY
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00006000 + 0x24 = 0x00006024`
+`Address: 0x82007000 + 0x24 = 0x82007024`
 
     Error detected and ready to read
 

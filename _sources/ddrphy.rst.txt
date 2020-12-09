@@ -7,33 +7,33 @@ Register Listing for DDRPHY
 +----------------------------------------------------------------+------------------------------------------------+
 | Register                                                       | Address                                        |
 +================================================================+================================================+
-| :ref:`DDRPHY_RST <DDRPHY_RST>`                                 | :ref:`0x00003000 <DDRPHY_RST>`                 |
+| :ref:`DDRPHY_RST <DDRPHY_RST>`                                 | :ref:`0x82003800 <DDRPHY_RST>`                 |
 +----------------------------------------------------------------+------------------------------------------------+
-| :ref:`DDRPHY_HALF_SYS8X_TAPS <DDRPHY_HALF_SYS8X_TAPS>`         | :ref:`0x00003004 <DDRPHY_HALF_SYS8X_TAPS>`     |
+| :ref:`DDRPHY_HALF_SYS8X_TAPS <DDRPHY_HALF_SYS8X_TAPS>`         | :ref:`0x82003804 <DDRPHY_HALF_SYS8X_TAPS>`     |
 +----------------------------------------------------------------+------------------------------------------------+
-| :ref:`DDRPHY_WLEVEL_EN <DDRPHY_WLEVEL_EN>`                     | :ref:`0x00003008 <DDRPHY_WLEVEL_EN>`           |
+| :ref:`DDRPHY_WLEVEL_EN <DDRPHY_WLEVEL_EN>`                     | :ref:`0x82003808 <DDRPHY_WLEVEL_EN>`           |
 +----------------------------------------------------------------+------------------------------------------------+
-| :ref:`DDRPHY_WLEVEL_STROBE <DDRPHY_WLEVEL_STROBE>`             | :ref:`0x0000300c <DDRPHY_WLEVEL_STROBE>`       |
+| :ref:`DDRPHY_WLEVEL_STROBE <DDRPHY_WLEVEL_STROBE>`             | :ref:`0x8200380c <DDRPHY_WLEVEL_STROBE>`       |
 +----------------------------------------------------------------+------------------------------------------------+
-| :ref:`DDRPHY_DLY_SEL <DDRPHY_DLY_SEL>`                         | :ref:`0x00003010 <DDRPHY_DLY_SEL>`             |
+| :ref:`DDRPHY_DLY_SEL <DDRPHY_DLY_SEL>`                         | :ref:`0x82003810 <DDRPHY_DLY_SEL>`             |
 +----------------------------------------------------------------+------------------------------------------------+
-| :ref:`DDRPHY_RDLY_DQ_RST <DDRPHY_RDLY_DQ_RST>`                 | :ref:`0x00003014 <DDRPHY_RDLY_DQ_RST>`         |
+| :ref:`DDRPHY_RDLY_DQ_RST <DDRPHY_RDLY_DQ_RST>`                 | :ref:`0x82003814 <DDRPHY_RDLY_DQ_RST>`         |
 +----------------------------------------------------------------+------------------------------------------------+
-| :ref:`DDRPHY_RDLY_DQ_INC <DDRPHY_RDLY_DQ_INC>`                 | :ref:`0x00003018 <DDRPHY_RDLY_DQ_INC>`         |
+| :ref:`DDRPHY_RDLY_DQ_INC <DDRPHY_RDLY_DQ_INC>`                 | :ref:`0x82003818 <DDRPHY_RDLY_DQ_INC>`         |
 +----------------------------------------------------------------+------------------------------------------------+
-| :ref:`DDRPHY_RDLY_DQ_BITSLIP_RST <DDRPHY_RDLY_DQ_BITSLIP_RST>` | :ref:`0x0000301c <DDRPHY_RDLY_DQ_BITSLIP_RST>` |
+| :ref:`DDRPHY_RDLY_DQ_BITSLIP_RST <DDRPHY_RDLY_DQ_BITSLIP_RST>` | :ref:`0x8200381c <DDRPHY_RDLY_DQ_BITSLIP_RST>` |
 +----------------------------------------------------------------+------------------------------------------------+
-| :ref:`DDRPHY_RDLY_DQ_BITSLIP <DDRPHY_RDLY_DQ_BITSLIP>`         | :ref:`0x00003020 <DDRPHY_RDLY_DQ_BITSLIP>`     |
+| :ref:`DDRPHY_RDLY_DQ_BITSLIP <DDRPHY_RDLY_DQ_BITSLIP>`         | :ref:`0x82003820 <DDRPHY_RDLY_DQ_BITSLIP>`     |
 +----------------------------------------------------------------+------------------------------------------------+
-| :ref:`DDRPHY_RDPHASE <DDRPHY_RDPHASE>`                         | :ref:`0x00003024 <DDRPHY_RDPHASE>`             |
+| :ref:`DDRPHY_RDPHASE <DDRPHY_RDPHASE>`                         | :ref:`0x82003824 <DDRPHY_RDPHASE>`             |
 +----------------------------------------------------------------+------------------------------------------------+
-| :ref:`DDRPHY_WRPHASE <DDRPHY_WRPHASE>`                         | :ref:`0x00003028 <DDRPHY_WRPHASE>`             |
+| :ref:`DDRPHY_WRPHASE <DDRPHY_WRPHASE>`                         | :ref:`0x82003828 <DDRPHY_WRPHASE>`             |
 +----------------------------------------------------------------+------------------------------------------------+
 
 DDRPHY_RST
 ^^^^^^^^^^
 
-`Address: 0x00003000 + 0x0 = 0x00003000`
+`Address: 0x82003800 + 0x0 = 0x82003800`
 
 
     .. wavedrom::
@@ -50,7 +50,7 @@ DDRPHY_RST
 DDRPHY_HALF_SYS8X_TAPS
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003000 + 0x4 = 0x00003004`
+`Address: 0x82003800 + 0x4 = 0x82003804`
 
 
     .. wavedrom::
@@ -67,7 +67,7 @@ DDRPHY_HALF_SYS8X_TAPS
 DDRPHY_WLEVEL_EN
 ^^^^^^^^^^^^^^^^
 
-`Address: 0x00003000 + 0x8 = 0x00003008`
+`Address: 0x82003800 + 0x8 = 0x82003808`
 
 
     .. wavedrom::
@@ -84,7 +84,7 @@ DDRPHY_WLEVEL_EN
 DDRPHY_WLEVEL_STROBE
 ^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003000 + 0xc = 0x0000300c`
+`Address: 0x82003800 + 0xc = 0x8200380c`
 
 
     .. wavedrom::
@@ -101,7 +101,7 @@ DDRPHY_WLEVEL_STROBE
 DDRPHY_DLY_SEL
 ^^^^^^^^^^^^^^
 
-`Address: 0x00003000 + 0x10 = 0x00003010`
+`Address: 0x82003800 + 0x10 = 0x82003810`
 
 
     .. wavedrom::
@@ -118,7 +118,7 @@ DDRPHY_DLY_SEL
 DDRPHY_RDLY_DQ_RST
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003000 + 0x14 = 0x00003014`
+`Address: 0x82003800 + 0x14 = 0x82003814`
 
 
     .. wavedrom::
@@ -135,7 +135,7 @@ DDRPHY_RDLY_DQ_RST
 DDRPHY_RDLY_DQ_INC
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003000 + 0x18 = 0x00003018`
+`Address: 0x82003800 + 0x18 = 0x82003818`
 
 
     .. wavedrom::
@@ -152,7 +152,7 @@ DDRPHY_RDLY_DQ_INC
 DDRPHY_RDLY_DQ_BITSLIP_RST
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003000 + 0x1c = 0x0000301c`
+`Address: 0x82003800 + 0x1c = 0x8200381c`
 
 
     .. wavedrom::
@@ -169,7 +169,7 @@ DDRPHY_RDLY_DQ_BITSLIP_RST
 DDRPHY_RDLY_DQ_BITSLIP
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x00003000 + 0x20 = 0x00003020`
+`Address: 0x82003800 + 0x20 = 0x82003820`
 
 
     .. wavedrom::
@@ -186,7 +186,7 @@ DDRPHY_RDLY_DQ_BITSLIP
 DDRPHY_RDPHASE
 ^^^^^^^^^^^^^^
 
-`Address: 0x00003000 + 0x24 = 0x00003024`
+`Address: 0x82003800 + 0x24 = 0x82003824`
 
 
     .. wavedrom::
@@ -203,7 +203,7 @@ DDRPHY_RDPHASE
 DDRPHY_WRPHASE
 ^^^^^^^^^^^^^^
 
-`Address: 0x00003000 + 0x28 = 0x00003028`
+`Address: 0x82003800 + 0x28 = 0x82003828`
 
 
     .. wavedrom::

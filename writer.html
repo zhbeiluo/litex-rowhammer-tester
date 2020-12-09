@@ -66,28 +66,28 @@ the operation. When the operation is ongoing <cite>ready</cite> will be 0.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="#writer-start"><span class="std std-ref">WRITER_START</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-start"><span class="std std-ref">0x00005800</span></a></p></td>
+<td><p><a class="reference internal" href="#writer-start"><span class="std std-ref">0x82006800</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#writer-ready"><span class="std std-ref">WRITER_READY</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-ready"><span class="std std-ref">0x00005804</span></a></p></td>
+<td><p><a class="reference internal" href="#writer-ready"><span class="std std-ref">0x82006804</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#writer-count"><span class="std std-ref">WRITER_COUNT</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-count"><span class="std std-ref">0x00005808</span></a></p></td>
+<td><p><a class="reference internal" href="#writer-count"><span class="std std-ref">0x82006808</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#writer-done"><span class="std std-ref">WRITER_DONE</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-done"><span class="std std-ref">0x0000580c</span></a></p></td>
+<td><p><a class="reference internal" href="#writer-done"><span class="std std-ref">0x8200680c</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#writer-mem-mask"><span class="std std-ref">WRITER_MEM_MASK</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-mem-mask"><span class="std std-ref">0x00005810</span></a></p></td>
+<td><p><a class="reference internal" href="#writer-mem-mask"><span class="std std-ref">0x82006810</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#writer-data-mask"><span class="std std-ref">WRITER_DATA_MASK</span></a></p></td>
-<td><p><a class="reference internal" href="#writer-data-mask"><span class="std std-ref">0x00005814</span></a></p></td>
+<td><p><a class="reference internal" href="#writer-data-mask"><span class="std std-ref">0x82006814</span></a></p></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="writer-start">
 <h3>WRITER_START<a class="headerlink" href="#writer-start" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0x0 = 0x00005800</cite></p>
+<p><cite>Address: 0x82006800 + 0x0 = 0x82006800</cite></p>
 <blockquote>
 <div><p>Write to the register starts the transfer (if ready=1)</p>
 
@@ -105,7 +105,7 @@ the operation. When the operation is ongoing <cite>ready</cite> will be 0.</p>
 </div>
 <div class="section" id="writer-ready">
 <h3>WRITER_READY<a class="headerlink" href="#writer-ready" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0x4 = 0x00005804</cite></p>
+<p><cite>Address: 0x82006800 + 0x4 = 0x82006804</cite></p>
 <blockquote>
 <div><p>Indicates that the transfer is not ongoing</p>
 
@@ -123,7 +123,7 @@ the operation. When the operation is ongoing <cite>ready</cite> will be 0.</p>
 </div>
 <div class="section" id="writer-count">
 <h3>WRITER_COUNT<a class="headerlink" href="#writer-count" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0x8 = 0x00005808</cite></p>
+<p><cite>Address: 0x82006800 + 0x8 = 0x82006808</cite></p>
 <blockquote>
 <div><p>Desired number of DMA transfers</p>
 
@@ -140,7 +140,7 @@ the operation. When the operation is ongoing <cite>ready</cite> will be 0.</p>
 </div>
 <div class="section" id="writer-done">
 <h3>WRITER_DONE<a class="headerlink" href="#writer-done" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0xc = 0x0000580c</cite></p>
+<p><cite>Address: 0x82006800 + 0xc = 0x8200680c</cite></p>
 <blockquote>
 <div><p>Number of completed DMA transfers</p>
 
@@ -157,7 +157,7 @@ the operation. When the operation is ongoing <cite>ready</cite> will be 0.</p>
 </div>
 <div class="section" id="writer-mem-mask">
 <h3>WRITER_MEM_MASK<a class="headerlink" href="#writer-mem-mask" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0x10 = 0x00005810</cite></p>
+<p><cite>Address: 0x82006800 + 0x10 = 0x82006810</cite></p>
 <blockquote>
 <div><p>DRAM address mask for DMA transfers</p>
 
@@ -174,7 +174,7 @@ the operation. When the operation is ongoing <cite>ready</cite> will be 0.</p>
 </div>
 <div class="section" id="writer-data-mask">
 <h3>WRITER_DATA_MASK<a class="headerlink" href="#writer-data-mask" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00005800 + 0x14 = 0x00005814</cite></p>
+<p><cite>Address: 0x82006800 + 0x14 = 0x82006814</cite></p>
 <blockquote>
 <div><p>Pattern memory address mask</p>
 
@@ -227,6 +227,7 @@ the operation. When the operation is ongoing <cite>ready</cite> will be 0.</p>
 <li class="toctree-l1"><a class="reference internal" href="ddrphy.html">DDRPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller_settings.html">CONTROLLER_SETTINGS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdram.html">SDRAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ddrctrl.html">DDRCTRL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ethphy.html">ETHPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rowhammer.html">ROWHAMMER</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">WRITER</a></li>

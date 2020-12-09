@@ -118,19 +118,19 @@ inside the loop will effectively be executed COUNT+1 times.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="#payload-executor-start"><span class="std std-ref">PAYLOAD_EXECUTOR_START</span></a></p></td>
-<td><p><a class="reference internal" href="#payload-executor-start"><span class="std std-ref">0x00006800</span></a></p></td>
+<td><p><a class="reference internal" href="#payload-executor-start"><span class="std std-ref">0x82007800</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#payload-executor-status"><span class="std std-ref">PAYLOAD_EXECUTOR_STATUS</span></a></p></td>
-<td><p><a class="reference internal" href="#payload-executor-status"><span class="std std-ref">0x00006804</span></a></p></td>
+<td><p><a class="reference internal" href="#payload-executor-status"><span class="std std-ref">0x82007804</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#payload-executor-read-count"><span class="std std-ref">PAYLOAD_EXECUTOR_READ_COUNT</span></a></p></td>
-<td><p><a class="reference internal" href="#payload-executor-read-count"><span class="std std-ref">0x00006808</span></a></p></td>
+<td><p><a class="reference internal" href="#payload-executor-read-count"><span class="std std-ref">0x82007808</span></a></p></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="payload-executor-start">
 <h3>PAYLOAD_EXECUTOR_START<a class="headerlink" href="#payload-executor-start" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006800 + 0x0 = 0x00006800</cite></p>
+<p><cite>Address: 0x82007800 + 0x0 = 0x82007800</cite></p>
 <blockquote>
 <div><p>Writing to this register initializes payload execution</p>
 
@@ -148,7 +148,7 @@ inside the loop will effectively be executed COUNT+1 times.</p>
 </div>
 <div class="section" id="payload-executor-status">
 <h3>PAYLOAD_EXECUTOR_STATUS<a class="headerlink" href="#payload-executor-status" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006800 + 0x4 = 0x00006804</cite></p>
+<p><cite>Address: 0x82007800 + 0x4 = 0x82007804</cite></p>
 <blockquote>
 <div><p>Payload executor status register</p>
 
@@ -191,7 +191,7 @@ of READ commands sent during execution</p></td>
 </div>
 <div class="section" id="payload-executor-read-count">
 <h3>PAYLOAD_EXECUTOR_READ_COUNT<a class="headerlink" href="#payload-executor-read-count" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006800 + 0x8 = 0x00006808</cite></p>
+<p><cite>Address: 0x82007800 + 0x8 = 0x82007808</cite></p>
 <blockquote>
 <div><p>Number of data from READ commands that is stored in the scratchpad memory</p>
 
@@ -245,6 +245,7 @@ of READ commands sent during execution</p></td>
 <li class="toctree-l1"><a class="reference internal" href="ddrphy.html">DDRPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller_settings.html">CONTROLLER_SETTINGS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdram.html">SDRAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ddrctrl.html">DDRCTRL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ethphy.html">ETHPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rowhammer.html">ROWHAMMER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="writer.html">WRITER</a></li>

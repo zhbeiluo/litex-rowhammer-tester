@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ROWHAMMER &#8212; LiteX Row Hammer Tester  documentation</title>
+    <title>DDRCTRL &#8212; LiteX Row Hammer Tester  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -17,8 +17,8 @@
     <script src="_static/WaveDrom.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="WRITER" href="writer.html" />
-    <link rel="prev" title="ETHPHY" href="ethphy.html" />
+    <link rel="next" title="ETHPHY" href="ethphy.html" />
+    <link rel="prev" title="SDRAM" href="sdram.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -35,16 +35,10 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="rowhammer">
-<h1>ROWHAMMER<a class="headerlink" href="#rowhammer" title="Permalink to this headline">¶</a></h1>
-<p>Row Hammer DMA attacker</p>
-<p>This module allows to perform a Row Hammer attack by configuring it with
-two addresses that map to different rows of a single bank. When enabled,
-it will perform alternating DMA reads from the given locations, which will
-result in the DRAM controller having to repeatedly open/close rows at each
-read access.</p>
-<div class="section" id="register-listing-for-rowhammer">
-<h2>Register Listing for ROWHAMMER<a class="headerlink" href="#register-listing-for-rowhammer" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="ddrctrl">
+<h1>DDRCTRL<a class="headerlink" href="#ddrctrl" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="register-listing-for-ddrctrl">
+<h2>Register Listing for DDRCTRL<a class="headerlink" href="#register-listing-for-ddrctrl" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 55%" />
@@ -56,31 +50,24 @@ read access.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="#rowhammer-enabled"><span class="std std-ref">ROWHAMMER_ENABLED</span></a></p></td>
-<td><p><a class="reference internal" href="#rowhammer-enabled"><span class="std std-ref">0x82006000</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ddrctrl-init-done"><span class="std std-ref">DDRCTRL_INIT_DONE</span></a></p></td>
+<td><p><a class="reference internal" href="#ddrctrl-init-done"><span class="std std-ref">0x82005000</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rowhammer-address1"><span class="std std-ref">ROWHAMMER_ADDRESS1</span></a></p></td>
-<td><p><a class="reference internal" href="#rowhammer-address1"><span class="std std-ref">0x82006004</span></a></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#rowhammer-address2"><span class="std std-ref">ROWHAMMER_ADDRESS2</span></a></p></td>
-<td><p><a class="reference internal" href="#rowhammer-address2"><span class="std std-ref">0x82006008</span></a></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#rowhammer-count"><span class="std std-ref">ROWHAMMER_COUNT</span></a></p></td>
-<td><p><a class="reference internal" href="#rowhammer-count"><span class="std std-ref">0x8200600c</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ddrctrl-init-error"><span class="std std-ref">DDRCTRL_INIT_ERROR</span></a></p></td>
+<td><p><a class="reference internal" href="#ddrctrl-init-error"><span class="std std-ref">0x82005004</span></a></p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="rowhammer-enabled">
-<h3>ROWHAMMER_ENABLED<a class="headerlink" href="#rowhammer-enabled" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82006000 + 0x0 = 0x82006000</cite></p>
+<div class="section" id="ddrctrl-init-done">
+<h3>DDRCTRL_INIT_DONE<a class="headerlink" href="#ddrctrl-init-done" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82005000 + 0x0 = 0x82005000</cite></p>
 <blockquote>
-<div><p>Used to start/stop the operation of the module</p>
-
+<div>
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
     "reg": [
-        {"name": "enabled", "bits": 1},
+        {"name": "init_done", "bits": 1},
         {"bits": 31},
     ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
 }
@@ -88,56 +75,18 @@ read access.</p>
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="rowhammer-address1">
-<h3>ROWHAMMER_ADDRESS1<a class="headerlink" href="#rowhammer-address1" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82006000 + 0x4 = 0x82006004</cite></p>
+<div class="section" id="ddrctrl-init-error">
+<h3>DDRCTRL_INIT_ERROR<a class="headerlink" href="#ddrctrl-init-error" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82005000 + 0x4 = 0x82005004</cite></p>
 <blockquote>
-<div><p>First attacked address</p>
-
+<div>
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
     "reg": [
-        {"name": "address1[23:0]", "bits": 24},
-        {"bits": 8},
-    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
-}
-</script>
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="rowhammer-address2">
-<h3>ROWHAMMER_ADDRESS2<a class="headerlink" href="#rowhammer-address2" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82006000 + 0x8 = 0x82006008</cite></p>
-<blockquote>
-<div><p>Second attacked address</p>
-
-<div style="overflow-x:auto">
-<script type="WaveDrom">
-{
-    "reg": [
-        {"name": "address2[23:0]", "bits": 24},
-        {"bits": 8},
-    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
-}
-</script>
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="rowhammer-count">
-<h3>ROWHAMMER_COUNT<a class="headerlink" href="#rowhammer-count" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82006000 + 0xc = 0x8200600c</cite></p>
-<blockquote>
-<div><p>This is the number of DMA accesses performed. When the module is enabled, the
-value can be freely read. When the module is disabled, the register is clear-on-
-write and has to be read before the next attack.</p>
-
-<div style="overflow-x:auto">
-<script type="WaveDrom">
-{
-    "reg": [
-        {"name": "count[31:0]", "bits": 32}
-    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        {"name": "init_error", "bits": 1},
+        {"bits": 31},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
 }
 </script>
 </div>
@@ -181,9 +130,9 @@ write and has to be read before the next attack.</p>
 <li class="toctree-l1"><a class="reference internal" href="ddrphy.html">DDRPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller_settings.html">CONTROLLER_SETTINGS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdram.html">SDRAM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ddrctrl.html">DDRCTRL</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DDRCTRL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ethphy.html">ETHPHY</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ROWHAMMER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rowhammer.html">ROWHAMMER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="writer.html">WRITER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reader.html">READER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="payload_executor.html">PAYLOAD_EXECUTOR</a></li>
@@ -193,8 +142,8 @@ write and has to be read before the next attack.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="ethphy.html" title="previous chapter">ETHPHY</a></li>
-      <li>Next: <a href="writer.html" title="next chapter">WRITER</a></li>
+      <li>Previous: <a href="sdram.html" title="previous chapter">SDRAM</a></li>
+      <li>Next: <a href="ethphy.html" title="next chapter">ETHPHY</a></li>
   </ul></li>
 </ul>
 </div>
@@ -228,7 +177,7 @@ write and has to be read before the next attack.</p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/rowhammer.rst.txt"
+      <a href="_sources/ddrctrl.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

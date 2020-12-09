@@ -78,40 +78,40 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-start"><span class="std std-ref">READER_START</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-start"><span class="std std-ref">0x00006000</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-start"><span class="std std-ref">0x82007000</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-ready"><span class="std std-ref">READER_READY</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-ready"><span class="std std-ref">0x00006004</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-ready"><span class="std std-ref">0x82007004</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-count"><span class="std std-ref">READER_COUNT</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-count"><span class="std std-ref">0x00006008</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-count"><span class="std std-ref">0x82007008</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-done"><span class="std std-ref">READER_DONE</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-done"><span class="std std-ref">0x0000600c</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-done"><span class="std std-ref">0x8200700c</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-mem-mask"><span class="std std-ref">READER_MEM_MASK</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-mem-mask"><span class="std std-ref">0x00006010</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-mem-mask"><span class="std std-ref">0x82007010</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-data-mask"><span class="std std-ref">READER_DATA_MASK</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-data-mask"><span class="std std-ref">0x00006014</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-data-mask"><span class="std std-ref">0x82007014</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-error-count"><span class="std std-ref">READER_ERROR_COUNT</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-count"><span class="std std-ref">0x00006018</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-count"><span class="std std-ref">0x82007018</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-skip-fifo"><span class="std std-ref">READER_SKIP_FIFO</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-skip-fifo"><span class="std std-ref">0x0000601c</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-skip-fifo"><span class="std std-ref">0x8200701c</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-error-offset"><span class="std std-ref">READER_ERROR_OFFSET</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-offset"><span class="std std-ref">0x00006020</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-offset"><span class="std std-ref">0x82007020</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-error-ready"><span class="std std-ref">READER_ERROR_READY</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-ready"><span class="std std-ref">0x00006024</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-ready"><span class="std std-ref">0x82007024</span></a></p></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="reader-start">
 <h3>READER_START<a class="headerlink" href="#reader-start" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x0 = 0x00006000</cite></p>
+<p><cite>Address: 0x82007000 + 0x0 = 0x82007000</cite></p>
 <blockquote>
 <div><p>Write to the register starts the transfer (if ready=1)</p>
 
@@ -129,7 +129,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-ready">
 <h3>READER_READY<a class="headerlink" href="#reader-ready" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x4 = 0x00006004</cite></p>
+<p><cite>Address: 0x82007000 + 0x4 = 0x82007004</cite></p>
 <blockquote>
 <div><p>Indicates that the transfer is not ongoing</p>
 
@@ -147,7 +147,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-count">
 <h3>READER_COUNT<a class="headerlink" href="#reader-count" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x8 = 0x00006008</cite></p>
+<p><cite>Address: 0x82007000 + 0x8 = 0x82007008</cite></p>
 <blockquote>
 <div><p>Desired number of DMA transfers</p>
 
@@ -164,7 +164,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-done">
 <h3>READER_DONE<a class="headerlink" href="#reader-done" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0xc = 0x0000600c</cite></p>
+<p><cite>Address: 0x82007000 + 0xc = 0x8200700c</cite></p>
 <blockquote>
 <div><p>Number of completed DMA transfers</p>
 
@@ -181,7 +181,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-mem-mask">
 <h3>READER_MEM_MASK<a class="headerlink" href="#reader-mem-mask" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x10 = 0x00006010</cite></p>
+<p><cite>Address: 0x82007000 + 0x10 = 0x82007010</cite></p>
 <blockquote>
 <div><p>DRAM address mask for DMA transfers</p>
 
@@ -198,7 +198,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-data-mask">
 <h3>READER_DATA_MASK<a class="headerlink" href="#reader-data-mask" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x14 = 0x00006014</cite></p>
+<p><cite>Address: 0x82007000 + 0x14 = 0x82007014</cite></p>
 <blockquote>
 <div><p>Pattern memory address mask</p>
 
@@ -215,7 +215,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-error-count">
 <h3>READER_ERROR_COUNT<a class="headerlink" href="#reader-error-count" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x18 = 0x00006018</cite></p>
+<p><cite>Address: 0x82007000 + 0x18 = 0x82007018</cite></p>
 <blockquote>
 <div><p>Number of errors detected</p>
 
@@ -232,7 +232,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-skip-fifo">
 <h3>READER_SKIP_FIFO<a class="headerlink" href="#reader-skip-fifo" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x1c = 0x0000601c</cite></p>
+<p><cite>Address: 0x82007000 + 0x1c = 0x8200701c</cite></p>
 <blockquote>
 <div><p>Skip waiting for user to read the errors FIFO</p>
 
@@ -250,7 +250,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-error-offset">
 <h3>READER_ERROR_OFFSET<a class="headerlink" href="#reader-error-offset" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x20 = 0x00006020</cite></p>
+<p><cite>Address: 0x82007000 + 0x20 = 0x82007020</cite></p>
 <blockquote>
 <div><p>Current offset of the error</p>
 
@@ -267,7 +267,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-error-ready">
 <h3>READER_ERROR_READY<a class="headerlink" href="#reader-error-ready" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x00006000 + 0x24 = 0x00006024</cite></p>
+<p><cite>Address: 0x82007000 + 0x24 = 0x82007024</cite></p>
 <blockquote>
 <div><p>Error detected and ready to read</p>
 
@@ -321,6 +321,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 <li class="toctree-l1"><a class="reference internal" href="ddrphy.html">DDRPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="controller_settings.html">CONTROLLER_SETTINGS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdram.html">SDRAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ddrctrl.html">DDRCTRL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ethphy.html">ETHPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rowhammer.html">ROWHAMMER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="writer.html">WRITER</a></li>
