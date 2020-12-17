@@ -57,9 +57,11 @@ the operation. When the operation is ongoing <cite>ready</cite> will be 0.</p>
 <p>This module allows to check the locations of errors in the memory.
 It scans the configured memory area and compares the values read to
 the predefined pattern. If <cite>skip_fifo</cite> is 0, this module will stop
-after each error encountered and will wait until the error offset
-is read from the <cite>error_offset</cite> CSR. Setting <cite>skip_fifo</cite> to 1 will
-disable this behaviour.</p>
+after each error encountered, so that it can be examined. Wait until
+the <cite>error_ready</cite> CSR is 1. Then use the CSRs <cite>error_offset</cite>,
+<cite>error_data</cite> and <cite>error_expected</cite> to examine the errors in the current
+transfer. To continue reading, write 1 to <cite>error_continue</cite> CSR.
+Setting <cite>skip_fifo</cite> to 1 will disable this behaviour entirely.</p>
 <p>The final nubmer of errors can be read from <cite>error_count</cite>.
 NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 <p>The current progress can be read from the <cite>done</cite> CSR.</p>
@@ -68,8 +70,8 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 <h2>Register Listing for READER<a class="headerlink" href="#register-listing-for-reader" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 55%" />
-<col style="width: 45%" />
+<col style="width: 56%" />
+<col style="width: 44%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Register</p></th>
@@ -104,8 +106,35 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-error-offset"><span class="std std-ref">READER_ERROR_OFFSET</span></a></p></td>
 <td><p><a class="reference internal" href="#reader-error-offset"><span class="std std-ref">0x82007020</span></a></p></td>
 </tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reader-error-data3"><span class="std std-ref">READER_ERROR_DATA3</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-data3"><span class="std std-ref">0x82007024</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-error-data2"><span class="std std-ref">READER_ERROR_DATA2</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-data2"><span class="std std-ref">0x82007028</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reader-error-data1"><span class="std std-ref">READER_ERROR_DATA1</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-data1"><span class="std std-ref">0x8200702c</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-error-data0"><span class="std std-ref">READER_ERROR_DATA0</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-data0"><span class="std std-ref">0x82007030</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reader-error-expected3"><span class="std std-ref">READER_ERROR_EXPECTED3</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-expected3"><span class="std std-ref">0x82007034</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-error-expected2"><span class="std std-ref">READER_ERROR_EXPECTED2</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-expected2"><span class="std std-ref">0x82007038</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reader-error-expected1"><span class="std std-ref">READER_ERROR_EXPECTED1</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-expected1"><span class="std std-ref">0x8200703c</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-error-expected0"><span class="std std-ref">READER_ERROR_EXPECTED0</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-expected0"><span class="std std-ref">0x82007040</span></a></p></td>
+</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-error-ready"><span class="std std-ref">READER_ERROR_READY</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-ready"><span class="std std-ref">0x82007024</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-ready"><span class="std std-ref">0x82007044</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-error-continue"><span class="std std-ref">READER_ERROR_CONTINUE</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-continue"><span class="std std-ref">0x82007048</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -265,9 +294,146 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 </div></blockquote>
 </div>
+<div class="section" id="reader-error-data3">
+<h3>READER_ERROR_DATA3<a class="headerlink" href="#reader-error-data3" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007000 + 0x24 = 0x82007024</cite></p>
+<blockquote>
+<div><p>Bits 96-127 of <cite>READER_ERROR_DATA</cite>. Erroneous value read from DRAM memory</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "error_data[127:96]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-error-data2">
+<h3>READER_ERROR_DATA2<a class="headerlink" href="#reader-error-data2" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007000 + 0x28 = 0x82007028</cite></p>
+<blockquote>
+<div><p>Bits 64-95 of <cite>READER_ERROR_DATA</cite>.</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "error_data[95:64]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-error-data1">
+<h3>READER_ERROR_DATA1<a class="headerlink" href="#reader-error-data1" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007000 + 0x2c = 0x8200702c</cite></p>
+<blockquote>
+<div><p>Bits 32-63 of <cite>READER_ERROR_DATA</cite>.</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "error_data[63:32]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-error-data0">
+<h3>READER_ERROR_DATA0<a class="headerlink" href="#reader-error-data0" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007000 + 0x30 = 0x82007030</cite></p>
+<blockquote>
+<div><p>Bits 0-31 of <cite>READER_ERROR_DATA</cite>.</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "error_data[31:0]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-error-expected3">
+<h3>READER_ERROR_EXPECTED3<a class="headerlink" href="#reader-error-expected3" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007000 + 0x34 = 0x82007034</cite></p>
+<blockquote>
+<div><p>Bits 96-127 of <cite>READER_ERROR_EXPECTED</cite>. Value expected to be read from DRAM
+memory</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "error_expected[127:96]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-error-expected2">
+<h3>READER_ERROR_EXPECTED2<a class="headerlink" href="#reader-error-expected2" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007000 + 0x38 = 0x82007038</cite></p>
+<blockquote>
+<div><p>Bits 64-95 of <cite>READER_ERROR_EXPECTED</cite>.</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "error_expected[95:64]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-error-expected1">
+<h3>READER_ERROR_EXPECTED1<a class="headerlink" href="#reader-error-expected1" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007000 + 0x3c = 0x8200703c</cite></p>
+<blockquote>
+<div><p>Bits 32-63 of <cite>READER_ERROR_EXPECTED</cite>.</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "error_expected[63:32]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-error-expected0">
+<h3>READER_ERROR_EXPECTED0<a class="headerlink" href="#reader-error-expected0" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007000 + 0x40 = 0x82007040</cite></p>
+<blockquote>
+<div><p>Bits 0-31 of <cite>READER_ERROR_EXPECTED</cite>.</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "error_expected[31:0]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
 <div class="section" id="reader-error-ready">
 <h3>READER_ERROR_READY<a class="headerlink" href="#reader-error-ready" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x24 = 0x82007024</cite></p>
+<p><cite>Address: 0x82007000 + 0x44 = 0x82007044</cite></p>
 <blockquote>
 <div><p>Error detected and ready to read</p>
 
@@ -276,6 +442,24 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 {
     "reg": [
         {"name": "error_ready", "bits": 1},
+        {"bits": 31},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-error-continue">
+<h3>READER_ERROR_CONTINUE<a class="headerlink" href="#reader-error-continue" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007000 + 0x48 = 0x82007048</cite></p>
+<blockquote>
+<div><p>Continue reading until the next error</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "error_continue", "bits": 1},
         {"bits": 31},
     ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
 }
