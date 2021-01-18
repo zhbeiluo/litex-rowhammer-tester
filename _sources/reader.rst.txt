@@ -47,47 +47,51 @@ The current progress can be read from the `done` CSR.
 Register Listing for READER
 ---------------------------
 
-+--------------------------------------------------------+--------------------------------------------+
-| Register                                               | Address                                    |
-+========================================================+============================================+
-| :ref:`READER_START <READER_START>`                     | :ref:`0x82007000 <READER_START>`           |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_READY <READER_READY>`                     | :ref:`0x82007004 <READER_READY>`           |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_COUNT <READER_COUNT>`                     | :ref:`0x82007008 <READER_COUNT>`           |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_DONE <READER_DONE>`                       | :ref:`0x8200700c <READER_DONE>`            |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_MEM_MASK <READER_MEM_MASK>`               | :ref:`0x82007010 <READER_MEM_MASK>`        |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_DATA_MASK <READER_DATA_MASK>`             | :ref:`0x82007014 <READER_DATA_MASK>`       |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_ERROR_COUNT <READER_ERROR_COUNT>`         | :ref:`0x82007018 <READER_ERROR_COUNT>`     |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_SKIP_FIFO <READER_SKIP_FIFO>`             | :ref:`0x8200701c <READER_SKIP_FIFO>`       |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_ERROR_OFFSET <READER_ERROR_OFFSET>`       | :ref:`0x82007020 <READER_ERROR_OFFSET>`    |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_ERROR_DATA3 <READER_ERROR_DATA3>`         | :ref:`0x82007024 <READER_ERROR_DATA3>`     |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_ERROR_DATA2 <READER_ERROR_DATA2>`         | :ref:`0x82007028 <READER_ERROR_DATA2>`     |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_ERROR_DATA1 <READER_ERROR_DATA1>`         | :ref:`0x8200702c <READER_ERROR_DATA1>`     |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_ERROR_DATA0 <READER_ERROR_DATA0>`         | :ref:`0x82007030 <READER_ERROR_DATA0>`     |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_ERROR_EXPECTED3 <READER_ERROR_EXPECTED3>` | :ref:`0x82007034 <READER_ERROR_EXPECTED3>` |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_ERROR_EXPECTED2 <READER_ERROR_EXPECTED2>` | :ref:`0x82007038 <READER_ERROR_EXPECTED2>` |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_ERROR_EXPECTED1 <READER_ERROR_EXPECTED1>` | :ref:`0x8200703c <READER_ERROR_EXPECTED1>` |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_ERROR_EXPECTED0 <READER_ERROR_EXPECTED0>` | :ref:`0x82007040 <READER_ERROR_EXPECTED0>` |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_ERROR_READY <READER_ERROR_READY>`         | :ref:`0x82007044 <READER_ERROR_READY>`     |
-+--------------------------------------------------------+--------------------------------------------+
-| :ref:`READER_ERROR_CONTINUE <READER_ERROR_CONTINUE>`   | :ref:`0x82007048 <READER_ERROR_CONTINUE>`  |
-+--------------------------------------------------------+--------------------------------------------+
++------------------------------------------------------------------------+----------------------------------------------------+
+| Register                                                               | Address                                            |
++========================================================================+====================================================+
+| :ref:`READER_START <READER_START>`                                     | :ref:`0x82007000 <READER_START>`                   |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_READY <READER_READY>`                                     | :ref:`0x82007004 <READER_READY>`                   |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_COUNT <READER_COUNT>`                                     | :ref:`0x82007008 <READER_COUNT>`                   |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_DONE <READER_DONE>`                                       | :ref:`0x8200700c <READER_DONE>`                    |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_MEM_MASK <READER_MEM_MASK>`                               | :ref:`0x82007010 <READER_MEM_MASK>`                |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_DATA_MASK <READER_DATA_MASK>`                             | :ref:`0x82007014 <READER_DATA_MASK>`               |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_INVERTER_DIVISOR_MASK <READER_INVERTER_DIVISOR_MASK>`     | :ref:`0x82007018 <READER_INVERTER_DIVISOR_MASK>`   |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_INVERTER_SELECTION_MASK <READER_INVERTER_SELECTION_MASK>` | :ref:`0x8200701c <READER_INVERTER_SELECTION_MASK>` |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_ERROR_COUNT <READER_ERROR_COUNT>`                         | :ref:`0x82007020 <READER_ERROR_COUNT>`             |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_SKIP_FIFO <READER_SKIP_FIFO>`                             | :ref:`0x82007024 <READER_SKIP_FIFO>`               |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_ERROR_OFFSET <READER_ERROR_OFFSET>`                       | :ref:`0x82007028 <READER_ERROR_OFFSET>`            |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_ERROR_DATA3 <READER_ERROR_DATA3>`                         | :ref:`0x8200702c <READER_ERROR_DATA3>`             |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_ERROR_DATA2 <READER_ERROR_DATA2>`                         | :ref:`0x82007030 <READER_ERROR_DATA2>`             |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_ERROR_DATA1 <READER_ERROR_DATA1>`                         | :ref:`0x82007034 <READER_ERROR_DATA1>`             |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_ERROR_DATA0 <READER_ERROR_DATA0>`                         | :ref:`0x82007038 <READER_ERROR_DATA0>`             |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_ERROR_EXPECTED3 <READER_ERROR_EXPECTED3>`                 | :ref:`0x8200703c <READER_ERROR_EXPECTED3>`         |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_ERROR_EXPECTED2 <READER_ERROR_EXPECTED2>`                 | :ref:`0x82007040 <READER_ERROR_EXPECTED2>`         |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_ERROR_EXPECTED1 <READER_ERROR_EXPECTED1>`                 | :ref:`0x82007044 <READER_ERROR_EXPECTED1>`         |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_ERROR_EXPECTED0 <READER_ERROR_EXPECTED0>`                 | :ref:`0x82007048 <READER_ERROR_EXPECTED0>`         |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_ERROR_READY <READER_ERROR_READY>`                         | :ref:`0x8200704c <READER_ERROR_READY>`             |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`READER_ERROR_CONTINUE <READER_ERROR_CONTINUE>`                   | :ref:`0x82007050 <READER_ERROR_CONTINUE>`          |
++------------------------------------------------------------------------+----------------------------------------------------+
 
 READER_START
 ^^^^^^^^^^^^
@@ -193,10 +197,45 @@ READER_DATA_MASK
         }
 
 
+READER_INVERTER_DIVISOR_MASK
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Address: 0x82007000 + 0x18 = 0x82007018`
+
+    Divisor mask for selecting rows for which pattern data gets inverted
+
+    .. wavedrom::
+        :caption: READER_INVERTER_DIVISOR_MASK
+
+        {
+            "reg": [
+                {"name": "inverter_divisor_mask[4:0]", "bits": 5},
+                {"bits": 27},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+READER_INVERTER_SELECTION_MASK
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Address: 0x82007000 + 0x1c = 0x8200701c`
+
+    Selection mask for selecting rows for which pattern data gets inverted
+
+    .. wavedrom::
+        :caption: READER_INVERTER_SELECTION_MASK
+
+        {
+            "reg": [
+                {"name": "inverter_selection_mask[31:0]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
 READER_ERROR_COUNT
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x18 = 0x82007018`
+`Address: 0x82007000 + 0x20 = 0x82007020`
 
     Number of errors detected
 
@@ -213,7 +252,7 @@ READER_ERROR_COUNT
 READER_SKIP_FIFO
 ^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x1c = 0x8200701c`
+`Address: 0x82007000 + 0x24 = 0x82007024`
 
     Skip waiting for user to read the errors FIFO
 
@@ -231,7 +270,7 @@ READER_SKIP_FIFO
 READER_ERROR_OFFSET
 ^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x20 = 0x82007020`
+`Address: 0x82007000 + 0x28 = 0x82007028`
 
     Current offset of the error
 
@@ -248,7 +287,7 @@ READER_ERROR_OFFSET
 READER_ERROR_DATA3
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x24 = 0x82007024`
+`Address: 0x82007000 + 0x2c = 0x8200702c`
 
     Bits 96-127 of `READER_ERROR_DATA`. Erroneous value read from DRAM memory
 
@@ -265,7 +304,7 @@ READER_ERROR_DATA3
 READER_ERROR_DATA2
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x28 = 0x82007028`
+`Address: 0x82007000 + 0x30 = 0x82007030`
 
     Bits 64-95 of `READER_ERROR_DATA`.
 
@@ -282,7 +321,7 @@ READER_ERROR_DATA2
 READER_ERROR_DATA1
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x2c = 0x8200702c`
+`Address: 0x82007000 + 0x34 = 0x82007034`
 
     Bits 32-63 of `READER_ERROR_DATA`.
 
@@ -299,7 +338,7 @@ READER_ERROR_DATA1
 READER_ERROR_DATA0
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x30 = 0x82007030`
+`Address: 0x82007000 + 0x38 = 0x82007038`
 
     Bits 0-31 of `READER_ERROR_DATA`.
 
@@ -316,7 +355,7 @@ READER_ERROR_DATA0
 READER_ERROR_EXPECTED3
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x34 = 0x82007034`
+`Address: 0x82007000 + 0x3c = 0x8200703c`
 
     Bits 96-127 of `READER_ERROR_EXPECTED`. Value expected to be read from DRAM
     memory
@@ -334,7 +373,7 @@ READER_ERROR_EXPECTED3
 READER_ERROR_EXPECTED2
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x38 = 0x82007038`
+`Address: 0x82007000 + 0x40 = 0x82007040`
 
     Bits 64-95 of `READER_ERROR_EXPECTED`.
 
@@ -351,7 +390,7 @@ READER_ERROR_EXPECTED2
 READER_ERROR_EXPECTED1
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x3c = 0x8200703c`
+`Address: 0x82007000 + 0x44 = 0x82007044`
 
     Bits 32-63 of `READER_ERROR_EXPECTED`.
 
@@ -368,7 +407,7 @@ READER_ERROR_EXPECTED1
 READER_ERROR_EXPECTED0
 ^^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x40 = 0x82007040`
+`Address: 0x82007000 + 0x48 = 0x82007048`
 
     Bits 0-31 of `READER_ERROR_EXPECTED`.
 
@@ -385,7 +424,7 @@ READER_ERROR_EXPECTED0
 READER_ERROR_READY
 ^^^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x44 = 0x82007044`
+`Address: 0x82007000 + 0x4c = 0x8200704c`
 
     Error detected and ready to read
 
@@ -403,7 +442,7 @@ READER_ERROR_READY
 READER_ERROR_CONTINUE
 ^^^^^^^^^^^^^^^^^^^^^
 
-`Address: 0x82007000 + 0x48 = 0x82007048`
+`Address: 0x82007000 + 0x50 = 0x82007050`
 
     Continue reading until the next error
 

@@ -30,21 +30,25 @@ the operation. When the operation is ongoing `ready` will be 0.
 Register Listing for WRITER
 ---------------------------
 
-+--------------------------------------------+--------------------------------------+
-| Register                                   | Address                              |
-+============================================+======================================+
-| :ref:`WRITER_START <WRITER_START>`         | :ref:`0x82006800 <WRITER_START>`     |
-+--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_READY <WRITER_READY>`         | :ref:`0x82006804 <WRITER_READY>`     |
-+--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_COUNT <WRITER_COUNT>`         | :ref:`0x82006808 <WRITER_COUNT>`     |
-+--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_DONE <WRITER_DONE>`           | :ref:`0x8200680c <WRITER_DONE>`      |
-+--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_MEM_MASK <WRITER_MEM_MASK>`   | :ref:`0x82006810 <WRITER_MEM_MASK>`  |
-+--------------------------------------------+--------------------------------------+
-| :ref:`WRITER_DATA_MASK <WRITER_DATA_MASK>` | :ref:`0x82006814 <WRITER_DATA_MASK>` |
-+--------------------------------------------+--------------------------------------+
++------------------------------------------------------------------------+----------------------------------------------------+
+| Register                                                               | Address                                            |
++========================================================================+====================================================+
+| :ref:`WRITER_START <WRITER_START>`                                     | :ref:`0x82006800 <WRITER_START>`                   |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`WRITER_READY <WRITER_READY>`                                     | :ref:`0x82006804 <WRITER_READY>`                   |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`WRITER_COUNT <WRITER_COUNT>`                                     | :ref:`0x82006808 <WRITER_COUNT>`                   |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`WRITER_DONE <WRITER_DONE>`                                       | :ref:`0x8200680c <WRITER_DONE>`                    |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`WRITER_MEM_MASK <WRITER_MEM_MASK>`                               | :ref:`0x82006810 <WRITER_MEM_MASK>`                |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`WRITER_DATA_MASK <WRITER_DATA_MASK>`                             | :ref:`0x82006814 <WRITER_DATA_MASK>`               |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`WRITER_INVERTER_DIVISOR_MASK <WRITER_INVERTER_DIVISOR_MASK>`     | :ref:`0x82006818 <WRITER_INVERTER_DIVISOR_MASK>`   |
++------------------------------------------------------------------------+----------------------------------------------------+
+| :ref:`WRITER_INVERTER_SELECTION_MASK <WRITER_INVERTER_SELECTION_MASK>` | :ref:`0x8200681c <WRITER_INVERTER_SELECTION_MASK>` |
++------------------------------------------------------------------------+----------------------------------------------------+
 
 WRITER_START
 ^^^^^^^^^^^^
@@ -146,6 +150,41 @@ WRITER_DATA_MASK
         {
             "reg": [
                 {"name": "data_mask[31:0]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+WRITER_INVERTER_DIVISOR_MASK
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Address: 0x82006800 + 0x18 = 0x82006818`
+
+    Divisor mask for selecting rows for which pattern data gets inverted
+
+    .. wavedrom::
+        :caption: WRITER_INVERTER_DIVISOR_MASK
+
+        {
+            "reg": [
+                {"name": "inverter_divisor_mask[4:0]", "bits": 5},
+                {"bits": 27},
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+        }
+
+
+WRITER_INVERTER_SELECTION_MASK
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Address: 0x82006800 + 0x1c = 0x8200681c`
+
+    Selection mask for selecting rows for which pattern data gets inverted
+
+    .. wavedrom::
+        :caption: WRITER_INVERTER_SELECTION_MASK
+
+        {
+            "reg": [
+                {"name": "inverter_selection_mask[31:0]", "bits": 32}
             ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
         }
 

@@ -69,8 +69,8 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 <h2>Register Listing for READER<a class="headerlink" href="#register-listing-for-reader" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 56%" />
-<col style="width: 44%" />
+<col style="width: 58%" />
+<col style="width: 42%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Register</p></th>
@@ -96,44 +96,50 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-data-mask"><span class="std std-ref">READER_DATA_MASK</span></a></p></td>
 <td><p><a class="reference internal" href="#reader-data-mask"><span class="std std-ref">0x82007014</span></a></p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#reader-inverter-divisor-mask"><span class="std std-ref">READER_INVERTER_DIVISOR_MASK</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-inverter-divisor-mask"><span class="std std-ref">0x82007018</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#reader-inverter-selection-mask"><span class="std std-ref">READER_INVERTER_SELECTION_MASK</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-inverter-selection-mask"><span class="std std-ref">0x8200701c</span></a></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-error-count"><span class="std std-ref">READER_ERROR_COUNT</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-count"><span class="std std-ref">0x82007018</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-count"><span class="std std-ref">0x82007020</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-skip-fifo"><span class="std std-ref">READER_SKIP_FIFO</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-skip-fifo"><span class="std std-ref">0x8200701c</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-skip-fifo"><span class="std std-ref">0x82007024</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-error-offset"><span class="std std-ref">READER_ERROR_OFFSET</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-offset"><span class="std std-ref">0x82007020</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-offset"><span class="std std-ref">0x82007028</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-error-data3"><span class="std std-ref">READER_ERROR_DATA3</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-data3"><span class="std std-ref">0x82007024</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-data3"><span class="std std-ref">0x8200702c</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-error-data2"><span class="std std-ref">READER_ERROR_DATA2</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-data2"><span class="std std-ref">0x82007028</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-data2"><span class="std std-ref">0x82007030</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-error-data1"><span class="std std-ref">READER_ERROR_DATA1</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-data1"><span class="std std-ref">0x8200702c</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-data1"><span class="std std-ref">0x82007034</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-error-data0"><span class="std std-ref">READER_ERROR_DATA0</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-data0"><span class="std std-ref">0x82007030</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-data0"><span class="std std-ref">0x82007038</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-error-expected3"><span class="std std-ref">READER_ERROR_EXPECTED3</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-expected3"><span class="std std-ref">0x82007034</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-expected3"><span class="std std-ref">0x8200703c</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-error-expected2"><span class="std std-ref">READER_ERROR_EXPECTED2</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-expected2"><span class="std std-ref">0x82007038</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-expected2"><span class="std std-ref">0x82007040</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-error-expected1"><span class="std std-ref">READER_ERROR_EXPECTED1</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-expected1"><span class="std std-ref">0x8200703c</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-expected1"><span class="std std-ref">0x82007044</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-error-expected0"><span class="std std-ref">READER_ERROR_EXPECTED0</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-expected0"><span class="std std-ref">0x82007040</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-expected0"><span class="std std-ref">0x82007048</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#reader-error-ready"><span class="std std-ref">READER_ERROR_READY</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-ready"><span class="std std-ref">0x82007044</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-ready"><span class="std std-ref">0x8200704c</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#reader-error-continue"><span class="std std-ref">READER_ERROR_CONTINUE</span></a></p></td>
-<td><p><a class="reference internal" href="#reader-error-continue"><span class="std std-ref">0x82007048</span></a></p></td>
+<td><p><a class="reference internal" href="#reader-error-continue"><span class="std std-ref">0x82007050</span></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -241,9 +247,44 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 </div></blockquote>
 </div>
+<div class="section" id="reader-inverter-divisor-mask">
+<h3>READER_INVERTER_DIVISOR_MASK<a class="headerlink" href="#reader-inverter-divisor-mask" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007000 + 0x18 = 0x82007018</cite></p>
+<blockquote>
+<div><p>Divisor mask for selecting rows for which pattern data gets inverted</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "inverter_divisor_mask[4:0]", "bits": 5},
+        {"bits": 27},
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="reader-inverter-selection-mask">
+<h3>READER_INVERTER_SELECTION_MASK<a class="headerlink" href="#reader-inverter-selection-mask" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007000 + 0x1c = 0x8200701c</cite></p>
+<blockquote>
+<div><p>Selection mask for selecting rows for which pattern data gets inverted</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "inverter_selection_mask[31:0]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
 <div class="section" id="reader-error-count">
 <h3>READER_ERROR_COUNT<a class="headerlink" href="#reader-error-count" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x18 = 0x82007018</cite></p>
+<p><cite>Address: 0x82007000 + 0x20 = 0x82007020</cite></p>
 <blockquote>
 <div><p>Number of errors detected</p>
 
@@ -260,7 +301,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-skip-fifo">
 <h3>READER_SKIP_FIFO<a class="headerlink" href="#reader-skip-fifo" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x1c = 0x8200701c</cite></p>
+<p><cite>Address: 0x82007000 + 0x24 = 0x82007024</cite></p>
 <blockquote>
 <div><p>Skip waiting for user to read the errors FIFO</p>
 
@@ -278,7 +319,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-error-offset">
 <h3>READER_ERROR_OFFSET<a class="headerlink" href="#reader-error-offset" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x20 = 0x82007020</cite></p>
+<p><cite>Address: 0x82007000 + 0x28 = 0x82007028</cite></p>
 <blockquote>
 <div><p>Current offset of the error</p>
 
@@ -295,7 +336,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-error-data3">
 <h3>READER_ERROR_DATA3<a class="headerlink" href="#reader-error-data3" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x24 = 0x82007024</cite></p>
+<p><cite>Address: 0x82007000 + 0x2c = 0x8200702c</cite></p>
 <blockquote>
 <div><p>Bits 96-127 of <cite>READER_ERROR_DATA</cite>. Erroneous value read from DRAM memory</p>
 
@@ -312,7 +353,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-error-data2">
 <h3>READER_ERROR_DATA2<a class="headerlink" href="#reader-error-data2" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x28 = 0x82007028</cite></p>
+<p><cite>Address: 0x82007000 + 0x30 = 0x82007030</cite></p>
 <blockquote>
 <div><p>Bits 64-95 of <cite>READER_ERROR_DATA</cite>.</p>
 
@@ -329,7 +370,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-error-data1">
 <h3>READER_ERROR_DATA1<a class="headerlink" href="#reader-error-data1" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x2c = 0x8200702c</cite></p>
+<p><cite>Address: 0x82007000 + 0x34 = 0x82007034</cite></p>
 <blockquote>
 <div><p>Bits 32-63 of <cite>READER_ERROR_DATA</cite>.</p>
 
@@ -346,7 +387,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-error-data0">
 <h3>READER_ERROR_DATA0<a class="headerlink" href="#reader-error-data0" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x30 = 0x82007030</cite></p>
+<p><cite>Address: 0x82007000 + 0x38 = 0x82007038</cite></p>
 <blockquote>
 <div><p>Bits 0-31 of <cite>READER_ERROR_DATA</cite>.</p>
 
@@ -363,7 +404,7 @@ NOTE: This value represents the number of erroneous <em>DMA transfers</em>.</p>
 </div>
 <div class="section" id="reader-error-expected3">
 <h3>READER_ERROR_EXPECTED3<a class="headerlink" href="#reader-error-expected3" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x34 = 0x82007034</cite></p>
+<p><cite>Address: 0x82007000 + 0x3c = 0x8200703c</cite></p>
 <blockquote>
 <div><p>Bits 96-127 of <cite>READER_ERROR_EXPECTED</cite>. Value expected to be read from DRAM
 memory</p>
@@ -381,7 +422,7 @@ memory</p>
 </div>
 <div class="section" id="reader-error-expected2">
 <h3>READER_ERROR_EXPECTED2<a class="headerlink" href="#reader-error-expected2" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x38 = 0x82007038</cite></p>
+<p><cite>Address: 0x82007000 + 0x40 = 0x82007040</cite></p>
 <blockquote>
 <div><p>Bits 64-95 of <cite>READER_ERROR_EXPECTED</cite>.</p>
 
@@ -398,7 +439,7 @@ memory</p>
 </div>
 <div class="section" id="reader-error-expected1">
 <h3>READER_ERROR_EXPECTED1<a class="headerlink" href="#reader-error-expected1" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x3c = 0x8200703c</cite></p>
+<p><cite>Address: 0x82007000 + 0x44 = 0x82007044</cite></p>
 <blockquote>
 <div><p>Bits 32-63 of <cite>READER_ERROR_EXPECTED</cite>.</p>
 
@@ -415,7 +456,7 @@ memory</p>
 </div>
 <div class="section" id="reader-error-expected0">
 <h3>READER_ERROR_EXPECTED0<a class="headerlink" href="#reader-error-expected0" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x40 = 0x82007040</cite></p>
+<p><cite>Address: 0x82007000 + 0x48 = 0x82007048</cite></p>
 <blockquote>
 <div><p>Bits 0-31 of <cite>READER_ERROR_EXPECTED</cite>.</p>
 
@@ -432,7 +473,7 @@ memory</p>
 </div>
 <div class="section" id="reader-error-ready">
 <h3>READER_ERROR_READY<a class="headerlink" href="#reader-error-ready" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x44 = 0x82007044</cite></p>
+<p><cite>Address: 0x82007000 + 0x4c = 0x8200704c</cite></p>
 <blockquote>
 <div><p>Error detected and ready to read</p>
 
@@ -450,7 +491,7 @@ memory</p>
 </div>
 <div class="section" id="reader-error-continue">
 <h3>READER_ERROR_CONTINUE<a class="headerlink" href="#reader-error-continue" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007000 + 0x48 = 0x82007048</cite></p>
+<p><cite>Address: 0x82007000 + 0x50 = 0x82007050</cite></p>
 <blockquote>
 <div><p>Continue reading until the next error</p>
 
