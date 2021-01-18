@@ -41,8 +41,14 @@
 </div></blockquote>
 <p><strong>Instruction decoder</strong></p>
 <p>All instructions are 32-bit. The format of most instructions is the same,
-except for the LOOP instruction, which has a constant TIMESLICE of 0.</p>
-<p><strong>NOTE:</strong> LOOP instruction will <em>jump</em> COUNT times, meaning that the “code”
+except for the LOOP instruction, which has a constant TIMESLICE of 1.</p>
+<p>NOOP with a TIMESLICE of 0 is a special case which is interpreted as
+STOP instruction. When this instruction is encountered execution gets
+finished imediatelly.</p>
+<p><strong>NOTE:</strong> TIMESLICE is the number of cycles the instruction will take. This
+means that instructions other than NOOP that use TIMESLICE=0 are illegal
+(although will silently be executed as having TIMESLICE=1).</p>
+<p><strong>NOTE2:</strong> LOOP instruction will <em>jump</em> COUNT times, meaning that the “code”
 inside the loop will effectively be executed COUNT+1 times.</p>
 <p>Op codes:</p>
 </div></blockquote>
@@ -94,6 +100,7 @@ inside the loop will effectively be executed COUNT+1 times.</p>
 <span class="n">dfi</span><span class="p">:</span>  <span class="n">OP_CODE</span> <span class="o">|</span> <span class="n">TIMESLICE</span> <span class="o">|</span> <span class="n">ADDRESS</span>
 <span class="n">noop</span><span class="p">:</span> <span class="n">OP_CODE</span> <span class="o">|</span> <span class="n">TIMESLICE_NOOP</span>
 <span class="n">loop</span><span class="p">:</span> <span class="n">OP_CODE</span> <span class="o">|</span> <span class="n">COUNT</span>     <span class="o">|</span> <span class="n">JUMP</span>
+<span class="n">stop</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">NOOP</span><span class="o">&gt;</span>  <span class="o">|</span> <span class="mi">0</span>
 </pre></div>
 </div>
 <p>Where ADDRESS depends on the DFI command and is one of:</p>

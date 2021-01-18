@@ -9,9 +9,17 @@ PAYLOAD_EXECUTOR
     **Instruction decoder**
 
     All instructions are 32-bit. The format of most instructions is the same,
-    except for the LOOP instruction, which has a constant TIMESLICE of 0.
+    except for the LOOP instruction, which has a constant TIMESLICE of 1.
 
-    **NOTE:** LOOP instruction will *jump* COUNT times, meaning that the "code"
+    NOOP with a TIMESLICE of 0 is a special case which is interpreted as
+    STOP instruction. When this instruction is encountered execution gets
+    finished imediatelly.
+
+    **NOTE:** TIMESLICE is the number of cycles the instruction will take. This
+    means that instructions other than NOOP that use TIMESLICE=0 are illegal
+    (although will silently be executed as having TIMESLICE=1).
+
+    **NOTE2:** LOOP instruction will *jump* COUNT times, meaning that the "code"
     inside the loop will effectively be executed COUNT+1 times.
 
     Op codes:
@@ -40,6 +48,7 @@ PAYLOAD_EXECUTOR
         dfi:  OP_CODE | TIMESLICE | ADDRESS
         noop: OP_CODE | TIMESLICE_NOOP
         loop: OP_CODE | COUNT     | JUMP
+        stop: <NOOP>  | 0
 
     Where ADDRESS depends on the DFI command and is one of::
 
