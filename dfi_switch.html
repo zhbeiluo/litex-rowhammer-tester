@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CONTROLLER_SETTINGS &#8212; LiteX Row Hammer Tester  documentation</title>
+    <title>DFI_SWITCH &#8212; LiteX Row Hammer Tester  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <script src="_static/WaveDrom.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="SDRAM" href="sdram.html" />
-    <link rel="prev" title="DDRPHY" href="ddrphy.html" />
+    <link rel="next" title="PAYLOAD_EXECUTOR" href="payload_executor.html" />
+    <link rel="prev" title="READER" href="reader.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -34,13 +34,10 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="controller-settings">
-<h1>CONTROLLER_SETTINGS<a class="headerlink" href="#controller-settings" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="allows-to-change-litedramcontroller-behaviour-at-runtime">
-<h2>Allows to change LiteDRAMController behaviour at runtime<a class="headerlink" href="#allows-to-change-litedramcontroller-behaviour-at-runtime" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="register-listing-for-controller-settings">
-<h2>Register Listing for CONTROLLER_SETTINGS<a class="headerlink" href="#register-listing-for-controller-settings" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="dfi-switch">
+<h1>DFI_SWITCH<a class="headerlink" href="#dfi-switch" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="register-listing-for-dfi-switch">
+<h2>Register Listing for DFI_SWITCH<a class="headerlink" href="#register-listing-for-dfi-switch" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 57%" />
@@ -52,22 +49,44 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="#controller-settings-refresh"><span class="std std-ref">CONTROLLER_SETTINGS_REFRESH</span></a></p></td>
-<td><p><a class="reference internal" href="#controller-settings-refresh"><span class="std std-ref">0x82004000</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#dfi-switch-refresh-count"><span class="std std-ref">DFI_SWITCH_REFRESH_COUNT</span></a></p></td>
+<td><p><a class="reference internal" href="#dfi-switch-refresh-count"><span class="std std-ref">0x82007800</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#dfi-switch-refresh-update"><span class="std std-ref">DFI_SWITCH_REFRESH_UPDATE</span></a></p></td>
+<td><p><a class="reference internal" href="#dfi-switch-refresh-update"><span class="std std-ref">0x82007804</span></a></p></td>
 </tr>
 </tbody>
 </table>
-<div class="section" id="controller-settings-refresh">
-<h3>CONTROLLER_SETTINGS_REFRESH<a class="headerlink" href="#controller-settings-refresh" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82004000 + 0x0 = 0x82004000</cite></p>
+<div class="section" id="dfi-switch-refresh-count">
+<h3>DFI_SWITCH_REFRESH_COUNT<a class="headerlink" href="#dfi-switch-refresh-count" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007800 + 0x0 = 0x82007800</cite></p>
 <blockquote>
-<div><p>Enable/disable Refresh commands sending</p>
+<div><p>Count of all refresh commands issued (both by Memory Controller and Payload
+Executor). Value is latched from internal counter on mode trasition: MC -&gt; PE or
+by writing to the <cite>refresh_update</cite> CSR.</p>
 
 <div style="overflow-x:auto">
 <script type="WaveDrom">
 {
     "reg": [
-        {"name": "refresh", "attr": 'reset: 1', "bits": 1},
+        {"name": "refresh_count[31:0]", "bits": 32}
+    ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+}
+</script>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="dfi-switch-refresh-update">
+<h3>DFI_SWITCH_REFRESH_UPDATE<a class="headerlink" href="#dfi-switch-refresh-update" title="Permalink to this headline">¶</a></h3>
+<p><cite>Address: 0x82007800 + 0x4 = 0x82007804</cite></p>
+<blockquote>
+<div><p>Force an update of the <cite>refresh_count</cite> CSR.</p>
+
+<div style="overflow-x:auto">
+<script type="WaveDrom">
+{
+    "reg": [
+        {"name": "refresh_update", "bits": 1},
         {"bits": 31},
     ], "config": {"hspace": 400, "bits": 32, "lanes": 4 }, "options": {"hspace": 400, "bits": 32, "lanes": 4}
 }
@@ -111,14 +130,14 @@
 <li class="toctree-l1"><a class="reference internal" href="timer0.html">TIMER0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="leds.html">LEDS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ddrphy.html">DDRPHY</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">CONTROLLER_SETTINGS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controller_settings.html">CONTROLLER_SETTINGS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sdram.html">SDRAM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ddrctrl.html">DDRCTRL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ethphy.html">ETHPHY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rowhammer.html">ROWHAMMER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="writer.html">WRITER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reader.html">READER</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dfi_switch.html">DFI_SWITCH</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DFI_SWITCH</a></li>
 <li class="toctree-l1"><a class="reference internal" href="payload_executor.html">PAYLOAD_EXECUTOR</a></li>
 </ul>
 
@@ -126,8 +145,8 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="ddrphy.html" title="previous chapter">DDRPHY</a></li>
-      <li>Next: <a href="sdram.html" title="next chapter">SDRAM</a></li>
+      <li>Previous: <a href="reader.html" title="previous chapter">READER</a></li>
+      <li>Next: <a href="payload_executor.html" title="next chapter">PAYLOAD_EXECUTOR</a></li>
   </ul></li>
 </ul>
 </div>
@@ -161,7 +180,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/controller_settings.rst.txt"
+      <a href="_sources/dfi_switch.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

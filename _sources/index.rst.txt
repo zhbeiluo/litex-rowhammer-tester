@@ -31,6 +31,7 @@ Register Groups
     rowhammer
     writer
     reader
+    dfi_switch
     payload_executor
 
 Indices and tables

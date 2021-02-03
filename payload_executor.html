@@ -16,7 +16,7 @@
     <script src="_static/WaveDrom.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="READER" href="reader.html" />
+    <link rel="prev" title="DFI_SWITCH" href="dfi_switch.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -124,19 +124,19 @@ inside the loop will effectively be executed COUNT+1 times.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="#payload-executor-start"><span class="std std-ref">PAYLOAD_EXECUTOR_START</span></a></p></td>
-<td><p><a class="reference internal" href="#payload-executor-start"><span class="std std-ref">0x82007800</span></a></p></td>
+<td><p><a class="reference internal" href="#payload-executor-start"><span class="std std-ref">0x82008000</span></a></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#payload-executor-status"><span class="std std-ref">PAYLOAD_EXECUTOR_STATUS</span></a></p></td>
-<td><p><a class="reference internal" href="#payload-executor-status"><span class="std std-ref">0x82007804</span></a></p></td>
+<td><p><a class="reference internal" href="#payload-executor-status"><span class="std std-ref">0x82008004</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#payload-executor-read-count"><span class="std std-ref">PAYLOAD_EXECUTOR_READ_COUNT</span></a></p></td>
-<td><p><a class="reference internal" href="#payload-executor-read-count"><span class="std std-ref">0x82007808</span></a></p></td>
+<td><p><a class="reference internal" href="#payload-executor-read-count"><span class="std std-ref">0x82008008</span></a></p></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="payload-executor-start">
 <h3>PAYLOAD_EXECUTOR_START<a class="headerlink" href="#payload-executor-start" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007800 + 0x0 = 0x82007800</cite></p>
+<p><cite>Address: 0x82008000 + 0x0 = 0x82008000</cite></p>
 <blockquote>
 <div><p>Writing to this register initializes payload execution</p>
 
@@ -154,7 +154,7 @@ inside the loop will effectively be executed COUNT+1 times.</p>
 </div>
 <div class="section" id="payload-executor-status">
 <h3>PAYLOAD_EXECUTOR_STATUS<a class="headerlink" href="#payload-executor-status" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007800 + 0x4 = 0x82007804</cite></p>
+<p><cite>Address: 0x82008000 + 0x4 = 0x82008004</cite></p>
 <blockquote>
 <div><p>Payload executor status register</p>
 
@@ -197,7 +197,7 @@ of READ commands sent during execution</p></td>
 </div>
 <div class="section" id="payload-executor-read-count">
 <h3>PAYLOAD_EXECUTOR_READ_COUNT<a class="headerlink" href="#payload-executor-read-count" title="Permalink to this headline">¶</a></h3>
-<p><cite>Address: 0x82007800 + 0x8 = 0x82007808</cite></p>
+<p><cite>Address: 0x82008000 + 0x8 = 0x82008008</cite></p>
 <blockquote>
 <div><p>Number of data from READ commands that is stored in the scratchpad memory</p>
 
@@ -256,6 +256,7 @@ of READ commands sent during execution</p></td>
 <li class="toctree-l1"><a class="reference internal" href="rowhammer.html">ROWHAMMER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="writer.html">WRITER</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reader.html">READER</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfi_switch.html">DFI_SWITCH</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">PAYLOAD_EXECUTOR</a></li>
 </ul>
 
@@ -263,7 +264,7 @@ of READ commands sent during execution</p></td>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="reader.html" title="previous chapter">READER</a></li>
+      <li>Previous: <a href="dfi_switch.html" title="previous chapter">DFI_SWITCH</a></li>
   </ul></li>
 </ul>
 </div>
