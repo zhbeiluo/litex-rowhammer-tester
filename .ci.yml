@@ -1,0 +1,22 @@
+stages:
+  - build
+
+image: docker.antmicro.com:5000/repositories/basic-docker-images/debian-vivado:v2019.2
+
+bitstream:
+  stage: build
+  script:
+    - apt -qy update
+    - apt -qy install git build-essential python3 python3-pip python3-wheel gcc-riscv64-linux-gnu
+    - git config --global credential.helper 'cache --timeout=2400'
+    - git clone --depth 1 https://gitlab-ci-token:${CI_JOB_TOKEN}@dev.antmicro.com/git/litex-rowhammer-tester.git # just to cache the token
+    - git submodule update --init --recursive
+    - pip3 install -r requirements.txt
+    - export PATH=$PATH:$(echo $PWD/riscv64-*/bin/):/opt/Xilinx/Vivado/2019.2/bin
+    - python3 third_party/litex-boards/litex_boards/targets/lpddr4_test_board.py --build
+    - mkdir artifacts
+    - cp build/lpddr4_test_board/gateware/*.bit artifacts/
+    - cp build/lpddr4_test_board/gateware/*.rpt artifacts/
+  artifacts:
+    paths:
+      - artifacts
