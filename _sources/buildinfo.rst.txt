@@ -1,0 +1,223 @@
+BUILDINFO
+=========
+
+Build info
+----------
+
+
+Register Listing for BUILDINFO
+------------------------------
+
++------------------------------------------+-------------------------------------+
+| Register                                 | Address                             |
++==========================================+=====================================+
+| :ref:`BUILDINFO_HASH9 <BUILDINFO_HASH9>` | :ref:`0x82010000 <BUILDINFO_HASH9>` |
++------------------------------------------+-------------------------------------+
+| :ref:`BUILDINFO_HASH8 <BUILDINFO_HASH8>` | :ref:`0x82010004 <BUILDINFO_HASH8>` |
++------------------------------------------+-------------------------------------+
+| :ref:`BUILDINFO_HASH7 <BUILDINFO_HASH7>` | :ref:`0x82010008 <BUILDINFO_HASH7>` |
++------------------------------------------+-------------------------------------+
+| :ref:`BUILDINFO_HASH6 <BUILDINFO_HASH6>` | :ref:`0x8201000c <BUILDINFO_HASH6>` |
++------------------------------------------+-------------------------------------+
+| :ref:`BUILDINFO_HASH5 <BUILDINFO_HASH5>` | :ref:`0x82010010 <BUILDINFO_HASH5>` |
++------------------------------------------+-------------------------------------+
+| :ref:`BUILDINFO_HASH4 <BUILDINFO_HASH4>` | :ref:`0x82010014 <BUILDINFO_HASH4>` |
++------------------------------------------+-------------------------------------+
+| :ref:`BUILDINFO_HASH3 <BUILDINFO_HASH3>` | :ref:`0x82010018 <BUILDINFO_HASH3>` |
++------------------------------------------+-------------------------------------+
+| :ref:`BUILDINFO_HASH2 <BUILDINFO_HASH2>` | :ref:`0x8201001c <BUILDINFO_HASH2>` |
++------------------------------------------+-------------------------------------+
+| :ref:`BUILDINFO_HASH1 <BUILDINFO_HASH1>` | :ref:`0x82010020 <BUILDINFO_HASH1>` |
++------------------------------------------+-------------------------------------+
+| :ref:`BUILDINFO_HASH0 <BUILDINFO_HASH0>` | :ref:`0x82010024 <BUILDINFO_HASH0>` |
++------------------------------------------+-------------------------------------+
+| :ref:`BUILDINFO_STAMP <BUILDINFO_STAMP>` | :ref:`0x82010028 <BUILDINFO_STAMP>` |
++------------------------------------------+-------------------------------------+
+
+BUILDINFO_HASH9
+^^^^^^^^^^^^^^^
+
+`Address: 0x82010000 + 0x0 = 0x82010000`
+
+    Bits 288-319 of `BUILDINFO_HASH`. Git revision
+
+    .. wavedrom::
+        :caption: BUILDINFO_HASH9
+
+        {
+            "reg": [
+                {"name": "hash[319:288]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+BUILDINFO_HASH8
+^^^^^^^^^^^^^^^
+
+`Address: 0x82010000 + 0x4 = 0x82010004`
+
+    Bits 256-287 of `BUILDINFO_HASH`.
+
+    .. wavedrom::
+        :caption: BUILDINFO_HASH8
+
+        {
+            "reg": [
+                {"name": "hash[287:256]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+BUILDINFO_HASH7
+^^^^^^^^^^^^^^^
+
+`Address: 0x82010000 + 0x8 = 0x82010008`
+
+    Bits 224-255 of `BUILDINFO_HASH`.
+
+    .. wavedrom::
+        :caption: BUILDINFO_HASH7
+
+        {
+            "reg": [
+                {"name": "hash[255:224]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+BUILDINFO_HASH6
+^^^^^^^^^^^^^^^
+
+`Address: 0x82010000 + 0xc = 0x8201000c`
+
+    Bits 192-223 of `BUILDINFO_HASH`.
+
+    .. wavedrom::
+        :caption: BUILDINFO_HASH6
+
+        {
+            "reg": [
+                {"name": "hash[223:192]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+BUILDINFO_HASH5
+^^^^^^^^^^^^^^^
+
+`Address: 0x82010000 + 0x10 = 0x82010010`
+
+    Bits 160-191 of `BUILDINFO_HASH`.
+
+    .. wavedrom::
+        :caption: BUILDINFO_HASH5
+
+        {
+            "reg": [
+                {"name": "hash[191:160]", "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+BUILDINFO_HASH4
+^^^^^^^^^^^^^^^
+
+`Address: 0x82010000 + 0x14 = 0x82010014`
+
+    Bits 128-159 of `BUILDINFO_HASH`.
+
+    .. wavedrom::
+        :caption: BUILDINFO_HASH4
+
+        {
+            "reg": [
+                {"name": "hash[159:128]", "attr": 'reset: 768024190', "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+BUILDINFO_HASH3
+^^^^^^^^^^^^^^^
+
+`Address: 0x82010000 + 0x18 = 0x82010018`
+
+    Bits 96-127 of `BUILDINFO_HASH`.
+
+    .. wavedrom::
+        :caption: BUILDINFO_HASH3
+
+        {
+            "reg": [
+                {"name": "hash[127:96]", "attr": 'reset: 1310876304', "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+BUILDINFO_HASH2
+^^^^^^^^^^^^^^^
+
+`Address: 0x82010000 + 0x1c = 0x8201001c`
+
+    Bits 64-95 of `BUILDINFO_HASH`.
+
+    .. wavedrom::
+        :caption: BUILDINFO_HASH2
+
+        {
+            "reg": [
+                {"name": "hash[95:64]", "attr": 'reset: 442126310', "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+BUILDINFO_HASH1
+^^^^^^^^^^^^^^^
+
+`Address: 0x82010000 + 0x20 = 0x82010020`
+
+    Bits 32-63 of `BUILDINFO_HASH`.
+
+    .. wavedrom::
+        :caption: BUILDINFO_HASH1
+
+        {
+            "reg": [
+                {"name": "hash[63:32]", "attr": 'reset: 1899421176', "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+BUILDINFO_HASH0
+^^^^^^^^^^^^^^^
+
+`Address: 0x82010000 + 0x24 = 0x82010024`
+
+    Bits 0-31 of `BUILDINFO_HASH`.
+
+    .. wavedrom::
+        :caption: BUILDINFO_HASH0
+
+        {
+            "reg": [
+                {"name": "hash[31:0]", "attr": 'reset: 1980384085', "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
+BUILDINFO_STAMP
+^^^^^^^^^^^^^^^
+
+`Address: 0x82010000 + 0x28 = 0x82010028`
+
+    Build timestamp
+
+    .. wavedrom::
+        :caption: BUILDINFO_STAMP
+
+        {
+            "reg": [
+                {"name": "stamp[31:0]", "attr": 'reset: 26902894', "bits": 32}
+            ], "config": {"hspace": 400, "bits": 32, "lanes": 1 }, "options": {"hspace": 400, "bits": 32, "lanes": 1}
+        }
+
+
