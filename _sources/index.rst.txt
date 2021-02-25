@@ -33,7 +33,6 @@ Register Groups
     reader
     dfi_switch
     payload_executor
-    buildinfo
 
 Indices and tables
 ==================
