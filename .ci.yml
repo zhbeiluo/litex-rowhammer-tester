@@ -13,7 +13,7 @@ bitstream:
     - git submodule update --init --recursive
     - pip3 install -r requirements.txt
     - export PATH=$PATH:$(echo $PWD/riscv64-*/bin/):/opt/Xilinx/Vivado/2019.2/bin
-    - python3 third_party/litex-boards/litex_boards/targets/lpddr4_test_board.py --build
+    - python3 third_party/litex-boards/litex_boards/targets/lpddr4_test_board.py --with-etherbone --build
     - mkdir artifacts
     - cp build/lpddr4_test_board/gateware/*.bit artifacts/
     - cp build/lpddr4_test_board/gateware/*.rpt artifacts/
