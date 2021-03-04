@@ -202,6 +202,23 @@ class SoC(common.RowHammerSoC):
             # silently ignores address bits above 30
             self.bus.add_master(name='ps_axi', master=wb_ps)
 
+            # Analyzer ---------------------------------------------------------------------------------
+            analyzer_signals = [
+                axi_ps.ar,
+                axi_ps.r.valid,
+                axi_ps.r.ready,
+                axi_ps.r.resp,
+                axi_ps.r.id,
+                axi_ps.r.last,
+            ]
+            from litescope import LiteScopeAnalyzer
+            self.submodules.analyzer = LiteScopeAnalyzer(analyzer_signals,
+               depth        = 512,
+               clock_domain = "sys",
+               csr_csv      = "analyzer.csv")
+            self.add_csr("analyzer")
+
+
     def get_platform(self):
         return zcu104.Platform()
 
@@ -220,6 +237,7 @@ class SoC(common.RowHammerSoC):
 
     def add_host_bridge(self):
         self.add_uartbone(name="serial", clk_freq=self.sys_clk_freq, baudrate=1e6, cd="uart")
+        pass
 
 # Build --------------------------------------------------------------------------------------------
 
