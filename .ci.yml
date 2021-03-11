@@ -33,3 +33,14 @@ hyperram_bitstream:
   artifacts:
     paths:
       - hyperram_artifacts
+
+sdcard_bitstream:
+  stage: build
+  script:
+    - python3 third_party/litex-boards/litex_boards/targets/lpddr4_test_board.py --with-etherbone --with-sdcard --build
+    - mkdir sdcard_artifacts
+    - cp build/lpddr4_test_board/gateware/*.bit sdcard_artifacts/
+    - cp build/lpddr4_test_board/gateware/*.rpt sdcard_artifacts/
+  artifacts:
+    paths:
+      - sdcard_artifacts
