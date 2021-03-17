@@ -56,3 +56,15 @@ dram_bitstream:
   artifacts:
     paths:
       - dram_artifacts
+
+dram_devel_bitstream:
+  stage: build
+  script:
+    - python3 third_party/litex-boards/litex_boards/targets/lpddr4_test_board.py --with-uartbone --rw-bios-mem --csr-csv csr.csv --with-sdram --sys-clk-freq 50e6 --build
+    - mkdir dram_devel_artifacts
+    - cp build/lpddr4_test_board/gateware/*.bit dram_devel_artifacts/
+    - cp build/lpddr4_test_board/gateware/*.rpt dram_devel_artifacts/
+    - cp csr.csv dram_devel_artifacts/
+  artifacts:
+    paths:
+      - dram_devel_artifacts
