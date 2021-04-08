@@ -406,7 +406,7 @@ def get_soc_kwargs(args):
         no_timer                 = False,
         no_ctrl                  = False,
         no_uart                  = False,
-        uart_name                = "crossover",
+        uart_name                = "serial",
         integrated_rom_size      = 0x10000,  # Litex will shrink this to fit BIOS
         integrated_sram_size     = 0x2000,
         integrated_main_ram_size = 0,

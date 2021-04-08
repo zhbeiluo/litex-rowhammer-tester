@@ -12,22 +12,37 @@ from rowhammer_tester.scripts.read_level import read_level_hardcoded, write_leve
 
 
 # Perform a memory test using a random data pattern and linear addressing
-def memtest(wb, length, *, generator, base=None, verbose=None, burst=255):
+def memtest(wb, length, *, generator, base=None, verbose='hex', burst=255):
     sdram_hardware_control(wb)
     if base is None:
         base = wb.mems.main_ram.base
 
     refdata = [next(generator) for _ in range(length)]
-    memwrite(wb, refdata, base=base, burst=burst)
 
+    print('First round')
+    memwrite(wb, refdata, base=base, burst=burst)
     data = memread(wb, length, base=base, burst=burst)
     assert len(refdata) == len(data)
 
     errors = 0
-    for val, ref in zip(data, refdata):
+    for i, (val, ref) in enumerate(zip(data, refdata)):
         if val != ref:
             errors += 1
             if verbose is not None:
+                print('addr = 0x{:08x}'.format(base + 4*i))
+                compare(val, ref, fmt=verbose, nbytes=4)
+
+    print('\nSecond round')
+    memwrite(wb, refdata, base=base, burst=burst)
+    data = memread(wb, length, base=base, burst=burst)
+    assert len(refdata) == len(data)
+
+    errors = 0
+    for i, (val, ref) in enumerate(zip(data, refdata)):
+        if val != ref:
+            errors += 1
+            if verbose is not None:
+                print('addr = 0x{:08x}'.format(base + 4*i))
                 compare(val, ref, fmt=verbose, nbytes=4)
 
     return errors
@@ -83,7 +98,7 @@ if __name__ == "__main__":
         while True:
             yield rng.randint(0, 2**32 - 1)
 
-    run_memtest('basic', itertools.cycle([0xaaaaaaaa, 0x55555555]))
+    #run_memtest('basic', itertools.cycle([0xaaaaaaaa, 0x55555555]))
     run_memtest('random', rand_generator(42))
 
     if args.memspeed:
