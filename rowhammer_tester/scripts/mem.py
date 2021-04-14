@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
     def run_memtest(name, generator, **kwargs):
         print('\nMemtest ({})'.format(name))
-        errors = memtest(wb, length=memtest_size, generator=generator, **kwargs)
+        errors = memtest(wb, length=memtest_size, generator=generator, base=0x26000000, **kwargs)
         print('OK' if errors == 0 else 'FAIL: errors = {}'.format(errors))
 
     def rand_generator(seed):

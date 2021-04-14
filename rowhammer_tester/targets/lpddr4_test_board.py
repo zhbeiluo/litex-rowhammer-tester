@@ -13,6 +13,7 @@ from litedram.phy import lpddr4
 from liteeth.phy import LiteEthS7PHYRGMII
 
 from rowhammer_tester.targets import common
+from litehyperbus.core.hyperbus import HyperRAM
 
 # CRG ----------------------------------------------------------------------------------------------
 
@@ -37,9 +38,16 @@ class CRG(Module):
 # SoC ----------------------------------------------------------------------------------------------
 
 class SoC(common.RowHammerSoC):
+    mem_map = {
+        "hyperram": 0x26000000,
+    }
+    mem_map.update(common.RowHammerSoC.mem_map)
+
     def __init__(self, iodelay_clk_freq=200e6, **kwargs):
         self.iodelay_clk_freq = iodelay_clk_freq
         super().__init__(**kwargs)
+        self.submodules.hyperram = HyperRAM(self.platform.request("hyperram"))
+        self.register_mem("hyperram", self.mem_map["hyperram"], self.hyperram.bus, 8*1024*1024)
 
     def get_platform(self):
         return antmicro_lpddr4_test_board.Platform()
