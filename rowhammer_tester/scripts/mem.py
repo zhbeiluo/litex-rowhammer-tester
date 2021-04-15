@@ -33,7 +33,7 @@ def memtest(wb, length, *, generator, base=None, verbose='hex', burst=255):
                 compare(val, ref, fmt=verbose, nbytes=4)
 
     print('\nSecond round')
-    memwrite(wb, refdata, base=base, burst=burst)
+    #memwrite(wb, refdata, base=base, burst=burst)
     data = memread(wb, length, base=base, burst=burst)
     assert len(refdata) == len(data)
 
