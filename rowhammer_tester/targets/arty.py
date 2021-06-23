@@ -77,16 +77,7 @@ class SoC(common.RowHammerSoC):
         return "1:4"
 
     def add_host_bridge(self):
-        self.submodules.ethphy = LiteEthPHYMII(
-            clock_pads = self.platform.request("eth_clocks"),
-            pads       = self.platform.request("eth"))
-        self.add_csr("ethphy")
-        self.add_etherbone(
-            phy         = self.ethphy,
-            ip_address  = self.ip_address,
-            mac_address = self.mac_address,
-            udp_port    = self.udp_port,
-            buffer_depth=256)
+        self.add_uartbone(name="serial", clk_freq=self.sys_clk_freq, baudrate=1e6)
 
 # Build --------------------------------------------------------------------------------------------
 
