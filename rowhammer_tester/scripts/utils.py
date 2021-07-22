@@ -386,7 +386,7 @@ def hw_memset(wb, offset, size, patterns, dbg=False):
 BISTError = namedtuple('BISTError', ['offset', 'data', 'expected'])
 
 
-def hw_memtest(wb, offset, size, patterns, dbg=False):
+def hw_memtest(wb, offset, size, patterns, dbg=False, count_only=False):
     # we are limited to multiples of DMA data width
     settings = get_litedram_settings()
     dma_data_width = settings.phy.dfi_databits * settings.phy.nphases
@@ -406,7 +406,8 @@ def hw_memtest(wb, offset, size, patterns, dbg=False):
     wb.regs.reader_skip_fifo.write(1)
     time.sleep(0.1)
     # Enable error FIFO
-    wb.regs.reader_skip_fifo.write(0)
+    if not count_only:
+        wb.regs.reader_skip_fifo.write(0)
 
     assert wb.regs.reader_ready.read() == 1
 
@@ -428,8 +429,9 @@ def hw_memtest(wb, offset, size, patterns, dbg=False):
     errors = []
 
     def progress(last=False):
+        num_errors = len(errors) if not count_only else wb.regs.reader_error_count.read()
         _progress(
-            wb.regs.reader_done.read(), count, last=last, opt='Errors: {}'.format(len(errors)))
+            wb.regs.reader_done.read(), count, last=last, opt='Errors: {}'.format(num_errors))
 
     # Read unmatched offset
     def append_errors(wb, err):
@@ -447,14 +449,16 @@ def hw_memtest(wb, offset, size, patterns, dbg=False):
     while True:
         if wb.regs.reader_ready.read():
             break
-        append_errors(wb, errors)
+        if not count_only:
+            append_errors(wb, errors)
         _progress(wb.regs.reader_done.read(), count)
         progress()
         time.sleep(10e-3)  # !0 ms
     progress(last=True)
 
     # Make sure we read all errors
-    append_errors(wb, errors)
+    if not count_only:
+        append_errors(wb, errors)
 
     assert wb.regs.reader_ready.read() == 1
     assert wb.regs.reader_error_ready.read() == 0
@@ -462,7 +466,7 @@ def hw_memtest(wb, offset, size, patterns, dbg=False):
     if dbg:
         print('hw_memtest: errors: {:d}'.format(len(errors)))
 
-    return errors
+    return wb.regs.reader_error_count.read() if count_only else errors
 
 
 # Inversion_tuple has two elements: divisor and mask
