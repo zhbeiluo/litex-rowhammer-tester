@@ -209,7 +209,8 @@ class RowHammerSoC(SoCCore):
                 clk_freq    = self.sys_clk_freq)
             self.submodules.ethcore = ethcore
             # Etherbone
-            self.submodules.etherbone = LiteEthEtherbone(self.ethcore.udp, self.udp_port, mode="master")
+            self.submodules.etherbone = LiteEthEtherbone(self.ethcore.udp, self.udp_port, mode="master",
+                buffer_depth=255)
             self.add_wb_master(self.etherbone.wishbone.bus)
 
         # Rowhammer --------------------------------------------------------------------------------
