@@ -65,7 +65,7 @@ def read_delay_set(wb, value):
 # Read leveling (software control) ---------------
 
 def get_byte(i, data):
-    return (data & (0xff << (8*i))) >> (8*i)
+    return (data & (0xf << (4*i))) >> (4*i)
 
 class Settings:
     def __init__(self, nmodules, bitslips, delays, nphases, wrphase, rdphase):
@@ -102,7 +102,7 @@ class Settings:
             bitslips = 4
             delays = 8
         return cls(
-            nmodules = settings.phy.databits//8,
+            nmodules = settings.phy.strobes,
             bitslips = bitslips,
             delays   = delays,
             nphases  = settings.phy.nphases,
@@ -111,7 +111,7 @@ class Settings:
         )
 
 # Perform single read+write and return number of errors
-def read_level_test(wb, settings, module, seed=42, verbose=None):
+def read_level_test(wb, settings, module, seed=42, verbose="bin"):
     rng = random.Random(seed)
 
     # generate pattern
