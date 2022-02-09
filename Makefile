@@ -7,7 +7,7 @@ UDP_PORT    ?= 1234
 # # #
 
 # Gateware args
-ARGS := --ip-address $(IP_ADDRESS) --mac-address $(MAC_ADDRESS) --udp-port $(UDP_PORT)
+ARGS := --ip-address $(IP_ADDRESS) --mac-address $(MAC_ADDRESS) --udp-port $(UDP_PORT) --no-payload-executor --no-memory-bist
 
 # Update PATH to activate the Python venv and include all required binaries
 PATH := $(PWD)/venv/bin:$(PATH)
