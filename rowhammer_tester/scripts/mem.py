@@ -32,21 +32,21 @@ def memtest(wb, length, *, generator, base=None, verbose=None, burst=255):
 # ###########################################################################
 
 def eye_opening(wb):
-    print("Starting training phase!")
-    sdram_cmd(wb, 192, 7, dfii_command_ras|dfii_command_cas|dfii_command_we|dfii_command_cs)
+    print("Starting CA training phase")
+    print("==========================")
+    # F0RC0C register starts
+    f0rc0c = 0x0C0 | 0x0
+
+    sdram_cmd(wb, f0rc0c, 7, dfii_command_ras|dfii_command_cas|dfii_command_we|dfii_command_cs)
 
     wb.regs.ddrphy_eye_opening_en.write(1)
     for _ in range(32):
-        print(f"start: {wb.regs.ddrphy_eye_opening_start.read()} - end: {wb.regs.ddrphy_eye_opening_end.read()}")
+        print(f"start: {wb.regs.ddrphy_eye_opening_start.read()} - end: {wb.regs.ddrphy_eye_opening_end.read()} - eye_opening_en: {wb.regs.ddrphy_eye_opening_en.read()}")
         cdly_inc(wb)
 
     wb.regs.ddrphy_eye_opening_en.write(0)
-    for _ in range(32):
-        print(f"start: {wb.regs.ddrphy_eye_opening_start.read()} - end: {wb.regs.ddrphy_eye_opening_end.read()}")
-        cdly_inc(wb)
-
-    # Reset
-    #sdram_cmd(wb, 96, 7, dfii_command_ras|dfii_command_cas|dfii_command_we|dfii_command_cs)
+    rcd_reset = 0x060 | 0x0 # F0RC06: command space control; 0: reset RCD
+    sdram_cmd(wb, rcd_reset, 7, dfii_command_ras|dfii_command_cas|dfii_command_we|dfii_command_cs)
 
 
 if __name__ == "__main__":
