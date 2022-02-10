@@ -1,5 +1,5 @@
 # User configuration
-TARGET 	    ?= arty
+TARGET 	    ?= antmicro_datacenter_ddr4_test_board
 IP_ADDRESS  ?= 192.168.100.50
 MAC_ADDRESS ?= 0x10e2d5000001
 UDP_PORT    ?= 1234

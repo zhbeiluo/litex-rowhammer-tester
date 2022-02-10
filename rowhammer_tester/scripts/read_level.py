@@ -95,7 +95,7 @@ class Settings:
         if settings.phy.phytype in ["USDDRPHY", "USPDDRPHY"]:
             bitslips = 8
             delays = 512
-        elif settings.phy.phytype in ["A7DDRPHY", "K7DDRPHY", "V7DDRPHY"]:
+        elif settings.phy.phytype in ["A7DDRPHY", "K7DDRPHY", "V7DDRPHY", "K7DDRPHYADV"]:
             bitslips = 8
             delays = 32
         elif phytype in ["ECP5DDRPHY"]:

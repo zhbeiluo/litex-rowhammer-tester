@@ -5,7 +5,7 @@ import argparse
 import itertools
 
 from rowhammer_tester.scripts.utils import *
-from rowhammer_tester.scripts.read_level import read_level, Settings
+from rowhammer_tester.scripts.read_level import read_level, Settings, sdram_cmd, cdly_inc
 from rowhammer_tester.scripts.read_level import read_level_hardcoded, write_level_hardcoded
 
 # Perform a memory test using a random data pattern and linear addressing
@@ -30,6 +30,24 @@ def memtest(wb, length, *, generator, base=None, verbose=None, burst=255):
     return errors
 
 # ###########################################################################
+
+def eye_opening(wb):
+    print("Starting training phase!")
+    sdram_cmd(wb, 192, 7, dfii_command_ras|dfii_command_cas|dfii_command_we|dfii_command_cs)
+
+    wb.regs.ddrphy_eye_opening_en.write(1)
+    for _ in range(32):
+        print(f"start: {wb.regs.ddrphy_eye_opening_start.read()} - end: {wb.regs.ddrphy_eye_opening_end.read()}")
+        cdly_inc(wb)
+
+    wb.regs.ddrphy_eye_opening_en.write(0)
+    for _ in range(32):
+        print(f"start: {wb.regs.ddrphy_eye_opening_start.read()} - end: {wb.regs.ddrphy_eye_opening_end.read()}")
+        cdly_inc(wb)
+
+    # Reset
+    #sdram_cmd(wb, 96, 7, dfii_command_ras|dfii_command_cas|dfii_command_we|dfii_command_cs)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -59,20 +77,7 @@ if __name__ == "__main__":
         # Perform the init sequence
         sdram_init(wb)
 
-        if hasattr(wb.regs, 'ddrphy_cdly_inc'):
-            print('\nWrite leveling:')
-            assert get_generated_defs()['TARGET'] == 'zcu104'
-            # TODO: write leveling
-            write_level_hardcoded(wb, cdly=271, delays=[
-                9,
-                9,
-                43,
-                49,
-                81,
-                88,
-                127,
-                93,
-            ])
+        eye_opening(wb)
 
         if hasattr(wb.regs, 'ddrphy_rdly_dq_bitslip'):
             print('\nRead leveling:')

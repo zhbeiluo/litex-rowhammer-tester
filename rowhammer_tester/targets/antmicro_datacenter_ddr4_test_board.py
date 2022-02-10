@@ -22,7 +22,7 @@ from litex.soc.integration.builder import *
 from litex.soc.cores.led import LedChaser
 
 from litedram.modules import MTA18ASF2G72PZ
-from litedram.phy.s7ddrphy import A7DDRPHY
+from litedram.phy.s7ddrphy import K7DDRPHYADV
 from litedram.init import get_sdram_phy_py_header
 from litedram.core.controller import ControllerSettings
 from litedram.common import PhySettings, GeomSettings, TimingSettings
@@ -85,8 +85,8 @@ class SoC(common.RowHammerSoC):
         return _CRG(self.platform, self.sys_clk_freq)
 
     def get_ddrphy(self):
-        return A7DDRPHY(self.platform.request("ddr4"),
-            memtype         = "DDR4",
+        return K7DDRPHYADV(self.platform.request("ddr4"),
+            memtype          = "DDR4",
             iodelay_clk_freq = 200e6,
             sys_clk_freq     = self.sys_clk_freq,
             is_rdimm         = True,
