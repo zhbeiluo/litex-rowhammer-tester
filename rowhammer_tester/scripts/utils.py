@@ -96,7 +96,7 @@ def sdram_hardware_control(wb):
     if hasattr(wb.regs, 'ddrphy_en_vtc'):
         wb.regs.ddrphy_en_vtc.write(1)
 
-def sdram_init(wb):
+def sdram_init(wb, skip_ctrl=False):
     sdram_software_control(wb)
 
     # we cannot check for the string "DFII_CONTROL" as done when generating C code,
@@ -115,6 +115,9 @@ def sdram_init(wb):
                 n = n + 1
 
     for i, (comment, a, ba, cmd, delay) in enumerate(init_sequence):
+        if i in control_cmds and skip_ctrl:
+            continue
+
         wb.regs.sdram_dfii_pi0_address.write(a)
         wb.regs.sdram_dfii_pi0_baddress.write(ba)
         if i in control_cmds:

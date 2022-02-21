@@ -238,6 +238,8 @@ def read_level(wb, settings, **kwargs):
 
 def read_level_hardcoded(wb, config):
     for module, (bitslip, delay) in enumerate(config):
+        if module > 1:
+            continue
         print('Module {}: bitslip={}, delay={}'.format(module, bitslip, delay))
         delay_select_modules(wb, [module])
         read_bitslip_set(wb, bitslip)

@@ -48,8 +48,8 @@ class _CRG(Module):
         pll.register_clkin(platform.request("clk100"), 100e6)
         pll.create_clkout(self.cd_sys,    sys_clk_freq)
         pll.create_clkout(self.cd_sys2x,  2 * sys_clk_freq)
-        pll.create_clkout(self.cd_sys4x,  4 * sys_clk_freq)
-        pll.create_clkout(self.cd_sys4x_dqs, 4*sys_clk_freq, phase=90)
+        pll.create_clkout(self.cd_sys4x,  8 * sys_clk_freq)
+        pll.create_clkout(self.cd_sys4x_dqs, 8*sys_clk_freq, phase=90)
         pll.create_clkout(self.cd_idelay, iodelay_clk_freq)
 
         # Etherbone --------------------------------------------------------------------------------
@@ -88,6 +88,7 @@ class SoC(common.RowHammerSoC):
         return K7DDRPHY(self.platform.request("ddr4"),
             memtype          = "DDR4",
             iodelay_clk_freq = 200e6,
+            nphases          = 8,
             sys_clk_freq     = self.sys_clk_freq,
             is_rdimm         = True,
         )
@@ -134,7 +135,7 @@ class SoC(common.RowHammerSoC):
 def main():
     parser = argparse.ArgumentParser(description="LiteX SoC on LPDDR4 Test Board")
 
-    common.parser_args(parser, sys_clk_freq='50e6')
+    common.parser_args(parser, sys_clk_freq='100e6')
     vivado_build_args(parser)
     args = parser.parse_args()
 

@@ -121,7 +121,7 @@ class RowHammerSoC(SoCCore):
 
         if args.sim:
             # Use the hardware platform to retrieve values for simulation
-            hw_pads = self.get_platform().request('ddram')
+            hw_pads = self.get_platform().request('ddr4')
             core_config = dict(
                 sdram_module_nb = len(hw_pads.dq) // 8,  # number of byte groups
                 sdram_rank_nb =   len(hw_pads.cs_n),     # number of ranks

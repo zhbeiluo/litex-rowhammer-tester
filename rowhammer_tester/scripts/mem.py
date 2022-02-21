@@ -5,7 +5,7 @@ import argparse
 import itertools
 
 from rowhammer_tester.scripts.utils import *
-from rowhammer_tester.scripts.read_level import read_level, Settings, sdram_cmd, cdly_inc
+from rowhammer_tester.scripts.read_level import read_level, Settings, sdram_cmd, cdly_inc, cdly_set, cdly_rst
 from rowhammer_tester.scripts.read_level import read_level_hardcoded, write_level_hardcoded
 
 # Perform a memory test using a random data pattern and linear addressing
@@ -35,18 +35,34 @@ def eye_opening(wb):
     print("Starting CA training phase")
     print("==========================")
     # F0RC0C register starts
-    f0rc0c = 0x0C0 | 0x0
+    f0rc0c = 0x0C0 | 0x1
 
+    sdram_cmd(wb, 0, 0, dfii_control_reset_n)
+    time.sleep(0.2)
     sdram_cmd(wb, f0rc0c, 7, dfii_command_ras|dfii_command_cas|dfii_command_we|dfii_command_cs)
+    time.sleep(0.01)
 
     wb.regs.ddrphy_eye_opening_en.write(1)
-    for _ in range(32):
-        print(f"start: {wb.regs.ddrphy_eye_opening_start.read()} - end: {wb.regs.ddrphy_eye_opening_end.read()} - eye_opening_en: {wb.regs.ddrphy_eye_opening_en.read()}")
+    first_valid_start = first_valid_end = 0
+    cdly_rst(wb)
+    for dly, _ in enumerate(range(32)):
+        start = wb.regs.ddrphy_eye_opening_start.read()
+        end = wb.regs.ddrphy_eye_opening_end.read()
+
+        print(f"{start}", end="")
+        if not first_valid_start and start == 1:
+            first_valid_start = dly
+
+        if not first_valid_end and end == 1:
+            first_valid_end = dly
+
         cdly_inc(wb)
+    print()
 
     wb.regs.ddrphy_eye_opening_en.write(0)
-    rcd_reset = 0x060 | 0x0 # F0RC06: command space control; 0: reset RCD
-    sdram_cmd(wb, rcd_reset, 7, dfii_command_ras|dfii_command_cas|dfii_command_we|dfii_command_cs)
+
+    sdram_cmd(wb, 0, 0, dfii_control_reset_n)
+    return first_valid_start
 
 
 if __name__ == "__main__":
@@ -74,10 +90,20 @@ if __name__ == "__main__":
         wb.regs.ddrphy_rst.write(0)
         time.sleep(0.2)
 
+
         # Perform the init sequence
         sdram_init(wb)
 
-        eye_opening(wb)
+        dly = eye_opening(wb)
+
+        # Reperform SDRAM init after reset
+        sdram_init(wb, True)
+
+        cdly_rst(wb)
+        time.sleep(0.01)
+        print(f"Setting CDLY to: {dly}")
+        cdly_set(wb, dly)
+        time.sleep(0.01)
 
         if hasattr(wb.regs, 'ddrphy_rdly_dq_bitslip'):
             print('\nRead leveling:')
@@ -88,20 +114,7 @@ if __name__ == "__main__":
             while settings.delays / delays_step > args.max_delays:
                 delays_step *= 2
 
-            if args.read_level_hardcoded:
-                assert get_generated_defs()['TARGET'] == 'zcu104'
-                read_level_hardcoded(wb, config=[
-                    (2, 184),
-                    (2, 184),
-                    (2, 136),
-                    (2, 136),
-                    (3, 368),
-                    (3, 360),
-                    (3, 328),
-                    (3, 296),
-                ])
-            else:
-                read_level(wb, Settings.load(), delays_step=delays_step)
+            read_level(wb, Settings.load(), delays_step=delays_step, verbose='hex')
 
     memtest_size = int(args.size, 0)
 
