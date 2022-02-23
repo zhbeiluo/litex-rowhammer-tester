@@ -94,14 +94,14 @@ class SoC(common.RowHammerSoC):
         )
         self.add_sdram("sdram",
             phy                     = self.ddrphy,
-            module                  = MTA18ASF2G72PZ(clk_freq=sys_clk_freq, rate="1:4"),
+            module                  = self.get_sdram_module(),
             l2_cache_size           = kwargs.get("l2_size", 8192),
             l2_cache_min_data_width = 256,
             size                    = 0x40000000,
         )
 
     def get_sdram_module(self):
-        return MTA18ASF2G72PZ(clk_freq=self.sys_clk_freq, rate="1:4")
+        return MTA18ASF2G72PZ(clk_freq=self.sys_clk_freq, rate="1:8")
 
     def add_host_bridge(self):
         # Traces between PHY and FPGA introduce ignorable delays of ~0.165ns +/- 0.015ns.
