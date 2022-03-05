@@ -192,8 +192,8 @@ class SoC(common.RowHammerSoC):
             return
 
         # SPD EEPROM I2C ---------------------------------------------------------------------------
-        self.submodules.i2c = I2CMaster(self.platform.request("i2c"))
-        self.add_csr("i2c")
+        # self.submodules.i2c = I2CMaster(self.platform.request("i2c"))
+        # self.add_csr("i2c")
 
         # ZynqUS+ PS -------------------------------------------------------------------------------
         self.submodules.ps = ZynqUSPS()

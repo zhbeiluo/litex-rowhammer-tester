@@ -196,21 +196,21 @@ class RowHammerSoC(SoCCore):
         self.add_csr("ddrctrl")
 
         # Ethernet / Etherbone ---------------------------------------------------------------------
-        if not args.sim:
-            self.add_host_bridge()
-        else:  # simulation
-            self.submodules.ethphy = LiteEthPHYModel(self.platform.request("eth"))
-            self.add_csr("ethphy")
+        # if not args.sim:
+        #     self.add_host_bridge()
+        # else:  # simulation
+        #     self.submodules.ethphy = LiteEthPHYModel(self.platform.request("eth"))
+        #     self.add_csr("ethphy")
 
-            # Ethernet Core
-            ethcore = LiteEthUDPIPCore(self.ethphy,
-                ip_address  = self.ip_address,
-                mac_address = self.mac_address,
-                clk_freq    = self.sys_clk_freq)
-            self.submodules.ethcore = ethcore
-            # Etherbone
-            self.submodules.etherbone = LiteEthEtherbone(self.ethcore.udp, self.udp_port, mode="master")
-            self.add_wb_master(self.etherbone.wishbone.bus)
+        #     # Ethernet Core
+        #     ethcore = LiteEthUDPIPCore(self.ethphy,
+        #         ip_address  = self.ip_address,
+        #         mac_address = self.mac_address,
+        #         clk_freq    = self.sys_clk_freq)
+        #     self.submodules.ethcore = ethcore
+        #     # Etherbone
+        #     self.submodules.etherbone = LiteEthEtherbone(self.ethcore.udp, self.udp_port, mode="master")
+        #     self.add_wb_master(self.etherbone.wishbone.bus)
 
         # Rowhammer --------------------------------------------------------------------------------
         self.submodules.rowhammer_dma = LiteDRAMDMAReader(self.sdram.crossbar.get_port())
