@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+import os
+
+from xml.dom import minidom
 from migen import *
 from migen.genlib.resetsync import AsyncResetSynchronizer
 
@@ -31,19 +34,16 @@ class CRG(Module):
         self.clock_domains.cd_uart   = ClockDomain()
 
         # # #
+        self.comb += ClockSignal("sys").eq(ClockSignal("ps"))
 
         self.submodules.pll = pll = USMMCM(speedgrade=-2)
         self.comb += pll.reset.eq(self.rst)
-        pll.register_clkin(platform.request("clk125"), 125e6)
+        pll.register_clkin(ClockSignal("ps"), 100e6)
         pll.create_clkout(self.cd_pll4x, sys_clk_freq*4, buf=None, with_reset=False)
         pll.create_clkout(self.cd_idelay, iodelay_clk_freq)
-        pll.create_clkout(self.cd_uart, sys_clk_freq, with_reset=False)
         platform.add_false_path_constraints(self.cd_sys.clk, pll.clkin) # Ignore sys_clk to pll.clkin path created by SoC's rst.
 
         self.specials += [
-            Instance("BUFGCE_DIV", name="main_bufgce_div",
-                p_BUFGCE_DIVIDE=4,
-                i_CE=1, i_I=self.cd_pll4x.clk, o_O=self.cd_sys.clk),
             Instance("BUFGCE", name="main_bufgce",
                 i_CE=1, i_I=self.cd_pll4x.clk, o_O=self.cd_sys4x.clk),
         ]
@@ -91,8 +91,9 @@ class ZynqUSPS(Module):
         ],
     }
 
-    def __init__(self):
+    def __init__(self, platform):
         self.params = {}
+        self.platform = platform
         # fpd/lpd = full/low power domain
         self.axi_gp_fpd_masters = []
         self.axi_gp_lpd_masters = []
@@ -100,8 +101,52 @@ class ZynqUSPS(Module):
         self.axi_gp_lpd_slaves  = []
         self.axi_acp_fpd_slaves  = []
 
+        # add pl_clk0
+        self.clock_domains.cd_ps = ClockDomain()
+        self.ps_name = "ps"
+        self.ps_tcl = []
+        self.config = {}
+        rst_n = Signal()
+        self.params.update({
+            "o_pl_clk0"   : ClockSignal("ps"),
+            "o_pl_resetn0": rst_n
+        })
+        self.comb += ResetSignal("ps").eq(~rst_n)
+        self.ps_tcl.append(f"set ps [create_ip -vendor xilinx.com -name zynq_ultra_ps_e -module_name {self.ps_name}]")
+        preset = os.path.join(os.getcwd(), "nfcard.xml")
+
+        self.add_configs_xml(preset)
+
+    def add_configs_xml(self, preset=None):
+        if preset == None:
+            return
+        if preset.split(".")[-1] == "xml":
+            print(f"Read configs from {preset}")
+            cfgs = self._read_from_xml(preset)
+            self.config.update(cfgs)
+
+    def _read_from_xml(self, preset):
+        dom = minidom.parse(preset)
+        cfgs = {}
+        root = dom.documentElement
+        params = root.getElementsByTagName('user_parameter')
+        for i in range(len(params)):
+            pn = params[i].getAttribute("name")
+            pv = params[i].getAttribute("value")
+            pp = pn.split('.')[-1]
+            cfgs[pp] = pv
+
+        return cfgs
 
     def add_axi_gp_fpd_master(self, **kwargs):  # MAXIGP0 - MAXIGP1
+        n = len(self.axi_gp_fpd_masters)
+        assert n < 3
+        if "data_width" in kwargs:
+            data_width = kwargs['data_width']
+        else:
+            data_width = 32
+        self.config[f'PSU__USE__M_AXI_GP{n}'] = 1
+        self.config[f'PSU__MAXIGP{n}__DATA_WIDTH'] = data_width
         return self._append_axi(attr='axi_gp_fpd_masters', maxn=2, name='MAXIGP{n}', **kwargs)
 
     def add_axi_gp_lpd_master(self, **kwargs):  # MAXIGP2
@@ -120,65 +165,39 @@ class ZynqUSPS(Module):
         axis = getattr(self, attr)
         n = len(axis)
         assert n < maxn, 'Maximum number of AXIs for {} is {}'.format(attr, maxn)
-        ax = self._add_axi(name=name.format(n=n), **kwargs)
+        ax = self._add_axi(name=name.format(n=n), n=n, **kwargs)
         axis.append(ax)
         return ax
 
-    def _add_axi(self, name, data_width=128, address_width=40, id_width=16):
+    def _add_axi(self, name, n=0, data_width=128, address_width=40, id_width=16):
         assert data_width <= 128
         assert address_width <= 40
         assert id_width <= 16
         ax = axi.AXIInterface(data_width=data_width, address_width=address_width, id_width=id_width)
-        self.params.update({
-            f'o_{name}ACLK':     ClockSignal(),
-            # aw
-            f'o_{name}AWVALID': ax.aw.valid,
-            f'i_{name}AWREADY': ax.aw.ready,
-            f'o_{name}AWADDR':  ax.aw.addr,
-            f'o_{name}AWBURST': ax.aw.burst,
-            f'o_{name}AWLEN':   ax.aw.len,
-            f'o_{name}AWSIZE':  ax.aw.size[:3],  # need to match size exactly
-            f'o_{name}AWID':    ax.aw.id,
-            f'o_{name}AWLOCK':  ax.aw.lock[:1],  # need to match size exactly
-            f'o_{name}AWPROT':  ax.aw.prot,
-            f'o_{name}AWCACHE': ax.aw.cache,
-            f'o_{name}AWQOS':   ax.aw.qos,
-            # w
-            f'o_{name}WVALID':  ax.w.valid,
-            f'o_{name}WLAST':   ax.w.last,
-            f'i_{name}WREADY':  ax.w.ready,
-            # f'o_{name}WID':     ax.w.id,  # does not exist
-            f'o_{name}WDATA':   ax.w.data,
-            f'o_{name}WSTRB':   ax.w.strb,
-            # b
-            f'i_{name}BVALID':  ax.b.valid,
-            f'o_{name}BREADY':  ax.b.ready,
-            f'i_{name}BID':     ax.b.id,
-            f'i_{name}BRESP':   ax.b.resp,
-            # ar
-            f'o_{name}ARVALID': ax.ar.valid,
-            f'i_{name}ARREADY': ax.ar.ready,
-            f'o_{name}ARADDR':  ax.ar.addr,
-            f'o_{name}ARBURST': ax.ar.burst,
-            f'o_{name}ARLEN':   ax.ar.len,
-            f'o_{name}ARID':    ax.ar.id,
-            f'o_{name}ARLOCK':  ax.ar.lock[:1],
-            f'o_{name}ARSIZE':  ax.ar.size[:3],
-            f'o_{name}ARPROT':  ax.ar.prot,
-            f'o_{name}ARCACHE': ax.ar.cache,
-            f'o_{name}ARQOS':   ax.ar.qos,
-            # r
-            f'i_{name}RVALID':  ax.r.valid,
-            f'o_{name}RREADY':  ax.r.ready,
-            f'i_{name}RLAST':   ax.r.last,
-            f'i_{name}RID':     ax.r.id,
-            f'i_{name}RRESP':   ax.r.resp,
-            f'i_{name}RDATA':   ax.r.data,
-        })
+        self.params[f"i_maxihpm0_fpd_aclk"] = ClockSignal("ps")
+        layout = ax.layout_flat()
+        dir_map = {DIR_M_TO_S: 'o', DIR_S_TO_M: 'i'}
+        for group, signal, direction in layout:
+            sig_name = group + signal
+            if sig_name in ['bfirst', 'blast', 'rfirst', 'arfirst', 'arlast', 'awfirst', 'awlast', 'wfirst', 'wid']:
+                continue
+            direction = dir_map[direction]
+            self.params[f'{direction}_maxigp{n}_{group}{signal}'] = getattr(getattr(ax, group), signal)
+        
         return ax
 
     def do_finalize(self):
-        self.specials += Instance('PS8', **self.params)
+        if len(self.ps_tcl):
+            self.ps_tcl.append("set_property -dict [list \\")
+            for config, value in self.config.items():
+                self.ps_tcl.append("CONFIG.{} {} \\".format(config, '{{' + str(value) + '}}'))
+            self.ps_tcl.append(f"] [get_ips {self.ps_name}]")
+            self.ps_tcl += [
+                f"generate_target all [get_ips {self.ps_name}]",
+                f"synth_ip [get_ips {self.ps_name}]"
+            ]
+            self.platform.toolchain.pre_synthesis_commands += self.ps_tcl
+        self.specials += Instance(self.ps_name, **self.params)
 
 class SoC(common.RowHammerSoC):
     def __init__(self, **kwargs):
@@ -196,7 +215,7 @@ class SoC(common.RowHammerSoC):
         # self.add_csr("i2c")
 
         # ZynqUS+ PS -------------------------------------------------------------------------------
-        self.submodules.ps = ZynqUSPS()
+        self.submodules.ps = ZynqUSPS(self.platform)
 
         # Configure PS->PL AXI
         # AXI(32) -> AXILite(32) -> WishBone(32) -> SoC Interconnect
@@ -258,7 +277,7 @@ class SoC(common.RowHammerSoC):
 def main():
     parser = common.ArgumentParser(
         description  = "LiteX SoC on NFCard",
-        sys_clk_freq = '125e6',
+        sys_clk_freq = '100e6',
         module       = 'MTA4ATF51264HZ'
     )
     g = parser.add_argument_group(title="NFCard")
