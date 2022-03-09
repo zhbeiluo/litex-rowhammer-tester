@@ -18,6 +18,8 @@
 <user_parameter name="CONFIG.PSU__ENET1__FIFO__ENABLE" value="0"/> 
 <user_parameter name="CONFIG.PSU__ENET1__PTP__ENABLE" value="0"/> 
 <user_parameter name="CONFIG.PSU__ENET1__PERIPHERAL__IO" value="GT Lane1"/> 
+<user_parameter name="CONFIG.PSU__I2C1__PERIPHERAL__ENABLE" value="1"/> 
+<user_parameter name="CONFIG.PSU__I2C1__PERIPHERAL__IO" value="MIO 64 .. 65"/> 
 <user_parameter name="CONFIG.PSU__GEM1__REF_CLK_SEL" value="Ref Clk1"/> 
 <user_parameter name="CONFIG.PSU__GEM1__REF_CLK_FREQ" value="125"/> 
 <user_parameter name="CONFIG.PSU__QSPI__PERIPHERAL__ENABLE" value="1"/> 
