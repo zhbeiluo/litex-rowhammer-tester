@@ -32,6 +32,8 @@ int pl_mmap_open(struct pl_mmap *pl_mem, off_t base_address, size_t size) {
     pl_mem->mem = mem;
     pl_mem->base = page_base;
     pl_mem->len = len;
+    printf("pl_mem is: 0x%p, pl_mem base is: 0x%lx, pl_mem len is: 0x%lx\n", 
+        mem, page_base, len);
     return 0;
 error:
     if (mem_fd > 0) {

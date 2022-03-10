@@ -212,8 +212,8 @@ class SoC(common.RowHammerSoC):
 
         # SPD EEPROM I2C ---------------------------------------------------------------------------
         # This should be used to access spd eeprom and get dram module's information
-        self.submodules.i2c = I2CMaster(self.platform.request("i2c"))
-        self.add_csr("i2c")
+        # self.submodules.i2c = I2CMaster(self.platform.request("i2c"))
+        # self.add_csr("i2c")
 
         # ZynqUS+ PS -------------------------------------------------------------------------------
         self.submodules.ps = ZynqUSPS(self.platform)
