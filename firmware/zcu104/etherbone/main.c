@@ -11,17 +11,25 @@
 
 void pl_mem_write(void *_pl_mem, uint32_t addr, uint32_t value) {
     struct pl_mmap *pl_mem = _pl_mem;
-    uint32_t *mmap_addr = pl_mem->mem + addr;
-    dbg_printf("0x%08x <= 0x%08x\n", addr, value);
+    volatile uint32_t *mmap_addr = pl_mem->mem + addr;
+    dbg_printf("0x%08x <= 0x%08x => %p\n", addr, value, mmap_addr);
     *mmap_addr = value;
 }
 
 uint32_t pl_mem_read(void *_pl_mem, uint32_t addr) {
     struct pl_mmap *pl_mem = _pl_mem;
-    uint32_t *mmap_addr = pl_mem->mem + addr;
+    volatile uint32_t *mmap_addr = pl_mem->mem + addr;
     uint32_t value = *mmap_addr;
-    dbg_printf("0x%08x => 0x%08x\n", addr, value);
+    dbg_printf("0x%08x => 0x%08x => %p\n", addr, value, mmap_addr);
     return value;
+}
+
+void pl_mem_read_all(void *_pl_mem, uint32_t base_addr, uint32_t size) {
+    for (uint32_t i = 0; i < size; ++i) {
+        uint32_t addr = base_addr + i * 4;
+        uint32_t value = pl_mem_read(_pl_mem, addr);
+        dbg_printf("0x%08x => 0x%08x\n", addr, value);
+    }
 }
 
 int etherbone_noerror_callback(struct etherbone_memory_handlers *mem,

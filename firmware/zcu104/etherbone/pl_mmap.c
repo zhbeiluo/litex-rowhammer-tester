@@ -21,6 +21,7 @@ int pl_mmap_open(struct pl_mmap *pl_mem, off_t base_address, size_t size) {
     off_t page_offset = base_address - page_base;
     off_t len = page_offset + size;
 
+    // using mmap to map sdram to ps main memory
     void *mem = mmap(NULL, len, PROT_READ | PROT_WRITE, MAP_SHARED, mem_fd, page_base);
     if (mem == MAP_FAILED) {
         perror("Could not map memory");
@@ -32,7 +33,7 @@ int pl_mmap_open(struct pl_mmap *pl_mem, off_t base_address, size_t size) {
     pl_mem->mem = mem;
     pl_mem->base = page_base;
     pl_mem->len = len;
-    printf("pl_mem is: 0x%p, pl_mem base is: 0x%lx, pl_mem len is: 0x%lx\n", 
+    printf("pl_mem is: %p, pl_mem base is: 0x%lx, pl_mem len is: 0x%lx\n", 
         mem, page_base, len);
     return 0;
 error:

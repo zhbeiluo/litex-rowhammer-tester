@@ -210,6 +210,20 @@ class SoC(common.RowHammerSoC):
         if self.args.sim:
             return
 
+        analyzer_signals = [
+            self.sdram.dfii.ext_dfi_sel,
+            *[p.rddata_en for p in self.ddrphy.dfi.phases],
+        ]
+
+        from litescope import LiteScopeAnalyzer
+        self.submodules.analyzer = LiteScopeAnalyzer(
+            analyzer_signals,
+            depth=512,
+            clock_domain="sys",
+            csr_csv="analyzer.csv"
+        )
+        self.add_csr("analyzer")
+
         # SPD EEPROM I2C ---------------------------------------------------------------------------
         # This should be used to access spd eeprom and get dram module's information
         # self.submodules.i2c = I2CMaster(self.platform.request("i2c"))
