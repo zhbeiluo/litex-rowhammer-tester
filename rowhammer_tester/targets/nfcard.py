@@ -212,6 +212,7 @@ class SoC(common.RowHammerSoC):
 
         analyzer_signals = [
             self.sdram.dfii.ext_dfi_sel,
+            *[p.rddata_valid for p in self.ddrphy.dfi.phases],
             *[p.rddata_en for p in self.ddrphy.dfi.phases],
         ]
 
