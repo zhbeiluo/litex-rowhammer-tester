@@ -215,14 +215,14 @@ class SoC(common.RowHammerSoC):
             *[p.rddata_en for p in self.ddrphy.dfi.phases],
         ]
 
-        from litescope import LiteScopeAnalyzer
-        self.submodules.analyzer = LiteScopeAnalyzer(
-            analyzer_signals,
-            depth=512,
-            clock_domain="sys",
-            csr_csv="analyzer.csv"
-        )
-        self.add_csr("analyzer")
+        # from litescope import LiteScopeAnalyzer
+        # self.submodules.analyzer = LiteScopeAnalyzer(
+        #     analyzer_signals,
+        #     depth=512,
+        #     clock_domain="sys",
+        #     csr_csv="analyzer.csv"
+        # )
+        # self.add_csr("analyzer")
 
         # SPD EEPROM I2C ---------------------------------------------------------------------------
         # This should be used to access spd eeprom and get dram module's information
@@ -293,7 +293,7 @@ def main():
     parser = common.ArgumentParser(
         description  = "LiteX SoC on NFCard",
         sys_clk_freq = '100e6',
-        module       = 'MTA4ATF51264HZ'
+        module       = 'MTA16ATF2G64HZ'
     )
     g = parser.add_argument_group(title="NFCard")
     g.add_argument("--iodelay-clk-freq", type=float, help="Use given exact IODELAYCTRL reference clock frequency")
