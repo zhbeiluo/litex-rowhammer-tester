@@ -34,16 +34,20 @@ class CRG(Module):
         self.clock_domains.cd_uart   = ClockDomain()
 
         # # #
-        self.comb += ClockSignal("sys").eq(ClockSignal("ps"))
+        # self.comb += ClockSignal("sys").eq(ClockSignal("ps"))
 
         self.submodules.pll = pll = USMMCM(speedgrade=-2)
         self.comb += pll.reset.eq(self.rst)
-        pll.register_clkin(ClockSignal("ps"), 100e6)
+        pll.register_clkin(platform.request("clk125"), sys_clk_freq)
         pll.create_clkout(self.cd_pll4x, sys_clk_freq*4, buf=None, with_reset=False)
         pll.create_clkout(self.cd_idelay, iodelay_clk_freq)
+        pll.create_clkout(self.cd_uart, sys_clk_freq, with_reset=False)
         platform.add_false_path_constraints(self.cd_sys.clk, pll.clkin) # Ignore sys_clk to pll.clkin path created by SoC's rst.
 
         self.specials += [
+            Instance("BUFGCE_DIV", name="main_bufgce_div",
+                p_BUFGCE_DIVIDE=4,
+                i_CE=1, i_I=self.cd_pll4x.clk, o_O=self.cd_sys.clk),
             Instance("BUFGCE", name="main_bufgce",
                 i_CE=1, i_I=self.cd_pll4x.clk, o_O=self.cd_sys4x.clk),
         ]
@@ -174,7 +178,7 @@ class ZynqUSPS(Module):
         assert address_width <= 40
         assert id_width <= 16
         ax = axi.AXIInterface(data_width=data_width, address_width=address_width, id_width=id_width)
-        self.params[f"i_maxihpm0_fpd_aclk"] = ClockSignal("ps")
+        self.params[f"i_maxihpm0_fpd_aclk"] = ClockSignal("sys")
         layout = ax.layout_flat()
         dir_map = {DIR_M_TO_S: 'o', DIR_S_TO_M: 'i'}
         for group, signal, direction in layout:
@@ -210,11 +214,11 @@ class SoC(common.RowHammerSoC):
         if self.args.sim:
             return
 
-        analyzer_signals = [
-            self.sdram.dfii.ext_dfi_sel,
-            *[p.rddata_valid for p in self.ddrphy.dfi.phases],
-            *[p.rddata_en for p in self.ddrphy.dfi.phases],
-        ]
+        # analyzer_signals = [
+        #     self.sdram.dfii.ext_dfi_sel,
+        #     *[p.rddata_valid for p in self.ddrphy.dfi.phases],
+        #     *[p.rddata_en for p in self.ddrphy.dfi.phases],
+        # ]
 
         # from litescope import LiteScopeAnalyzer
         # self.submodules.analyzer = LiteScopeAnalyzer(
@@ -298,6 +302,7 @@ def main():
     )
     g = parser.add_argument_group(title="NFCard")
     g.add_argument("--iodelay-clk-freq", type=float, help="Use given exact IODELAYCTRL reference clock frequency")
+    g.set_defaults(from_spd="SPDDetails.csv")
     vivado_build_args(g)
     args = parser.parse_args()
 

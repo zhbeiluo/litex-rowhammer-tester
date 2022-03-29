@@ -87,6 +87,18 @@ class RowHammerSoC(SoCCore):
 
     def add_host_bridge(self):
         raise NotImplementedError()
+    
+    def load_spd_data(self, filename):
+        data = [0] * 512
+        with open(filename) as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                address = row["Byte Number"]
+                value = row["Byte Value"]
+                if len(address.split("-")) == 1:
+                    data[int(address)] = int(value, 16)
+
+        return data
 
     # Common SoC configuration ---------------------------------------------------------------------
 
@@ -131,8 +143,7 @@ class RowHammerSoC(SoCCore):
         # SDRAM PHY --------------------------------------------------------------------------------
         if sdram_module_spd_file is not None:
             self.logger.info('Using DRAM module {} data: {}'.format(colorer('SPD'), sdram_module_spd_file))
-            with open(sdram_module_spd_file, 'rb') as f:
-                spd_data = f.read()
+            spd_data = self.load_spd_data(sdram_module_spd_file)
             module = SDRAMModule.from_spd_data(spd_data, self.sys_clk_freq)
         else:
             ratio = self.get_sdram_ratio()

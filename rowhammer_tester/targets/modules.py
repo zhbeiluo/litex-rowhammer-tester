@@ -20,6 +20,7 @@ class MTA4ATF1G64HZ(DDR4Module):
     }
     speedgrade_timings["default"] = speedgrade_timings["2666"]
 
+
 class MTA16ATF2G64HZ(DDR4Module):
     ngroupbanks = 4
     ngroups     = 4
@@ -31,7 +32,7 @@ class MTA16ATF2G64HZ(DDR4Module):
     trfc  = {"1x": (None, 350), "2x": (None, 260),   "4x": (None, 160)}
     technology_timings = _TechnologyTimings(tREFI=trefi, tWTR=(4, 7.5), tCCD=(4, None), tRRD=(4, 4.9), tZQCS=(128, 80))
     speedgrade_timings = {
-        "2666": _SpeedgradeTimings(tRP=14.25, tRCD=14.25, tWR=15, tRFC=trfc, tFAW=(20, 25), tRAS=33),
+        "2666": _SpeedgradeTimings(tRP=13.75, tRCD=13.75, tWR=15, tRFC=trfc, tFAW=(20, 21), tRAS=32),
         "3200": _SpeedgradeTimings(tRP=13.75, tRCD=13.75, tWR=15, tRFC=trfc, tFAW=(20, 25), tRAS=33),
     }
     speedgrade_timings["default"] = speedgrade_timings["2666"]
