@@ -7,7 +7,7 @@ from litex_boards.platforms import nfcard
 from litex.build.xilinx.vivado import vivado_build_args, vivado_build_argdict
 from litex.soc.integration.builder import Builder
 from litex.soc.integration.soc_core import colorer
-from litex.soc.cores.clock import USMMCM, USIDELAYCTRL, USPLL
+from litex.soc.cores.clock import USMMCM, USIDELAYCTRL, USPMMCM
 from litex.soc.interconnect import axi, wishbone
 from litex.soc.cores.bitbang import I2CMaster
 
@@ -32,9 +32,9 @@ class CRG(Module):
 
         # # #
 
-        self.submodules.pll = pll = USPLL(speedgrade=-2)
+        self.submodules.pll = pll = USPMMCM(speedgrade=-2)
         self.comb += pll.reset.eq(self.rst)
-        pll.register_clkin(platform.request("clk125"), sys_clk_freq)
+        pll.register_clkin(platform.request("clk125"), 100e6)
         pll.create_clkout(self.cd_pll4x, sys_clk_freq*4, buf=None, with_reset=False)
         pll.create_clkout(self.cd_idelay, iodelay_clk_freq)
         pll.create_clkout(self.cd_uart, sys_clk_freq, with_reset=False)

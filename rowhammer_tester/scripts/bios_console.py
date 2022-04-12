@@ -77,7 +77,7 @@ if __name__ == "__main__":
     elif term == 'picocom':
         subprocess.run(['picocom', '-b', str(baudrate), tty])
     elif term == 'minicom':
-        subprocess.run(['minicom', '-b', str(baudrate), '-D', tty])
+        subprocess.run(['minicom', '-b', str(baudrate), '-D', tty, '-C', "minicom.log"])
     else:
         raise ValueError(term)
 
