@@ -122,7 +122,6 @@ class RowHammerSoC(SoCCore):
         # SoCCore ----------------------------------------------------------------------------------
         SoCCore.__init__(self, self.platform, sys_clk_freq,
             ident          = "LiteX Row Hammer Tester SoC on {}, git: {}".format(self.platform.device, githash),
-            ident_version  = kwargs.pop("ident_version", True),
             integrated_rom_mode = 'rw' if args.rw_bios_mem else 'r',
             **kwargs)
 
@@ -198,7 +197,7 @@ class RowHammerSoC(SoCCore):
             module                  = module,
             origin                  = self.mem_map["main_ram"],
             size                    = kwargs.get("max_sdram_size", 0x40000000),
-            l2_cache_size           = 0,
+            l2_cache_size           = 256,
             controller_settings     = controller_settings
         )
 

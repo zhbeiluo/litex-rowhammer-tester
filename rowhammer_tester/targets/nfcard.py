@@ -257,12 +257,12 @@ class SoC(common.RowHammerSoC):
 def main():
     parser = common.ArgumentParser(
         description  = "LiteX SoC on NFCard",
-        sys_clk_freq = '100e6',
+        sys_clk_freq = '125e6',
         module       = 'MTA16ATF2G64HZ'
     )
     g = parser.add_argument_group(title="NFCard")
     g.add_argument("--iodelay-clk-freq", type=float, help="Use given exact IODELAYCTRL reference clock frequency")
-    # g.set_defaults(from_spd="SPDDetails.csv")
+    g.set_defaults(from_spd="SPDDetails.csv")
     vivado_build_args(g)
     args = parser.parse_args()
 

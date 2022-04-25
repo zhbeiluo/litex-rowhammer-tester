@@ -1,5 +1,4 @@
-gitpython
-# use editable mode
+# Litex
 -e .
 -e third_party/migen
 -e third_party/litex
@@ -15,9 +14,19 @@ gitpython
 git+https://github.com/litex-hub/pythondata-cpu-vexriscv.git
 # litex software data
 git+https://github.com/litex-hub/pythondata-software-picolibc.git
+git+https://github.com/litex-hub/pythondata-software-compiler_rt.git
 
 # PyPi packages
+gitpython
 meson
 pexpect
 yapf == 0.32.0
 wheel
+
+# Documentation
+sphinx
+sphinx_tabs
+sphinx-jinja
+git+https://github.com/antmicro/sphinx_antmicro_theme
+sphinx-autobuild
+jinja2<3.1.0

@@ -38,6 +38,7 @@ class MTA16ATF2G64HZ(DDR4Module):
     }
     speedgrade_timings["default"] = speedgrade_timings["2133"]
 
+
 class SCQ08GX03H1F1C(DDR4Module):
     ngroupbanks = 4
     ngroups     = 4
